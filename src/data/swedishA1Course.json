@@ -14,7 +14,8 @@
         {
           "heading": "Lesson focus",
           "content": [
-            "Start the course by learning the extra Swedish letters, greeting people politely, and answering a simple question about how you feel."
+            "Start the course by learning the extra Swedish letters, greeting people politely, and answering a simple question about how you feel.",
+            "The goal is not only to memorize single words but to react naturally when someone says hello, asks how you are, or says goodbye."
           ]
         },
         {
@@ -55,13 +56,32 @@
               "English": "you are welcome / here you go",
               "Example Swedish": "Varsågod, kaffet är klart.",
               "Example English": "Here you go, the coffee is ready."
+            },
+            {
+              "Swedish": "god morgon",
+              "English": "good morning",
+              "Example Swedish": "God morgon, hur mår du idag?",
+              "Example English": "Good morning, how are you today?"
+            },
+            {
+              "Swedish": "god kväll",
+              "English": "good evening",
+              "Example Swedish": "God kväll och välkommen!",
+              "Example English": "Good evening and welcome!"
+            },
+            {
+              "Swedish": "vi ses",
+              "English": "see you",
+              "Example Swedish": "Vi ses imorgon i skolan.",
+              "Example English": "See you tomorrow at school."
             }
           ]
         },
         {
           "heading": "Grammar note",
           "content": [
-            "Swedish often says “Jag mår bra” for “I am fine.” Literally it means “I feel well,” so do not replace it with “Jag är bra.”"
+            "Swedish often says “Jag mår bra” for “I am fine.” Literally it means “I feel well,” so do not replace it with “Jag är bra.”",
+            "A short answer is common in everyday speech: “Bra, tack.” You can also continue with “Och du?” to keep the conversation going."
           ]
         },
         {
@@ -78,6 +98,23 @@
             {
               "Letter": "Ö ö",
               "Approx sound": "round your lips and say e"
+            }
+          ]
+        },
+        {
+          "heading": "Pronunciation drill",
+          "table": [
+            {
+              "Swedish pair": "tack / tak",
+              "Meaning": "thanks / roof"
+            },
+            {
+              "Swedish pair": "hej / hejdå",
+              "Meaning": "hello / goodbye"
+            },
+            {
+              "Swedish pair": "mår / vår",
+              "Meaning": "feel / our"
             }
           ]
         },
@@ -103,6 +140,16 @@
               "speaker": "B",
               "swedish": "Jag mår också bra.",
               "english": "I am also fine."
+            },
+            {
+              "speaker": "A",
+              "swedish": "Vad bra. Vi ses senare!",
+              "english": "Great. See you later!"
+            },
+            {
+              "speaker": "B",
+              "swedish": "Hejdå!",
+              "english": "Goodbye!"
             }
           ]
         },
@@ -113,6 +160,14 @@
             "Practice “Hur mår du?” slowly, then at natural speed.",
             "Answer with “Jag mår bra, tack.”",
             "Read the mini-dialogue aloud twice."
+          ]
+        },
+        {
+          "heading": "Extra practice ideas",
+          "list": [
+            "Switch between “Hej”, “God morgon”, and “God kväll” depending on the time of day.",
+            "Record yourself saying “Jag mår bra, tack. Och du?” and compare your rhythm with the dialogue.",
+            "Practice a fast goodbye sequence: “Tack, hejdå, vi ses!”"
           ]
         }
       ],
@@ -152,6 +207,24 @@
           "english": "you are welcome / here you go",
           "exampleSwedish": "Varsågod, kaffet är klart.",
           "exampleEnglish": "Here you go, the coffee is ready."
+        },
+        {
+          "swedish": "god morgon",
+          "english": "good morning",
+          "exampleSwedish": "God morgon, hur mår du idag?",
+          "exampleEnglish": "Good morning, how are you today?"
+        },
+        {
+          "swedish": "god kväll",
+          "english": "good evening",
+          "exampleSwedish": "God kväll och välkommen!",
+          "exampleEnglish": "Good evening and welcome!"
+        },
+        {
+          "swedish": "vi ses",
+          "english": "see you",
+          "exampleSwedish": "Vi ses imorgon i skolan.",
+          "exampleEnglish": "See you tomorrow at school."
         }
       ],
       "exercises": [
@@ -161,13 +234,17 @@
             "hej",
             "hejdå",
             "hur mår du?",
-            "jag mår bra"
+            "jag mår bra",
+            "god morgon",
+            "vi ses"
           ],
           "answers": [
             "hi / hello",
             "goodbye",
             "how are you?",
-            "I am fine"
+            "I am fine",
+            "good morning",
+            "see you"
           ]
         },
         {
@@ -176,13 +253,30 @@
             "hi / hello",
             "goodbye",
             "how are you?",
-            "I am fine"
+            "I am fine",
+            "good evening",
+            "you are welcome"
           ],
           "answers": [
             "hej",
             "hejdå",
             "hur mår du?",
-            "jag mår bra"
+            "jag mår bra",
+            "god kväll",
+            "varsågod"
+          ]
+        },
+        {
+          "prompt": "Complete the short conversation",
+          "items": [
+            "A: Hej! Hur mår du?",
+            "B: Jag mår bra, ____.",
+            "A: Vad bra. ____!",
+            "B: Hejdå!"
+          ],
+          "answers": [
+            "tack",
+            "Vi ses"
           ]
         }
       ]
@@ -197,7 +291,8 @@
         {
           "heading": "Lesson focus",
           "content": [
-            "Today you build your first self-introduction in Swedish: your name, your country, and a simple question back to the other person."
+            "Today you build your first self-introduction in Swedish: your name, your country, and a simple question back to the other person.",
+            "By the end of the lesson you should be able to give a short three-line introduction about yourself without reading."
           ]
         },
         {
@@ -226,13 +321,57 @@
               "English": "Sweden",
               "Example Swedish": "Hon kommer från Sverige.",
               "Example English": "She comes from Sweden."
+            },
+            {
+              "Swedish": "jag bor i",
+              "English": "I live in",
+              "Example Swedish": "Jag bor i Helsingfors.",
+              "Example English": "I live in Helsinki."
+            },
+            {
+              "Swedish": "trevligt att träffas",
+              "English": "nice to meet you",
+              "Example Swedish": "Trevligt att träffas, Anna.",
+              "Example English": "Nice to meet you, Anna."
+            },
+            {
+              "Swedish": "och du?",
+              "English": "and you?",
+              "Example Swedish": "Jag kommer från Indien. Och du?",
+              "Example English": "I come from India. And you?"
             }
           ]
         },
         {
           "heading": "Grammar note",
           "content": [
-            "“Jag heter” means “my name is.” To say where you are from, use “Jag kommer från ...” or “Jag är från ...” in simple beginner speech."
+            "“Jag heter” means “my name is.” To say where you are from, use “Jag kommer från ...” or “Jag är från ...” in simple beginner speech.",
+            "Use “Jag bor i ...” for the place where you live now. A beginner self-introduction can combine all three patterns: name, country, and city."
+          ]
+        },
+        {
+          "heading": "Build your introduction",
+          "table": [
+            {
+              "Step": "1",
+              "Swedish": "Hej, jag heter ...",
+              "English": "Hi, my name is ..."
+            },
+            {
+              "Step": "2",
+              "Swedish": "Jag kommer från ...",
+              "English": "I come from ..."
+            },
+            {
+              "Step": "3",
+              "Swedish": "Jag bor i ...",
+              "English": "I live in ..."
+            },
+            {
+              "Step": "4",
+              "Swedish": "Trevligt att träffas.",
+              "English": "Nice to meet you."
+            }
           ]
         },
         {
@@ -257,6 +396,16 @@
               "speaker": "B",
               "swedish": "Jag kommer från Indien.",
               "english": "I come from India."
+            },
+            {
+              "speaker": "A",
+              "swedish": "Jag kommer från Sverige och jag bor i Uppsala.",
+              "english": "I come from Sweden and I live in Uppsala."
+            },
+            {
+              "speaker": "B",
+              "swedish": "Trevligt att träffas!",
+              "english": "Nice to meet you!"
             }
           ]
         },
@@ -267,6 +416,14 @@
             "Replace the country with your own country.",
             "Ask “Varifrån kommer du?” and answer it.",
             "Write two short introduction lines about yourself."
+          ]
+        },
+        {
+          "heading": "Extra practice ideas",
+          "list": [
+            "Introduce yourself with both your country and your city.",
+            "Practice two versions: a short one and a longer one with “Jag bor i ...”.",
+            "Finish your introduction with “Och du?” so the conversation continues."
           ]
         }
       ],
@@ -294,6 +451,24 @@
           "english": "Sweden",
           "exampleSwedish": "Hon kommer från Sverige.",
           "exampleEnglish": "She comes from Sweden."
+        },
+        {
+          "swedish": "jag bor i",
+          "english": "I live in",
+          "exampleSwedish": "Jag bor i Helsingfors.",
+          "exampleEnglish": "I live in Helsinki."
+        },
+        {
+          "swedish": "trevligt att träffas",
+          "english": "nice to meet you",
+          "exampleSwedish": "Trevligt att träffas, Anna.",
+          "exampleEnglish": "Nice to meet you, Anna."
+        },
+        {
+          "swedish": "och du?",
+          "english": "and you?",
+          "exampleSwedish": "Jag kommer från Indien. Och du?",
+          "exampleEnglish": "I come from India. And you?"
         }
       ],
       "exercises": [
@@ -303,13 +478,17 @@
             "jag heter",
             "jag kommer från",
             "varifrån?",
-            "Sverige"
+            "Sverige",
+            "jag bor i",
+            "trevligt att träffas"
           ],
           "answers": [
             "my name is",
             "I come from",
             "from where?",
-            "Sweden"
+            "Sweden",
+            "I live in",
+            "nice to meet you"
           ]
         },
         {
@@ -318,13 +497,32 @@
             "my name is",
             "I come from",
             "from where?",
-            "Sweden"
+            "Sweden",
+            "and you?",
+            "I live in"
           ],
           "answers": [
             "jag heter",
             "jag kommer från",
             "varifrån?",
-            "Sverige"
+            "Sverige",
+            "och du?",
+            "jag bor i"
+          ]
+        },
+        {
+          "prompt": "Build a self-introduction",
+          "items": [
+            "Write one sentence with your name.",
+            "Write one sentence with your country.",
+            "Write one sentence with your city.",
+            "Add a polite ending."
+          ],
+          "answers": [
+            "Jag heter ...",
+            "Jag kommer från ...",
+            "Jag bor i ...",
+            "Trevligt att träffas."
           ]
         }
       ]
@@ -339,7 +537,8 @@
         {
           "heading": "Lesson focus",
           "content": [
-            "This lesson gives you survival Swedish for learning: asking someone to repeat, saying you do not understand, and asking what a word means."
+            "This lesson gives you survival Swedish for learning: asking someone to repeat, saying you do not understand, and asking what a word means.",
+            "These phrases are useful in class, at work, and anytime you need someone to slow down or explain something."
           ]
         },
         {
@@ -368,13 +567,49 @@
               "English": "help",
               "Example Swedish": "Jag behöver hjälp.",
               "Example English": "I need help."
+            },
+            {
+              "Swedish": "ursäkta",
+              "English": "excuse me",
+              "Example Swedish": "Ursäkta, kan du hjälpa mig?",
+              "Example English": "Excuse me, can you help me?"
+            },
+            {
+              "Swedish": "kan du tala långsammare?",
+              "English": "can you speak more slowly?",
+              "Example Swedish": "Kan du tala långsammare, tack?",
+              "Example English": "Can you speak more slowly, please?"
+            },
+            {
+              "Swedish": "hur säger man ... på svenska?",
+              "English": "how do you say ... in Swedish?",
+              "Example Swedish": "Hur säger man “table” på svenska?",
+              "Example English": "How do you say “table” in Swedish?"
             }
           ]
         },
         {
           "heading": "Grammar note",
           "content": [
-            "“Kan du ...?” means “Can you ...?” and is a useful polite frame for requests. “Jag förstår inte” means “I do not understand.”"
+            "“Kan du ...?” means “Can you ...?” and is a useful polite frame for requests. “Jag förstår inte” means “I do not understand.”",
+            "When you ask about language, “på svenska” means “in Swedish” and “på engelska” means “in English.”"
+          ]
+        },
+        {
+          "heading": "Useful classroom requests",
+          "table": [
+            {
+              "Situation": "You missed a word",
+              "Swedish": "Kan du repetera?"
+            },
+            {
+              "Situation": "The speaker is too fast",
+              "Swedish": "Kan du tala långsammare?"
+            },
+            {
+              "Situation": "You want a translation",
+              "Swedish": "Vad betyder det på engelska?"
+            }
           ]
         },
         {
@@ -399,6 +634,16 @@
               "speaker": "B",
               "swedish": "Tack! Vad betyder “från”?",
               "english": "Thanks! What does “från” mean?"
+            },
+            {
+              "speaker": "A",
+              "swedish": "Det betyder “from”.",
+              "english": "It means “from”."
+            },
+            {
+              "speaker": "B",
+              "swedish": "Bra, tack. Kan du tala långsammare också?",
+              "english": "Good, thanks. Can you speak more slowly too?"
             }
           ]
         },
@@ -409,6 +654,14 @@
             "Ask for repetition politely three times.",
             "Choose one Swedish word and ask what it means.",
             "Read the dialogue with a pause after each line."
+          ]
+        },
+        {
+          "heading": "Extra practice ideas",
+          "list": [
+            "Ask one question with “Vad betyder det?” and another with “Hur säger man ... på svenska?”.",
+            "Practice one polite request starting with “Ursäkta ...”.",
+            "Role-play a short teacher-student exchange with a friend or by yourself."
           ]
         }
       ],
@@ -436,6 +689,24 @@
           "english": "help",
           "exampleSwedish": "Jag behöver hjälp.",
           "exampleEnglish": "I need help."
+        },
+        {
+          "swedish": "ursäkta",
+          "english": "excuse me",
+          "exampleSwedish": "Ursäkta, kan du hjälpa mig?",
+          "exampleEnglish": "Excuse me, can you help me?"
+        },
+        {
+          "swedish": "kan du tala långsammare?",
+          "english": "can you speak more slowly?",
+          "exampleSwedish": "Kan du tala långsammare, tack?",
+          "exampleEnglish": "Can you speak more slowly, please?"
+        },
+        {
+          "swedish": "hur säger man ... på svenska?",
+          "english": "how do you say ... in Swedish?",
+          "exampleSwedish": "Hur säger man “table” på svenska?",
+          "exampleEnglish": "How do you say “table” in Swedish?"
         }
       ],
       "exercises": [
@@ -445,13 +716,17 @@
             "jag förstår inte",
             "kan du repetera?",
             "vad betyder det?",
-            "hjälp"
+            "hjälp",
+            "ursäkta",
+            "kan du tala långsammare?"
           ],
           "answers": [
             "I do not understand",
             "can you repeat?",
             "what does that mean?",
-            "help"
+            "help",
+            "excuse me",
+            "can you speak more slowly?"
           ]
         },
         {
@@ -460,13 +735,30 @@
             "I do not understand",
             "can you repeat?",
             "what does that mean?",
-            "help"
+            "help",
+            "excuse me",
+            "how do you say ... in Swedish?"
           ],
           "answers": [
             "jag förstår inte",
             "kan du repetera?",
             "vad betyder det?",
-            "hjälp"
+            "hjälp",
+            "ursäkta",
+            "hur säger man ... på svenska?"
+          ]
+        },
+        {
+          "prompt": "Choose the best classroom phrase",
+          "items": [
+            "You need someone to repeat a sentence.",
+            "You want the speaker to slow down.",
+            "You want to know the Swedish word for “book”."
+          ],
+          "answers": [
+            "Kan du repetera?",
+            "Kan du tala långsammare?",
+            "Hur säger man “book” på svenska?"
           ]
         }
       ]
@@ -481,7 +773,8 @@
         {
           "heading": "Lesson focus",
           "content": [
-            "Today you train Swedish numbers so you can say your age and begin hearing number patterns clearly."
+            "Today you train Swedish numbers so you can say your age and begin hearing number patterns clearly.",
+            "You also start using numbers in real contexts: age, phone numbers, room numbers, and simple quantities."
           ]
         },
         {
@@ -510,29 +803,69 @@
               "English": "years old / year",
               "Example Swedish": "Jag är trettio år.",
               "Example English": "I am thirty years old."
+            },
+            {
+              "Swedish": "hur gammal är du?",
+              "English": "how old are you?",
+              "Example Swedish": "Hur gammal är du nu?",
+              "Example English": "How old are you now?"
+            },
+            {
+              "Swedish": "telefonnummer",
+              "English": "phone number",
+              "Example Swedish": "Vad är ditt telefonnummer?",
+              "Example English": "What is your phone number?"
+            },
+            {
+              "Swedish": "femton",
+              "English": "fifteen",
+              "Example Swedish": "Bussen går om femton minuter.",
+              "Example English": "The bus leaves in fifteen minutes."
             }
           ]
         },
         {
           "heading": "Grammar note",
           "content": [
-            "To say your age, Swedish uses “Jag är ... år.” The word “år” means “years old” in this context."
+            "To say your age, Swedish uses “Jag är ... år.” The word “år” means “years old” in this context.",
+            "Phone numbers are usually read digit by digit. Practice them slowly first and then at a more natural speed."
           ]
         },
         {
           "heading": "Number pattern",
           "table": [
             {
-              "Swedish": "ett, två, tre",
-              "English": "one, two, three"
+              "Swedish": "noll, ett, två, tre, fyra",
+              "English": "zero, one, two, three, four"
             },
             {
-              "Swedish": "fyra, fem, sex",
-              "English": "four, five, six"
+              "Swedish": "fem, sex, sju, åtta, nio",
+              "English": "five, six, seven, eight, nine"
             },
             {
-              "Swedish": "sju, åtta, nio",
-              "English": "seven, eight, nine"
+              "Swedish": "tio, elva, tolv, tretton, fjorton",
+              "English": "ten, eleven, twelve, thirteen, fourteen"
+            },
+            {
+              "Swedish": "femton, sexton, sjutton, arton, nitton, tjugo",
+              "English": "fifteen, sixteen, seventeen, eighteen, nineteen, twenty"
+            }
+          ]
+        },
+        {
+          "heading": "Everyday number uses",
+          "table": [
+            {
+              "Situation": "Age",
+              "Swedish": "Jag är tjugofyra år."
+            },
+            {
+              "Situation": "Phone number",
+              "Swedish": "Mitt telefonnummer börjar med noll sju."
+            },
+            {
+              "Situation": "Quantity",
+              "Swedish": "Jag har tio böcker."
             }
           ]
         },
@@ -558,6 +891,16 @@
               "speaker": "B",
               "swedish": "Det börjar med noll sju.",
               "english": "It starts with zero seven."
+            },
+            {
+              "speaker": "A",
+              "swedish": "Kan du säga resten långsamt?",
+              "english": "Can you say the rest slowly?"
+            },
+            {
+              "speaker": "B",
+              "swedish": "Ja: noll sju, tre två, fem nio.",
+              "english": "Yes: zero seven, three two, five nine."
             }
           ]
         },
@@ -568,6 +911,14 @@
             "Say your age in Swedish three times.",
             "Read a phone number digit by digit.",
             "Test yourself by covering the English column."
+          ]
+        },
+        {
+          "heading": "Extra practice ideas",
+          "list": [
+            "Count up from 0 to 20 and then backwards from 20 to 0.",
+            "Say three ages aloud: your age, a friend's age, and a random age.",
+            "Invent a six-digit phone number and read it slowly in Swedish."
           ]
         }
       ],
@@ -595,6 +946,24 @@
           "english": "years old / year",
           "exampleSwedish": "Jag är trettio år.",
           "exampleEnglish": "I am thirty years old."
+        },
+        {
+          "swedish": "hur gammal är du?",
+          "english": "how old are you?",
+          "exampleSwedish": "Hur gammal är du nu?",
+          "exampleEnglish": "How old are you now?"
+        },
+        {
+          "swedish": "telefonnummer",
+          "english": "phone number",
+          "exampleSwedish": "Vad är ditt telefonnummer?",
+          "exampleEnglish": "What is your phone number?"
+        },
+        {
+          "swedish": "femton",
+          "english": "fifteen",
+          "exampleSwedish": "Bussen går om femton minuter.",
+          "exampleEnglish": "The bus leaves in fifteen minutes."
         }
       ],
       "exercises": [
@@ -604,13 +973,17 @@
             "noll",
             "tio",
             "tjugo",
-            "år"
+            "år",
+            "hur gammal är du?",
+            "telefonnummer"
           ],
           "answers": [
             "zero",
             "ten",
             "twenty",
-            "years old / year"
+            "years old / year",
+            "how old are you?",
+            "phone number"
           ]
         },
         {
@@ -619,13 +992,32 @@
             "zero",
             "ten",
             "twenty",
-            "years old / year"
+            "years old / year",
+            "fifteen",
+            "how old are you?"
           ],
           "answers": [
             "noll",
             "tio",
             "tjugo",
-            "år"
+            "år",
+            "femton",
+            "hur gammal är du?"
+          ]
+        },
+        {
+          "prompt": "Complete the number phrases",
+          "items": [
+            "Jag är trettio ____.",
+            "Vad är ditt ____?",
+            "noll, ett, två, tre, ____",
+            "femton, sexton, sjutton, arton, nitton, ____"
+          ],
+          "answers": [
+            "år",
+            "telefonnummer",
+            "fyra",
+            "tjugo"
           ]
         }
       ]
@@ -640,7 +1032,8 @@
         {
           "heading": "Lesson focus",
           "content": [
-            "You will connect country names with the languages people speak and practice short identity sentences."
+            "You will connect country names with the languages people speak and practice short identity sentences.",
+            "This lesson helps you talk about where people come from and what languages they speak in a more natural way."
           ]
         },
         {
@@ -669,13 +1062,57 @@
               "English": "language",
               "Example Swedish": "Vilket språk talar du?",
               "Example English": "Which language do you speak?"
+            },
+            {
+              "Swedish": "finska",
+              "English": "Finnish",
+              "Example Swedish": "Hon talar finska hemma.",
+              "Example English": "She speaks Finnish at home."
+            },
+            {
+              "Swedish": "spanska",
+              "English": "Spanish",
+              "Example Swedish": "Min vän studerar spanska.",
+              "Example English": "My friend studies Spanish."
+            },
+            {
+              "Swedish": "svensk",
+              "English": "Swedish (nationality)",
+              "Example Swedish": "Han är svensk.",
+              "Example English": "He is Swedish."
             }
           ]
         },
         {
           "heading": "Grammar note",
           "content": [
-            "After “Jag talar ...” use the language name, for example “Jag talar engelska.” Nationalities often change form depending on gender and number, so start by recognizing them."
+            "After “Jag talar ...” use the language name, for example “Jag talar engelska.” Nationalities often change form depending on gender and number, so start by recognizing them.",
+            "A simple beginner pattern is: country with “kommer från”, language with “talar”, and nationality with “är”."
+          ]
+        },
+        {
+          "heading": "Country and language pairs",
+          "table": [
+            {
+              "Country": "Sverige",
+              "Language": "svenska",
+              "Nationality": "svensk / svenska"
+            },
+            {
+              "Country": "Finland",
+              "Language": "finska",
+              "Nationality": "finsk / finsk"
+            },
+            {
+              "Country": "Spanien",
+              "Language": "spanska",
+              "Nationality": "spansk / spansk"
+            },
+            {
+              "Country": "Indien",
+              "Language": "hindi / engelska",
+              "Nationality": "indisk"
+            }
           ]
         },
         {
@@ -700,6 +1137,16 @@
               "speaker": "B",
               "swedish": "Jag kommer från Indien.",
               "english": "I come from India."
+            },
+            {
+              "speaker": "A",
+              "swedish": "Talar du hindi också?",
+              "english": "Do you also speak Hindi?"
+            },
+            {
+              "speaker": "B",
+              "swedish": "Ja, och jag lär mig svenska.",
+              "english": "Yes, and I am learning Swedish."
             }
           ]
         },
@@ -710,6 +1157,14 @@
             "Make one sentence with “Jag talar ...”.",
             "Practice “lite svenska” for natural rhythm.",
             "Read the dialogue until it feels smooth."
+          ]
+        },
+        {
+          "heading": "Extra practice ideas",
+          "list": [
+            "Make three identity sentences: one with a country, one with a language, and one with a nationality.",
+            "Practice the contrast between “svenska” the language and “svensk” the nationality.",
+            "Ask and answer “Vilket språk talar du?” with two different answers."
           ]
         }
       ],
@@ -737,6 +1192,24 @@
           "english": "language",
           "exampleSwedish": "Vilket språk talar du?",
           "exampleEnglish": "Which language do you speak?"
+        },
+        {
+          "swedish": "finska",
+          "english": "Finnish",
+          "exampleSwedish": "Hon talar finska hemma.",
+          "exampleEnglish": "She speaks Finnish at home."
+        },
+        {
+          "swedish": "spanska",
+          "english": "Spanish",
+          "exampleSwedish": "Min vän studerar spanska.",
+          "exampleEnglish": "My friend studies Spanish."
+        },
+        {
+          "swedish": "svensk",
+          "english": "Swedish (nationality)",
+          "exampleSwedish": "Han är svensk.",
+          "exampleEnglish": "He is Swedish."
         }
       ],
       "exercises": [
@@ -746,13 +1219,17 @@
             "engelska",
             "svenska",
             "indisk",
-            "språk"
+            "språk",
+            "finska",
+            "svensk"
           ],
           "answers": [
             "English",
             "Swedish",
             "Indian",
-            "language"
+            "language",
+            "Finnish",
+            "Swedish (nationality)"
           ]
         },
         {
@@ -761,13 +1238,32 @@
             "English",
             "Swedish",
             "Indian",
-            "language"
+            "language",
+            "Spanish",
+            "Finnish"
           ],
           "answers": [
             "engelska",
             "svenska",
             "indisk",
-            "språk"
+            "språk",
+            "spanska",
+            "finska"
+          ]
+        },
+        {
+          "prompt": "Match the idea to the right Swedish pattern",
+          "items": [
+            "I speak Swedish.",
+            "I come from India.",
+            "He is Swedish.",
+            "Which language do you speak?"
+          ],
+          "answers": [
+            "Jag talar svenska.",
+            "Jag kommer från Indien.",
+            "Han är svensk.",
+            "Vilket språk talar du?"
           ]
         }
       ]
