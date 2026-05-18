@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import course from './data/swedishA1Course.json';
 import courseEnhancements from './data/courseEnhancements';
+import vocabularyGuideCoverage from './data/vocabularyGuideCoverage';
 import './styles.css';
 
 function App() {
@@ -23,25 +24,37 @@ function App() {
   const deferredVocabularyQuery = useDeferredValue(vocabularyQuery);
   const deferredGrammarQuery = useDeferredValue(grammarQuery);
 
-  const lessonAdditionsByDay = useMemo(
-    () =>
-      new Map(
-        courseEnhancements.lessonAdditions.map((addition) => [addition.day, addition]),
-      ),
+  const allLessonAdditions = useMemo(
+    () => [...courseEnhancements.lessonAdditions, ...vocabularyGuideCoverage.lessonAdditions],
     [],
   );
+
+  const lessonAdditionsByDay = useMemo(() => {
+    const additionsByDay = new Map();
+
+    allLessonAdditions.forEach((addition) => {
+      const additions = additionsByDay.get(addition.day) ?? [];
+      additions.push(addition);
+      additionsByDay.set(addition.day, additions);
+    });
+
+    return additionsByDay;
+  }, [allLessonAdditions]);
 
   const grammarTopics = courseEnhancements.grammarTopics;
 
   const lessons = useMemo(
     () =>
       course.days.map((day) => {
-        const addition = lessonAdditionsByDay.get(day.day);
+        const additions = lessonAdditionsByDay.get(day.day) ?? [];
 
         return {
           ...day,
-          noteMerge: addition ?? null,
-          vocabulary: mergeVocabulary(day.vocabulary, addition?.vocabulary ?? []),
+          noteMerges: additions,
+          vocabulary: mergeVocabulary(
+            day.vocabulary,
+            additions.flatMap((addition) => addition.vocabulary ?? []),
+          ),
           relatedGrammarTopics: grammarTopics.filter((topic) =>
             topic.relatedDays.includes(day.day),
           ),
@@ -99,12 +112,12 @@ function App() {
     return {
       totalDays: totalLessonDays,
       totalHours: totalLessonHours,
-      notesCoverage: courseEnhancements.lessonAdditions.length,
+      notesCoverage: new Set(allLessonAdditions.map((addition) => addition.day)).size,
       vocabulary: [...enrichedWordMap.values()].sort((a, b) =>
         a.swedish.localeCompare(b.swedish, 'sv'),
       ),
     };
-  }, [lessons]);
+  }, [allLessonAdditions, lessons]);
 
   const filteredVocabulary = useMemo(() => {
     const normalizedQuery = deferredVocabularyQuery.trim().toLowerCase();
@@ -193,7 +206,7 @@ function App() {
           <div className="summary-stats summary-stats-secondary">
             <div>
               <strong>{notesCoverage}</strong>
-              <span>note-linked lessons</span>
+              <span>enriched lessons</span>
             </div>
             <div>
               <strong>{grammarTopics.length}</strong>
@@ -269,9 +282,9 @@ function App() {
               <span className="eyebrow">Vocabulary review</span>
               <h2>Course vocabulary</h2>
               <p>
-                This page merges the base lesson JSON with the analyzed class
-                notes, so extra vocabulary from your own lessons appears in the
-                same searchable course list.
+                This page merges the base lesson JSON with extra learning notes
+                and reading extracts, so added vocabulary appears in the same
+                searchable course list.
               </p>
             </section>
             <VocabularyPage
@@ -289,8 +302,9 @@ function App() {
               <span className="eyebrow">Grammar hub</span>
               <h2>Grammar and structure</h2>
               <p>
-                This section was built from your notes and linked back to the
-                course days where each pattern matters most.
+                This section was built from your notes and added reading
+                material, then linked back to the course days where each
+                pattern matters most.
               </p>
             </section>
             <GrammarPage
@@ -357,20 +371,22 @@ function LessonView({ lesson, totalDays, onSelectDay, onOpenGrammarTopic }) {
         </section>
       ))}
 
-      {lesson.noteMerge ? (
-        <section className="lesson-section note-panel">
-          <span className="note-label">Merged class notes</span>
-          <p>{lesson.noteMerge.summary}</p>
-          <div className="note-meta">
-            Source lessons: {lesson.noteMerge.sourceDates.join(', ')}
-          </div>
-          {lesson.noteMerge.sections.map((section, index) => (
+      {lesson.noteMerges.map((addition, additionIndex) => (
+        <section
+          className="lesson-section note-panel"
+          key={`${lesson.day}-addition-${additionIndex}`}
+        >
+          <span className="note-label">Lesson expansion</span>
+          <p>{addition.summary}</p>
+          <div className="note-meta">Sources: {addition.sourceDates.join(', ')}</div>
+          {addition.sections.map((section, index) => (
             <div className="note-subsection" key={`${section.heading}-${index}`}>
               <h4>{section.heading}</h4>
               {section.content?.map((paragraph, paragraphIndex) => (
                 <p key={paragraphIndex}>{paragraph}</p>
               ))}
               {section.table && <DataTable rows={section.table} />}
+              {section.dialogue && <Dialogue dialogue={section.dialogue} />}
               {section.list && (
                 <ul>
                   {section.list.map((item, listIndex) => (
@@ -381,7 +397,7 @@ function LessonView({ lesson, totalDays, onSelectDay, onOpenGrammarTopic }) {
             </div>
           ))}
         </section>
-      ) : null}
+      ))}
 
       {lesson.relatedGrammarTopics.length ? (
         <section className="lesson-section">
