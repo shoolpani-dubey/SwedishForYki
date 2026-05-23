@@ -1,123 +1,111 @@
-import React, { useDeferredValue, useMemo, useState } from 'react';
+import React, { useDeferredValue, useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import {
   BookOpen,
   CalendarDays,
+  CheckCircle2,
   ChevronLeft,
   ChevronRight,
   Clock3,
   Languages,
   ListChecks,
+  Route,
   ScrollText,
   Search,
+  Target,
 } from 'lucide-react';
-import course from './data/swedishA1Course.json';
-import courseEnhancements from './data/courseEnhancements';
-import vocabularyGuideCoverage from './data/vocabularyGuideCoverage';
+import courseUrl from './data/swedishYkiCourse.json?url';
 import './styles.css';
 
 function App() {
-  const [selectedDay, setSelectedDay] = useState(course.days[0]?.day ?? 1);
+  const [courseData, setCourseData] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(1);
   const [page, setPage] = useState('lessons');
   const [vocabularyQuery, setVocabularyQuery] = useState('');
   const [grammarQuery, setGrammarQuery] = useState('');
   const deferredVocabularyQuery = useDeferredValue(vocabularyQuery);
   const deferredGrammarQuery = useDeferredValue(grammarQuery);
+  const lessons = courseData?.days ?? [];
+  const levels = courseData?.levels ?? [];
+  const grammarTopics = courseData?.grammarTopics ?? [];
 
-  const allLessonAdditions = useMemo(
-    () => [...courseEnhancements.lessonAdditions, ...vocabularyGuideCoverage.lessonAdditions],
-    [],
+  useEffect(() => {
+    let active = true;
+
+    fetch(courseUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        if (active) {
+          setCourseData(data);
+        }
+      })
+      .catch((error) => {
+        console.error('Failed to load course data', error);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (lessons.length && !lessons.some((lesson) => lesson.day === selectedDay)) {
+      setSelectedDay(lessons[0].day);
+    }
+  }, [lessons, selectedDay]);
+
+  const course = courseData;
+  const selectedLesson = lessons.find((lesson) => lesson.day === selectedDay) ?? lessons[0] ?? null;
+  const selectedLevel = levels.find(
+    (level) =>
+      selectedLesson &&
+      selectedLesson.day >= level.startDay &&
+      selectedLesson.day <= level.endDay,
   );
 
-  const lessonAdditionsByDay = useMemo(() => {
-    const additionsByDay = new Map();
+  const vocabulary = useMemo(() => {
+    const wordMap = new Map();
 
-    allLessonAdditions.forEach((addition) => {
-      const additions = additionsByDay.get(addition.day) ?? [];
-      additions.push(addition);
-      additionsByDay.set(addition.day, additions);
-    });
-
-    return additionsByDay;
-  }, [allLessonAdditions]);
-
-  const grammarTopics = courseEnhancements.grammarTopics;
-
-  const lessons = useMemo(
-    () =>
-      course.days.map((day) => {
-        const additions = lessonAdditionsByDay.get(day.day) ?? [];
-
-        return {
-          ...day,
-          noteMerges: additions,
-          vocabulary: mergeVocabulary(
-            day.vocabulary,
-            additions.flatMap((addition) => addition.vocabulary ?? []),
-          ),
-          relatedGrammarTopics: grammarTopics.filter((topic) =>
-            topic.relatedDays.includes(day.day),
-          ),
-        };
-      }),
-    [grammarTopics, lessonAdditionsByDay],
-  );
-
-  const lesson = lessons.find((day) => day.day === selectedDay);
-
-  const { totalDays, totalHours, notesCoverage, vocabulary } = useMemo(() => {
-    const totalLessonDays = course.estimatedDays ?? lessons.length;
-    const totalLessonHours =
-      course.estimatedHours ??
-      lessons.reduce((sum, day) => sum + day.durationMinutes, 0) / 60;
-    const enrichedWordMap = new Map();
-
-    lessons.forEach((day) => {
-      day.vocabulary.forEach((item) => {
+    lessons.forEach((lesson) => {
+      lesson.vocabulary.forEach((item) => {
         const key = `${item.swedish.trim().toLowerCase()}::${item.english
           .trim()
           .toLowerCase()}`;
-        const currentExample = {
-          day: day.day,
-          title: day.title,
+        const existing = wordMap.get(key);
+        const example = {
+          day: lesson.day,
+          title: lesson.title,
           exampleSwedish: item.exampleSwedish,
           exampleEnglish: item.exampleEnglish,
         };
-        const existing = enrichedWordMap.get(key);
 
         if (existing) {
-          if (!existing.days.includes(day.day)) {
-            existing.days.push(day.day);
+          if (!existing.days.includes(lesson.day)) {
+            existing.days.push(lesson.day);
           }
-          const hasExample = existing.examples.some(
-            (example) =>
-              example.exampleSwedish === currentExample.exampleSwedish &&
-              example.exampleEnglish === currentExample.exampleEnglish,
+          const duplicateExample = existing.examples.some(
+            (entry) =>
+              entry.exampleSwedish === example.exampleSwedish &&
+              entry.exampleEnglish === example.exampleEnglish,
           );
-          if (!hasExample) {
-            existing.examples.push(currentExample);
+          if (!duplicateExample) {
+            existing.examples.push(example);
           }
           return;
         }
 
-        enrichedWordMap.set(key, {
+        wordMap.set(key, {
           swedish: item.swedish,
           english: item.english,
-          days: [day.day],
-          examples: [currentExample],
+          days: [lesson.day],
+          level: lesson.level,
+          examples: [example],
         });
       });
     });
 
-    return {
-      totalDays: totalLessonDays,
-      totalHours: totalLessonHours,
-      notesCoverage: new Set(allLessonAdditions.map((addition) => addition.day)).size,
-      vocabulary: [...enrichedWordMap.values()].sort((a, b) =>
-        a.swedish.localeCompare(b.swedish, 'sv'),
-      ),
-    };
-  }, [allLessonAdditions, lessons]);
+    return [...wordMap.values()].sort((a, b) => a.swedish.localeCompare(b.swedish, 'sv'));
+  }, [lessons]);
 
   const filteredVocabulary = useMemo(() => {
     const normalizedQuery = deferredVocabularyQuery.trim().toLowerCase();
@@ -127,9 +115,10 @@ function App() {
     }
 
     return vocabulary.filter((item) => {
-      const text = [
+      const haystack = [
         item.swedish,
         item.english,
+        item.level,
         item.days.join(' '),
         ...item.examples.flatMap((example) => [
           example.title,
@@ -140,7 +129,7 @@ function App() {
         .join(' ')
         .toLowerCase();
 
-      return text.includes(normalizedQuery);
+      return haystack.includes(normalizedQuery);
     });
   }, [deferredVocabularyQuery, vocabulary]);
 
@@ -152,25 +141,61 @@ function App() {
     }
 
     return grammarTopics.filter((topic) => {
-      const text = [
+      const haystack = [
         topic.title,
         topic.category,
         topic.summary,
         topic.rules.join(' '),
-        topic.sourceDates.join(' '),
         topic.examples.map((example) => `${example.swedish} ${example.english}`).join(' '),
+        topic.relatedDays.join(' '),
       ]
         .join(' ')
         .toLowerCase();
 
-      return text.includes(normalizedQuery);
+      return haystack.includes(normalizedQuery);
     });
   }, [deferredGrammarQuery, grammarTopics]);
+
+  const relatedGrammarTopics = useMemo(
+    () =>
+      selectedLesson
+        ? grammarTopics.filter((topic) => topic.relatedDays.includes(selectedLesson.day))
+        : [],
+    [grammarTopics, selectedLesson],
+  );
 
   const openGrammarTopic = (topicTitle) => {
     setGrammarQuery(topicTitle);
     setPage('grammar');
   };
+
+  if (!courseData) {
+    return (
+      <div className="app-shell loading-shell">
+        <aside className="sidebar">
+          <div className="brand">
+            <div className="brand-icon">
+              <Languages size={28} />
+            </div>
+            <div>
+              <h1>Swedish for YKI</h1>
+              <p>Loading the A1 to B1 course...</p>
+            </div>
+          </div>
+        </aside>
+        <main className="content">
+          <section className="content-hero">
+            <span className="eyebrow">Loading</span>
+            <h2>Preparing the course data</h2>
+            <p>
+              The expanded Swedish curriculum is loading as a separate data
+              file so the app stays lighter.
+            </p>
+          </section>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="app-shell">
@@ -180,8 +205,8 @@ function App() {
             <Languages size={28} />
           </div>
           <div>
-            <h1>Swedish A1</h1>
-            <p>{totalDays}-day beginner course</p>
+            <h1>Swedish for YKI</h1>
+            <p>A1, A2, B1 toward late August 2026</p>
           </div>
         </div>
 
@@ -191,11 +216,11 @@ function App() {
           <p>{course.description}</p>
           <div className="summary-stats">
             <div>
-              <strong>{totalDays}</strong>
-              <span>days</span>
+              <strong>{lessons.length}</strong>
+              <span>lessons</span>
             </div>
             <div>
-              <strong>{totalHours}</strong>
+              <strong>{course.estimatedHours}</strong>
               <span>hours</span>
             </div>
             <div>
@@ -205,13 +230,17 @@ function App() {
           </div>
           <div className="summary-stats summary-stats-secondary">
             <div>
-              <strong>{notesCoverage}</strong>
-              <span>enriched lessons</span>
+              <strong>{levels.length}</strong>
+              <span>CEFR sections</span>
             </div>
             <div>
               <strong>{grammarTopics.length}</strong>
-              <span>grammar topics</span>
+              <span>grammar hubs</span>
             </div>
+          </div>
+          <div className="summary-note">
+            <Target size={15} />
+            <span>{course.targetWindow}</span>
           </div>
         </section>
 
@@ -221,6 +250,12 @@ function App() {
             onClick={() => setPage('lessons')}
           >
             <BookOpen size={18} /> Lessons
+          </button>
+          <button
+            className={page === 'roadmap' ? 'active' : ''}
+            onClick={() => setPage('roadmap')}
+          >
+            <Route size={18} /> Roadmap
           </button>
           <button
             className={page === 'vocabulary' ? 'active' : ''}
@@ -236,43 +271,104 @@ function App() {
           </button>
         </nav>
 
-        {page === 'lessons' && (
-          <div className="day-list">
-            <div className="side-heading">
-              <CalendarDays size={16} /> Choose a day
-            </div>
-            <div className="day-grid">
-              {lessons.map((day) => (
+        {page === 'lessons' ? (
+          <div className="level-list">
+            {levels.map((level) => (
+              <section className="level-card" key={level.id}>
                 <button
-                  key={day.day}
-                  className={selectedDay === day.day ? 'day active' : 'day'}
-                  onClick={() => setSelectedDay(day.day)}
-                  title={`Day ${day.day}: ${day.title}`}
+                  className={
+                    selectedLevel?.id === level.id ? 'level-header active' : 'level-header'
+                  }
+                  onClick={() => setSelectedDay(level.startDay)}
                 >
-                  {day.day}
+                  <div>
+                    <span className="level-id">{level.id}</span>
+                    <h3>{level.title}</h3>
+                  </div>
+                  <small>
+                    Days {level.startDay}-{level.endDay}
+                  </small>
                 </button>
-              ))}
-            </div>
+                <p>{level.description}</p>
+                <div className="objective-list">
+                  {level.objectives.map((objective, index) => (
+                    <div className="objective-chip" key={`${level.id}-objective-${index}`}>
+                      {objective}
+                    </div>
+                  ))}
+                </div>
+                <div className="day-grid">
+                  {level.lessons.map((lesson) => (
+                    <button
+                      key={lesson.day}
+                      className={selectedDay === lesson.day ? 'day active' : 'day'}
+                      onClick={() => setSelectedDay(lesson.day)}
+                      title={`Day ${lesson.day}: ${lesson.title}`}
+                    >
+                      {lesson.day}
+                    </button>
+                  ))}
+                </div>
+              </section>
+            ))}
           </div>
-        )}
+        ) : null}
+
+        {page === 'roadmap' ? (
+          <div className="sidebar-note">
+            <div className="side-heading">
+              <CalendarDays size={16} /> Weekly method
+            </div>
+            <ul>
+              {course.studyMethod.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
       </aside>
 
       <main className="content">
-        {page === 'lessons' && lesson ? (
+        {page === 'lessons' && selectedLesson ? (
           <>
             <section className="content-hero">
-              <span className="eyebrow">{lesson.phase}</span>
+              <span className="eyebrow">
+                {selectedLevel?.id} • {selectedLevel?.title}
+              </span>
               <h2>
-                Day {lesson.day}: {lesson.title}
+                Day {selectedLesson.day}: {selectedLesson.title}
               </h2>
-              <p>{lesson.goal}</p>
+              <p>{selectedLesson.goal}</p>
+              <div className="hero-meta">
+                <span>{course.examGoal}</span>
+                <span>{selectedLesson.durationMinutes} minutes</span>
+              </div>
             </section>
             <LessonView
-              lesson={lesson}
-              totalDays={totalDays}
+              lesson={selectedLesson}
+              totalDays={lessons.length}
+              relatedGrammarTopics={relatedGrammarTopics}
               onOpenGrammarTopic={openGrammarTopic}
               onSelectDay={setSelectedDay}
             />
+          </>
+        ) : null}
+
+        {page === 'roadmap' ? (
+          <>
+            <section className="content-hero">
+              <span className="eyebrow">Scientific study plan</span>
+              <h2>Roadmap to late August</h2>
+              <p>
+                This plan assumes six study days per week from May 25, 2026 to
+                August 30, 2026, with one lighter review or rest day each week.
+              </p>
+              <div className="hero-meta">
+                <span>Retrieval on D+1, D+3, D+7</span>
+                <span>Weekly speaking and writing output</span>
+              </div>
+            </section>
+            <RoadmapPage course={course} levels={levels} />
           </>
         ) : null}
 
@@ -280,11 +376,10 @@ function App() {
           <>
             <section className="content-hero">
               <span className="eyebrow">Vocabulary review</span>
-              <h2>Course vocabulary</h2>
+              <h2>Searchable course vocabulary</h2>
               <p>
-                This page merges the base lesson JSON with extra learning notes
-                and reading extracts, so added vocabulary appears in the same
-                searchable course list.
+                This merges vocabulary across all A1, A2, and B1 lessons so you
+                can revise by keyword, lesson range, or example.
               </p>
             </section>
             <VocabularyPage
@@ -300,11 +395,11 @@ function App() {
           <>
             <section className="content-hero">
               <span className="eyebrow">Grammar hub</span>
-              <h2>Grammar and structure</h2>
+              <h2>Grammar and exam patterns</h2>
               <p>
-                This section was built from your notes and added reading
-                material, then linked back to the course days where each
-                pattern matters most.
+                These hubs connect pronunciation, sentence structure, time
+                expressions, formal writing, and YKI task strategy back to the
+                course days where they matter most.
               </p>
             </section>
             <GrammarPage
@@ -322,18 +417,32 @@ function App() {
   );
 }
 
-function LessonView({ lesson, totalDays, onSelectDay, onOpenGrammarTopic }) {
+function LessonView({
+  lesson,
+  totalDays,
+  relatedGrammarTopics,
+  onSelectDay,
+  onOpenGrammarTopic,
+}) {
   return (
     <article className="lesson-card">
       <div className="lesson-header">
         <div className="lesson-meta-row">
           <span className="badge">Day {lesson.day}</span>
-          <span className="phase-pill">{lesson.phase}</span>
+          <span className="phase-pill">{lesson.level}</span>
+          <span className="phase-pill phase-pill-soft">{lesson.phase}</span>
         </div>
         <h3>{lesson.title}</h3>
         <p>{lesson.goal}</p>
         <div className="meta">
           <Clock3 size={16} /> Estimated time: {lesson.durationMinutes} minutes
+        </div>
+        <div className="skill-chip-list">
+          {lesson.ykiSkills.map((skill) => (
+            <span className="skill-chip" key={skill}>
+              {skill}
+            </span>
+          ))}
         </div>
         <div className="lesson-nav">
           <button
@@ -356,54 +465,86 @@ function LessonView({ lesson, totalDays, onSelectDay, onOpenGrammarTopic }) {
       {lesson.sections.map((section, index) => (
         <section className="lesson-section" key={`${section.heading}-${index}`}>
           <h4>{section.heading}</h4>
-          {section.content?.map((paragraph, paragraphIndex) => (
-            <p key={paragraphIndex}>{paragraph}</p>
-          ))}
-          {section.table && <DataTable rows={section.table} />}
-          {section.dialogue && <Dialogue dialogue={section.dialogue} />}
-          {section.list && (
-            <ul>
-              {section.list.map((item, listIndex) => (
-                <li key={listIndex}>{item}</li>
-              ))}
-            </ul>
-          )}
+          <SectionContent section={section} />
         </section>
       ))}
 
-      {lesson.noteMerges.map((addition, additionIndex) => (
+      {lesson.legacyCompanion ? (
+        <section className="lesson-section note-panel">
+          <span className="note-label">Legacy 60-day companion</span>
+          <h4>{lesson.legacyCompanion.title}</h4>
+          <p>{lesson.legacyCompanion.goal}</p>
+          <div className="note-meta">
+            Source: {lesson.legacyCompanion.sourceLabel} • Phase:{' '}
+            {lesson.legacyCompanion.phase}
+          </div>
+          {lesson.legacyCompanion.sections.map((section, index) => (
+            <div
+              className="note-subsection"
+              key={`legacy-companion-${lesson.day}-${section.heading}-${index}`}
+            >
+              <h4>{section.heading}</h4>
+              <SectionContent section={section} />
+            </div>
+          ))}
+          {lesson.legacyCompanion.exercises?.length ? (
+            <div className="note-subsection">
+              <h4>Legacy exercises</h4>
+              {lesson.legacyCompanion.exercises.map((exercise, index) => (
+                <details key={`legacy-exercise-${lesson.day}-${index}`}>
+                  <summary>{exercise.prompt}</summary>
+                  <ol>
+                    {exercise.items.map((item, itemIndex) => (
+                      <li key={itemIndex}>{item}</li>
+                    ))}
+                  </ol>
+                  <strong>Answers</strong>
+                  <ol>
+                    {exercise.answers.map((answer, answerIndex) => (
+                      <li key={answerIndex}>{answer}</li>
+                    ))}
+                  </ol>
+                </details>
+              ))}
+            </div>
+          ) : null}
+        </section>
+      ) : null}
+
+      {lesson.legacyResources.map((resource, resourceIndex) => (
         <section
           className="lesson-section note-panel"
-          key={`${lesson.day}-addition-${additionIndex}`}
+          key={`legacy-resource-${lesson.day}-${resource.resourceType}-${resourceIndex}`}
         >
-          <span className="note-label">Lesson expansion</span>
-          <p>{addition.summary}</p>
-          <div className="note-meta">Sources: {addition.sourceDates.join(', ')}</div>
-          {addition.sections.map((section, index) => (
-            <div className="note-subsection" key={`${section.heading}-${index}`}>
+          <span className="note-label">{resource.resourceType}</span>
+          <p>{resource.summary}</p>
+          <div className="note-meta">
+            Source: {resource.sourceLabel}
+            {resource.pageNumber ? ` • page ${resource.pageNumber}` : ''}
+            {resource.sourceDates?.length ? ` • ${resource.sourceDates.join(', ')}` : ''}
+          </div>
+          {resource.sections.map((section, index) => (
+            <div
+              className="note-subsection"
+              key={`legacy-resource-section-${lesson.day}-${resourceIndex}-${index}`}
+            >
               <h4>{section.heading}</h4>
-              {section.content?.map((paragraph, paragraphIndex) => (
-                <p key={paragraphIndex}>{paragraph}</p>
-              ))}
-              {section.table && <DataTable rows={section.table} />}
-              {section.dialogue && <Dialogue dialogue={section.dialogue} />}
-              {section.list && (
-                <ul>
-                  {section.list.map((item, listIndex) => (
-                    <li key={listIndex}>{item}</li>
-                  ))}
-                </ul>
-              )}
+              <SectionContent section={section} />
             </div>
           ))}
         </section>
       ))}
 
-      {lesson.relatedGrammarTopics.length ? (
+      <section className="lesson-section note-panel">
+        <span className="note-label">Exam-style task</span>
+        <p>{lesson.examTask}</p>
+      </section>
+
+      {relatedGrammarTopics.length ? (
         <section className="lesson-section">
           <h4>Related grammar topics</h4>
           <div className="tag-list">
-            {lesson.relatedGrammarTopics.map((topic) => (
+            {relatedGrammarTopics.map((topic) => (
               <button
                 className="topic-button"
                 key={topic.id}
@@ -417,7 +558,7 @@ function LessonView({ lesson, totalDays, onSelectDay, onOpenGrammarTopic }) {
       ) : null}
 
       <section className="lesson-section">
-        <h4>Vocabulary for this day</h4>
+        <h4>Vocabulary for this lesson</h4>
         <DataTable
           rows={lesson.vocabulary.map((item) => ({
             Swedish: item.swedish,
@@ -450,6 +591,78 @@ function LessonView({ lesson, totalDays, onSelectDay, onOpenGrammarTopic }) {
   );
 }
 
+function RoadmapPage({ course, levels }) {
+  return (
+    <div className="roadmap-layout">
+      <article className="lesson-card roadmap-card">
+        <div className="lesson-header">
+          <span className="badge">Method</span>
+          <h3>Study system for the next 14 weeks</h3>
+          <p>
+            The plan below turns the repository into a structured preparation
+            cycle instead of a loose phrase list.
+          </p>
+        </div>
+
+        <section className="roadmap-section">
+          <h4>Course architecture</h4>
+          <div className="level-overview-grid">
+            {levels.map((level) => (
+              <div className="overview-box" key={level.id}>
+                <div className="overview-topline">
+                  <span className="phase-pill">{level.id}</span>
+                  <strong>
+                    Days {level.startDay}-{level.endDay}
+                  </strong>
+                </div>
+                <p>{level.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="roadmap-section">
+          <h4>Spaced repetition routine</h4>
+          <ul className="rule-list">
+            {course.studyMethod.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="roadmap-section">
+          <h4>Final-week behavior</h4>
+          <ul className="rule-list">
+            {course.testWeekAdvice.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </section>
+      </article>
+
+      <div className="roadmap-grid">
+        {course.studyPlan.map((week) => (
+          <section className="grammar-card" key={week.week}>
+            <div className="grammar-card-header">
+              <span className="phase-pill">{week.level}</span>
+              <h4>Week {week.week}</h4>
+            </div>
+            <div className="source-row">
+              {week.startDate} to {week.endDate}
+            </div>
+            <div className="roadmap-week-range">{week.lessonRange}</div>
+            <p>{week.focus}</p>
+            <div className="roadmap-checkpoint">
+              <CheckCircle2 size={16} />
+              <span>{week.checkpoint}</span>
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function VocabularyPage({ query, setQuery, words, total }) {
   return (
     <article className="lesson-card">
@@ -457,19 +670,20 @@ function VocabularyPage({ query, setQuery, words, total }) {
         <span className="badge">Vocabulary</span>
         <h3>Course word list</h3>
         <p>
-          Search Swedish, English, lesson titles, or example sentences. The
-          list below merges repeated words across the course and the extra note
-          analysis.
+          Search Swedish, English, CEFR section, lesson number, or example
+          sentence.
         </p>
         <label className="search-box">
           <Search size={18} />
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search Swedish, English, or examples..."
+            placeholder="Search Swedish, English, level, or lesson..."
           />
         </label>
-        <div className="meta">Showing {words.length} of {total} unique words</div>
+        <div className="meta">
+          Showing {words.length} of {total} unique words
+        </div>
       </div>
 
       {words.length ? (
@@ -482,6 +696,9 @@ function VocabularyPage({ query, setQuery, words, total }) {
                 key={`${word.swedish}-${word.english}-${index}`}
               >
                 <div>
+                  <div className="lesson-meta-row">
+                    <span className="phase-pill">{word.level}</span>
+                  </div>
                   <h4>{word.swedish}</h4>
                   <p>{word.english}</p>
                 </div>
@@ -497,8 +714,8 @@ function VocabularyPage({ query, setQuery, words, total }) {
         </div>
       ) : (
         <div className="empty-state">
-          No vocabulary matched “{query}”. Try a simpler Swedish or English
-          word.
+          No vocabulary matched “{query}”. Try a Swedish word, English gloss, or
+          level label like A2 or B1.
         </div>
       )}
     </article>
@@ -510,21 +727,22 @@ function GrammarPage({ query, setQuery, topics, total, onOpenLesson, onShowLesso
     <article className="lesson-card">
       <div className="lesson-header">
         <span className="badge">Grammar</span>
-        <h3>Grammar topics from your notes</h3>
+        <h3>Grammar topics and strategy patterns</h3>
         <p>
-          This grammar section groups together the recurring patterns from your
-          class notes: pronunciation, verb-second word order, negation,
-          adjective agreement, plurals, and more.
+          Search grammar rules, examples, and linked lessons across the full A1
+          to B1 course.
         </p>
         <label className="search-box">
           <Search size={18} />
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search grammar topics, examples, or rules..."
+            placeholder="Search grammar topics, rules, or examples..."
           />
         </label>
-        <div className="meta">Showing {topics.length} of {total} grammar topics</div>
+        <div className="meta">
+          Showing {topics.length} of {total} grammar topics
+        </div>
       </div>
 
       {topics.length ? (
@@ -536,9 +754,12 @@ function GrammarPage({ query, setQuery, topics, total, onOpenLesson, onShowLesso
                 <h4>{topic.title}</h4>
               </div>
               <p>{topic.summary}</p>
-              <div className="source-row">
-                Source lessons: {topic.sourceDates.join(', ')}
-              </div>
+              {topic.sourceLabel || topic.sourceDates?.length ? (
+                <div className="source-row">
+                  Source: {topic.sourceLabel ?? 'YKI curriculum'}
+                  {topic.sourceDates?.length ? ` • ${topic.sourceDates.join(', ')}` : ''}
+                </div>
+              ) : null}
               <div className="grammar-block">
                 <strong>Key rules</strong>
                 <ul className="rule-list">
@@ -578,11 +799,30 @@ function GrammarPage({ query, setQuery, topics, total, onOpenLesson, onShowLesso
         </div>
       ) : (
         <div className="empty-state">
-          No grammar topic matched “{query}”. Try words like “plural”,
-          “negation”, or “pronunciation”.
+          No grammar topic matched “{query}”. Try words like “perfect”, “V2”,
+          “formal”, or “opinion”.
         </div>
       )}
     </article>
+  );
+}
+
+function SectionContent({ section }) {
+  return (
+    <>
+      {section.content?.map((paragraph, paragraphIndex) => (
+        <p key={paragraphIndex}>{paragraph}</p>
+      ))}
+      {section.table && <DataTable rows={section.table} />}
+      {section.dialogue && <Dialogue dialogue={section.dialogue} />}
+      {section.list && (
+        <ul>
+          {section.list.map((item, listIndex) => (
+            <li key={listIndex}>{item}</li>
+          ))}
+        </ul>
+      )}
+    </>
   );
 }
 
@@ -629,26 +869,6 @@ function Dialogue({ dialogue }) {
       ))}
     </div>
   );
-}
-
-function mergeVocabulary(baseVocabulary, additionalVocabulary) {
-  const merged = [];
-  const seen = new Set();
-
-  [...baseVocabulary, ...additionalVocabulary].forEach((item) => {
-    const key = `${item.swedish.trim().toLowerCase()}::${item.english
-      .trim()
-      .toLowerCase()}`;
-
-    if (seen.has(key)) {
-      return;
-    }
-
-    seen.add(key);
-    merged.push(item);
-  });
-
-  return merged;
 }
 
 createRoot(document.getElementById('root')).render(<App />);
