@@ -1,0 +1,72 @@
+/*
+ * Tokyo Paper — Stat.
+ *
+ * <dl class="tp-stats">
+ *   <div class="tp-stat">
+ *     <dt class="tp-stat__key">Response time</dt>
+ *     <dd class="tp-stat__value">42<span class="tp-stat__unit">ms</span></dd>
+ *     <dd class="tp-stat__note">Median, last 7 days</dd>
+ *   </div>
+ * </dl>
+ *
+ * .tp-stat--highlight colors the value with the accent (one per group).
+ */
+
+/* Cells separated by 1px rules: the grid gap shows the line color through */
+.tp-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: var(--line-width);
+  margin: 0;
+  border: var(--line-width) solid var(--line);
+  background: var(--line);
+}
+
+.tp-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--stat-bg, var(--paper)); /* set --stat-bg to match a raised parent */
+}
+
+.tp-stat > dd {
+  margin: 0;
+}
+
+.tp-stat__key {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.tp-stat__value {
+  font-family: var(--font-mono);
+  font-feature-settings: "zero" 1;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-stat);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+}
+
+.tp-stat__unit {
+  margin-inline-start: 0.15em;
+  font-size: 0.45em;
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+  color: var(--ink-3);
+}
+
+.tp-stat__note {
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+}
+
+.tp-stat--highlight .tp-stat__value {
+  color: var(--accent);
+}

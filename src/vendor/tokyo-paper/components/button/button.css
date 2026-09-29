@@ -1,0 +1,144 @@
+/*
+ * Tokyo Paper — Button.
+ *
+ * .tp-button            Ghost (default): strong line, amber wash on hover
+ * .tp-button--primary   Amber fill. One per view.
+ * .tp-button--quiet     Text only, for tertiary actions
+ * .tp-button--icon      Square, icon only (needs aria-label)
+ *
+ * States: :disabled or aria-disabled="true"; data-state="busy" (with aria-disabled="true").
+ * Works on <button> and <a>.
+ */
+
+.tp-button {
+  --_bg: transparent;
+  --_fg: var(--ink);
+  --_line: var(--line-strong);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--control-height);
+  min-width: var(--control-height);
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  border: var(--line-width) solid var(--_line);
+  border-radius: var(--radius);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--font-mono);
+  font-feature-settings: "zero" 1;
+  font-variant-ligatures: none;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--dur-instant) var(--ease-out),
+    border-color var(--dur-instant) var(--ease-out),
+    color var(--dur-instant) var(--ease-out);
+}
+
+.tp-button svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+/* Variants */
+.tp-button--primary {
+  --_bg: var(--accent-fill);
+  --_fg: var(--on-accent);
+  --_line: var(--accent-fill-line);
+}
+
+.tp-button--quiet {
+  --_fg: var(--ink-2);
+  --_line: transparent;
+  padding-inline: var(--space-3);
+}
+
+[data-density="compact"] .tp-button {
+  padding-block: var(--space-1);
+}
+
+.tp-button--icon {
+  padding: 0;
+  width: var(--control-height);
+}
+
+/* Interaction (skipped while disabled or busy) */
+@media (hover: hover) {
+  .tp-button:hover:not(:disabled, [aria-disabled="true"]) {
+    --_line: var(--accent);
+    --_bg: var(--accent-wash);
+  }
+
+  .tp-button--primary:hover:not(:disabled, [aria-disabled="true"]) {
+    --_line: var(--accent-fill-line);
+    --_bg: var(--accent-fill-hover);
+  }
+
+  .tp-button--quiet:hover:not(:disabled, [aria-disabled="true"]) {
+    --_fg: var(--ink);
+    --_line: transparent;
+    --_bg: var(--paper-hover);
+  }
+}
+
+.tp-button--primary:active:not(:disabled, [aria-disabled="true"]) {
+  --_bg: var(--accent-fill-active);
+}
+
+/* Trailing arrow nudges toward where it points */
+.tp-button__arrow {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .tp-button:hover:not(:disabled, [aria-disabled="true"]) .tp-button__arrow {
+    transform: translateX(2px);
+  }
+}
+
+/* Disabled: legible (--ink-3 is 4.5:1+), clearly inactive */
+.tp-button:is(:disabled, [aria-disabled="true"]):not([data-state="busy"]) {
+  --_bg: var(--paper-hover);
+  --_fg: var(--ink-3);
+  --_line: var(--line);
+  cursor: not-allowed;
+}
+
+/* Busy: keeps its variant colors; the label should say what is happening */
+.tp-button[data-state="busy"] {
+  cursor: progress;
+}
+
+.tp-button__spinner {
+  flex: none;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-round);
+  animation: tp-button-spin var(--dur-spin) linear infinite;
+}
+
+@keyframes tp-button-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (forced-colors: active) {
+  .tp-button:is(:disabled, [aria-disabled="true"]):not([data-state="busy"]) {
+    color: GrayText;
+    border-color: GrayText;
+  }
+}

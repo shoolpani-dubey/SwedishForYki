@@ -1,0 +1,75 @@
+/*
+ * Tokyo Paper — color tokens.
+ * Every token is a light-dark(Paper, Night) pair, written once.
+ * The theme follows the OS by default; set data-theme="paper" or
+ * data-theme="night" on <html> to force one.
+ * Contrast ratios are against --paper (Paper / Night).
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Paper: surfaces */
+  --paper:             light-dark(#f4f5f8, #06070b);
+  --paper-raised:      light-dark(#ffffff, #0b0c12);
+  --paper-float:       light-dark(#ffffff, #11131c);
+  --paper-hover:       light-dark(#0b0d140d, #c0caf50e);
+  --paper-grid:        light-dark(#0b0d140b, #c0caf509);
+  --paper-translucent: light-dark(#f4f5f8e0, #06070bd6);
+  --backdrop:          light-dark(#0b0d1466, #06070bb3);
+
+  /* Ink: text */
+  --ink:       light-dark(#0b0d14, #e4e8f7);  /* 17.8 / 16.5 */
+  --ink-2:     light-dark(#454c5e, #9ba3c4);  /*  7.9 /  8.1 */
+  --ink-3:     light-dark(#5f6679, #7a82a8);  /*  5.3 /  5.4 */
+  --ink-faint: light-dark(#b3b9c6, #3a4060);  /* decorative only */
+
+  /* Ink: lines */
+  --line:        light-dark(#0b0d141a, #c0caf517);  /* decorative dividers */
+  --line-strong: light-dark(#7b8295, #626a94);      /* control boundaries, 3.5 / 3.8 */
+
+  /* Accent: amber */
+  --accent:             light-dark(#b45309, #fbbf24);  /* 4.6 / 12.1 */
+  --accent-wash:        light-dark(#b453090f, #fbbf2412);
+  --accent-line:        light-dark(#b4530959, #fbbf2452);
+  --accent-fill:        #fcd34d;
+  --accent-fill-hover:  #fef08a;
+  --accent-fill-active: #fbbf24;
+  --accent-fill-line:   light-dark(#b45309, #fcd34d);
+  --on-accent:          #0b0a06;  /* 13.7 on --accent-fill */
+
+  /* Status */
+  --info:    light-dark(#0969da, #7aa2f7);
+  --success: light-dark(#116329, #9ece6a);
+  --warning: light-dark(#953800, #ff9e64);
+  --danger:  light-dark(#cf222e, #f7768e);
+
+  /* Syntax: Tokyo Night (Night) and Tokyo Night Day (Paper), tuned to 4.5:1+ on --paper-raised */
+  --syntax-keyword:  light-dark(#8446e0, #bb9af7);
+  --syntax-string:   light-dark(#587539, #9ece6a);
+  --syntax-number:   light-dark(#a35400, #ff9e64);
+  --syntax-function: light-dark(#1a66cc, #7aa2f7);
+  --syntax-comment:  light-dark(#646c8c, #8089b3);
+  --syntax-type:     light-dark(#007197, #7dcfff);
+  --syntax-variable: light-dark(#3760bf, #c0caf5);
+  --syntax-punct:    light-dark(#006a83, #89ddff);
+  --syntax-tag:      light-dark(#c81e52, #f7768e);
+
+  /* Depth */
+  --shadow-float: 0 60px 140px -60px light-dark(#0b0d1459, #000000f2);
+}
+
+:root[data-theme="paper"] {
+  color-scheme: light;
+}
+
+:root[data-theme="night"] {
+  color-scheme: dark;
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --line: var(--line-strong);
+    --paper-translucent: var(--paper);
+  }
+}

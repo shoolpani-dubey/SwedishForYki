@@ -1,0 +1,179 @@
+/*
+ * Tokyo Paper — Field: text input, textarea, select.
+ *
+ * .tp-field             Wrapper: label, hint, control, error (in that order)
+ * .tp-field__label      Always visible, above the control
+ * .tp-field__optional   "(optional)" marker inside the label
+ * .tp-field__hint       Format help, before any error; link with aria-describedby
+ * .tp-field__error      Shown after validation; link with aria-describedby
+ * .tp-input             <input> and <textarea>
+ * .tp-select            <select>
+ * .tp-fieldset          <fieldset> + <legend class="tp-field__label">
+ *
+ * Errors: set aria-invalid="true" on the control (on blur or submit, not per keystroke).
+ */
+
+.tp-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.tp-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: var(--field-max, 32rem);
+}
+
+.tp-field__label {
+  font-family: var(--font-mono);
+  font-feature-settings: "zero" 1;
+  font-variant-ligatures: none;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
+  color: var(--ink);
+}
+
+.tp-field__optional {
+  font-weight: var(--weight-regular);
+  color: var(--ink-3);
+}
+
+.tp-field__hint,
+.tp-field__error {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-ui);
+}
+
+.tp-field__hint {
+  color: var(--ink-2);
+}
+
+.tp-field__error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  color: var(--danger);
+  font-weight: var(--weight-medium);
+}
+
+.tp-field__error svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: 0.05em;
+}
+
+/* Controls */
+.tp-input,
+.tp-select {
+  --_line: var(--line-strong);
+
+  display: block;
+  width: 100%;
+  min-height: var(--control-height);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border: var(--line-width) solid var(--_line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--text-md); /* 16px also stops iOS zooming on focus */
+  line-height: var(--leading-ui);
+  transition: border-color var(--dur-instant) var(--ease-out);
+}
+
+textarea.tp-input {
+  min-height: 6rem;
+  line-height: var(--leading-body);
+  resize: vertical;
+}
+
+.tp-input::placeholder {
+  color: var(--ink-3);
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .tp-input:hover:not(:disabled, :read-only, :focus),
+  .tp-select:hover:not(:disabled, :focus) {
+    --_line: var(--ink-2);
+  }
+}
+
+.tp-input:focus,
+.tp-select:focus {
+  --_line: var(--accent);
+}
+
+/* Invalid: red line, a leading bar, and the error message (never color alone) */
+.tp-input[aria-invalid="true"],
+.tp-select[aria-invalid="true"] {
+  --_line: var(--danger);
+  box-shadow: inset 3px 0 0 var(--danger);
+}
+
+.tp-input:disabled,
+.tp-select:disabled {
+  --_line: var(--line);
+  background: var(--paper-hover);
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+.tp-input:read-only:not(:disabled) {
+  border-style: dashed;
+  background: transparent;
+}
+
+/* Select: chevron drawn with currentColor gradients, so it follows the theme */
+.tp-select {
+  appearance: none;
+  padding-inline-end: calc(var(--space-3) + 1.5rem);
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    right calc(var(--space-3) + 5px) center,
+    right var(--space-3) center;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+[data-density="compact"] :is(.tp-input, .tp-select) {
+  padding-block: var(--space-1);
+}
+
+/* Fieldset */
+.tp-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.tp-fieldset > legend {
+  padding: 0;
+  margin-bottom: var(--space-1);
+}
+
+@media (forced-colors: active) {
+  .tp-select {
+    appearance: auto;
+    background-image: none;
+    padding-inline-end: var(--space-3);
+  }
+
+  .tp-input[aria-invalid="true"],
+  .tp-select[aria-invalid="true"] {
+    border-width: 2px;
+  }
+}

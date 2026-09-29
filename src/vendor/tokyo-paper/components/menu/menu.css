@@ -1,0 +1,141 @@
+/*
+ * Tokyo Paper — Menu.
+ * A popover: opens and closes with no JavaScript, closes on Esc or outside click.
+ *
+ * <button class="tp-button" popovertarget="m" aria-haspopup="menu" style="anchor-name: --m">Options</button>
+ * <div class="tp-menu" id="m" popover role="menu" aria-label="Options" style="position-anchor: --m">
+ *   <button class="tp-menu__item" role="menuitem" tabindex="-1">Rename <kbd>F2</kbd></button>
+ *   <button class="tp-menu__item" role="menuitemcheckbox" aria-checked="true" tabindex="-1">Show hidden files</button>
+ *   <hr class="tp-menu__separator">
+ *   <button class="tp-menu__item tp-menu__item--danger" role="menuitem" tabindex="-1">Delete…</button>
+ * </div>
+ *
+ * Positioning: with CSS anchor positioning the menu sits under its trigger and
+ * flips to stay on screen. Browsers without it show the menu centered.
+ * Behavior (owned by the app, see demo/behavior.js): focus the first item on
+ * open; Arrow Up/Down, Home/End and typeahead move between items; Tab closes;
+ * focus returns to the trigger.
+ */
+
+.tp-menu {
+  min-width: 14rem;
+  max-width: min(22rem, calc(100vw - 2 * var(--gutter)));
+  margin: auto;
+  padding: var(--space-1);
+  border: var(--line-width) solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--paper-float);
+  color: var(--ink);
+  box-shadow: var(--shadow-float);
+}
+
+.tp-menu:popover-open {
+  display: flex;
+  flex-direction: column;
+  animation: tp-menu-in var(--dur-base) var(--ease-out);
+}
+
+@supports (position-area: bottom) {
+  .tp-menu {
+    inset: auto;
+    margin: var(--space-1) 0;
+    position-area: bottom span-right;
+    position-try-fallbacks: flip-block, flip-inline;
+  }
+}
+
+.tp-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: var(--control-height);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--text-md);
+  line-height: var(--leading-ui);
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tp-menu__item:hover,
+.tp-menu__item:focus-visible {
+  background: var(--paper-hover);
+}
+
+.tp-menu__item:focus-visible {
+  outline-offset: calc(-1 * var(--focus-width));
+}
+
+.tp-menu__item svg {
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  color: var(--ink-2);
+}
+
+.tp-menu__item kbd {
+  margin-inline-start: auto;
+  color: var(--ink-2);
+}
+
+/* Check slot for checkbox and radio items */
+.tp-menu__item:is([role="menuitemcheckbox"], [role="menuitemradio"])::before {
+  content: "";
+  flex: none;
+  width: 1em;
+  height: 1em;
+}
+
+.tp-menu__item[aria-checked="true"]::before {
+  background: var(--accent);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.tp-menu__item--danger,
+.tp-menu__item--danger svg {
+  color: var(--danger);
+}
+
+.tp-menu__item:is(:disabled, [aria-disabled="true"]) {
+  background: transparent;
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+.tp-menu__separator {
+  height: var(--line-width);
+  margin: var(--space-1) calc(-1 * var(--space-1));
+  border: 0;
+  background: var(--line);
+}
+
+.tp-menu__label {
+  margin: 0;
+  padding: var(--space-2) var(--space-3) var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+@keyframes tp-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (forced-colors: active) {
+  .tp-menu__item[aria-checked="true"]::before {
+    forced-color-adjust: none;
+    background: CanvasText;
+  }
+}

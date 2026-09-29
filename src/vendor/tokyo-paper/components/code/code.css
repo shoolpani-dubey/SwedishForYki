@@ -1,0 +1,88 @@
+/*
+ * Tokyo Paper — Code block.
+ *
+ * <figure class="tp-code">
+ *   <figcaption class="tp-code__header">
+ *     <span class="tp-code__title">app.js</span>
+ *     <button class="tp-button tp-button--quiet tp-code__copy" type="button">Copy</button>
+ *   </figcaption>
+ *   <pre class="tp-code__body" tabindex="0"><code>…</code></pre>
+ * </figure>
+ *
+ * Syntax colors come from Tokyo Night (Night) and Tokyo Night Day (Paper),
+ * all at 4.5:1 or more. Use the tp-syntax-* classes, or Prism / highlight.js
+ * output, which is mapped below.
+ * Long lines scroll sideways (the <pre> is focusable so keyboards can scroll);
+ * add .tp-code--wrap to wrap them instead.
+ * Copy behavior is the app's: change the button label to "Copied" briefly.
+ */
+
+.tp-code {
+  margin: 0;
+  border: var(--line-width) solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+}
+
+.tp-code__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--control-height);
+  padding-inline: var(--space-4) var(--space-1);
+  border-bottom: var(--line-width) solid var(--line);
+}
+
+.tp-code__title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+}
+
+.tp-code__copy {
+  --control-height: var(--target-compact);
+  font-size: var(--text-xs);
+}
+
+.tp-code__body {
+  margin: 0;
+  padding: var(--space-4);
+  overflow-x: auto;
+  color: var(--syntax-variable);
+  font-family: var(--font-mono);
+  font-feature-settings: "zero" 1;
+  font-variant-ligatures: none;
+  font-size: var(--text-sm);
+  line-height: var(--leading-body);
+  tab-size: 2;
+}
+
+.tp-code__body:focus-visible {
+  outline-offset: calc(-1 * var(--focus-width));
+}
+
+.tp-code--wrap .tp-code__body {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Syntax tokens: Tokyo Paper classes, Prism and highlight.js */
+.tp-syntax-keyword,  .token.keyword,  .token.important, .hljs-keyword, .hljs-built_in, .hljs-selector-tag { color: var(--syntax-keyword); }
+.tp-syntax-string,   .token.string,   .token.char, .token.attr-value, .hljs-string, .hljs-attr-value, .hljs-regexp { color: var(--syntax-string); }
+.tp-syntax-number,   .token.number,   .token.boolean, .token.constant, .hljs-number, .hljs-literal { color: var(--syntax-number); }
+.tp-syntax-function, .token.function, .hljs-title.function_, .hljs-function .hljs-title { color: var(--syntax-function); }
+.tp-syntax-type,     .token.class-name, .token.builtin, .hljs-type, .hljs-title.class_ { color: var(--syntax-type); }
+.tp-syntax-punct,    .token.punctuation, .token.operator { color: var(--syntax-punct); }
+.tp-syntax-tag,      .token.tag, .token.selector, .hljs-tag, .hljs-name, .hljs-selector-class { color: var(--syntax-tag); }
+.tp-syntax-variable, .token.variable, .token.property, .hljs-variable, .hljs-attr, .hljs-property { color: var(--syntax-variable); }
+
+.tp-syntax-comment, .token.comment, .token.prolog, .hljs-comment {
+  color: var(--syntax-comment);
+  font-style: italic;
+}
+
+/* Diff lines */
+.tp-syntax-added,   .token.inserted, .hljs-addition { color: var(--success); }
+.tp-syntax-removed, .token.deleted,  .hljs-deletion { color: var(--danger); }

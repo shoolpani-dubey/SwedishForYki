@@ -1,0 +1,197 @@
+/*
+ * Tokyo Paper — Navigation: top bar and skip link.
+ *
+ * <a class="tp-button tp-button--primary tp-skip-link" href="#main">Skip to content</a>
+ * <header class="tp-nav">
+ *   <div class="tp-nav__inner">
+ *     <a class="tp-nav__brand" href="/"><span class="tp-nav__mark" aria-hidden="true"></span>Brand</a>
+ *     <nav class="tp-nav__menu" id="nav-menu" popover aria-label="Main">
+ *       <ul class="tp-nav__list">
+ *         <li><a class="tp-nav__link" href="/" aria-current="page">Home</a></li>
+ *         …
+ *       </ul>
+ *     </nav>
+ *     <div class="tp-nav__actions">…icon buttons…</div>
+ *     <button class="tp-button tp-button--quiet tp-nav__toggle" popovertarget="nav-menu">Menu</button>
+ *   </div>
+ * </header>
+ *
+ * One list serves both layouts: inline links from 900px, and below that a
+ * popover sheet opened by the "Menu" button (no JavaScript needed).
+ * Nav links are not underlined: their place in the bar marks them as links.
+ * The current page is marked with aria-current="page" and an accent bar.
+ */
+
+.tp-skip-link {
+  position: fixed;
+  z-index: calc(var(--z-toast) + 1);
+  top: var(--space-2);
+  left: var(--gutter);
+  transform: translateY(calc(-100% - var(--space-4)));
+}
+
+.tp-skip-link:focus {
+  transform: none;
+}
+
+/* The skip-link target takes focus without showing a ring around the whole page */
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.tp-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  border-bottom: var(--line-width) solid var(--line);
+  background: var(--paper-translucent);
+  -webkit-backdrop-filter: saturate(1.2) blur(12px);
+  backdrop-filter: saturate(1.2) blur(12px);
+}
+
+.tp-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: var(--container-max);
+  height: var(--nav-height);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.tp-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--control-height);
+  margin-inline-end: auto;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: var(--weight-heavy);
+  letter-spacing: var(--tracking-heading);
+  text-decoration: none;
+}
+
+.tp-nav__brand:hover {
+  color: var(--ink);
+}
+
+/* Block-cursor mark in the accent color */
+.tp-nav__mark {
+  width: 0.55em;
+  height: 1em;
+  background: var(--accent);
+}
+
+.tp-nav__list {
+  display: flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tp-nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--control-height);
+  padding: 0 var(--space-3);
+  color: var(--ink-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  transition:
+    color var(--dur-instant) var(--ease-out),
+    background-color var(--dur-instant) var(--ease-out);
+}
+
+.tp-nav__link:hover {
+  color: var(--ink);
+  background: var(--paper-hover);
+}
+
+.tp-nav__link[aria-current="page"] {
+  color: var(--ink);
+}
+
+.tp-nav__link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  inset-inline: var(--space-3);
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.tp-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+/* Wide screens: the popover menu is shown inline */
+@media (width >= 900px) {
+  .tp-nav__menu {
+    display: block;
+    position: static;
+    inset: auto;
+    width: auto;
+    height: auto;
+    margin: 0 var(--space-2) 0 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    overflow: visible;
+  }
+
+  .tp-nav__toggle {
+    display: none;
+  }
+}
+
+/* Narrow screens: the menu is a full-height sheet from the right */
+@media (width < 900px) {
+  .tp-nav__menu {
+    inset: var(--nav-height) 0 0 auto;
+    width: min(22rem, 100vw);
+    height: auto;
+    margin: 0;
+    padding: var(--space-4) var(--gutter);
+    border: 0;
+    border-inline-start: var(--line-width) solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    overflow-y: auto;
+  }
+
+  .tp-nav__menu::backdrop {
+    background: var(--backdrop);
+  }
+
+  .tp-nav__menu .tp-nav__list {
+    flex-direction: column;
+  }
+
+  .tp-nav__menu .tp-nav__link {
+    min-height: 3rem;
+    font-size: var(--text-md);
+  }
+
+  .tp-nav__menu .tp-nav__link[aria-current="page"]::after {
+    inset: 0 auto 0 0;
+    width: 2px;
+    height: auto;
+  }
+}
+
+@media (forced-colors: active) {
+  .tp-nav__mark,
+  .tp-nav__link[aria-current="page"]::after {
+    forced-color-adjust: none;
+    background: Highlight;
+  }
+}

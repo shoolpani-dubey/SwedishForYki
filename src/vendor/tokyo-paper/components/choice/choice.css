@@ -1,0 +1,135 @@
+/*
+ * Tokyo Paper — Choice: checkbox and radio.
+ *
+ * <div class="tp-choice">
+ *   <input class="tp-checkbox" type="checkbox" id="x" aria-describedby="x-hint">
+ *   <label class="tp-choice__label" for="x">Label</label>
+ *   <p class="tp-choice__hint" id="x-hint">Optional description</p>
+ * </div>
+ *
+ * The whole row is the target (at least 44px high). Checked controls use the
+ * accent fill plus a shape (check, dot, dash), never color alone.
+ * Also used by switch.css.
+ */
+
+.tp-choice {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--space-3);
+  align-items: center;
+}
+
+.tp-choice__label {
+  display: flex;
+  align-items: center;
+  min-height: var(--control-height);
+  color: var(--ink);
+  line-height: var(--leading-ui);
+  cursor: pointer;
+}
+
+.tp-choice__hint {
+  grid-column: 2;
+  margin: calc(-1 * var(--space-2)) 0 var(--space-2);
+  font-size: var(--text-sm);
+  line-height: var(--leading-ui);
+  color: var(--ink-2);
+}
+
+.tp-choice:has(:disabled) .tp-choice__label {
+  color: var(--ink-3);
+  cursor: not-allowed;
+}
+
+/* Box */
+.tp-checkbox,
+.tp-radio {
+  --_bg: var(--paper-raised);
+  --_line: var(--line-strong);
+
+  appearance: none;
+  display: inline-grid;
+  place-content: center;
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  border: 2px solid var(--_line); /* 2px: small controls need a heavier edge */
+  border-radius: var(--radius);
+  background: var(--_bg);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-instant) var(--ease-out),
+    border-color var(--dur-instant) var(--ease-out);
+}
+
+.tp-radio {
+  border-radius: var(--radius-round); /* kept round: familiar shape */
+}
+
+/* Mark */
+.tp-checkbox::before,
+.tp-radio::before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  background: var(--on-accent);
+  transform: scale(0);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.tp-checkbox::before {
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.tp-checkbox:indeterminate::before {
+  clip-path: inset(40% 0);
+}
+
+.tp-radio::before {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-round);
+}
+
+@media (hover: hover) {
+  .tp-choice:hover :is(.tp-checkbox, .tp-radio):not(:disabled, :checked, :indeterminate) {
+    --_line: var(--accent);
+  }
+}
+
+.tp-checkbox:is(:checked, :indeterminate),
+.tp-radio:checked {
+  --_bg: var(--accent-fill);
+  --_line: var(--accent-fill-line);
+}
+
+.tp-checkbox:is(:checked, :indeterminate)::before,
+.tp-radio:checked::before {
+  transform: scale(1);
+}
+
+.tp-checkbox[aria-invalid="true"],
+.tp-radio[aria-invalid="true"] {
+  --_line: var(--danger);
+}
+
+.tp-checkbox:disabled,
+.tp-radio:disabled {
+  --_bg: var(--paper-hover);
+  --_line: var(--line);
+  cursor: not-allowed;
+}
+
+.tp-checkbox:disabled::before,
+.tp-radio:disabled::before {
+  background: var(--ink-3);
+}
+
+/* Windows High Contrast: fall back to native controls */
+@media (forced-colors: active) {
+  .tp-checkbox,
+  .tp-radio {
+    appearance: auto;
+  }
+}

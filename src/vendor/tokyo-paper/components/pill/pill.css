@@ -1,0 +1,48 @@
+/*
+ * Tokyo Paper — Pill (tag).
+ *
+ * <span class="tp-pill tp-pill--success"><span class="tp-pill__dot" aria-hidden="true"></span>Online</span>
+ *
+ * Tones (--info, --success, --warning, --danger) only color the dot:
+ * the text always says the status.
+ */
+
+.tp-pill {
+  --_dot: var(--accent);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 1.75rem;
+  padding: 0 var(--space-2);
+  border: var(--line-width) solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-feature-settings: "zero" 1;
+  font-variant-ligatures: none;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tp-pill__dot {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-round);
+  background: var(--_dot);
+}
+
+.tp-pill--info    { --_dot: var(--info); }
+.tp-pill--success { --_dot: var(--success); }
+.tp-pill--warning { --_dot: var(--warning); }
+.tp-pill--danger  { --_dot: var(--danger); }
+
+@media (forced-colors: active) {
+  .tp-pill__dot {
+    background: CanvasText;
+  }
+}

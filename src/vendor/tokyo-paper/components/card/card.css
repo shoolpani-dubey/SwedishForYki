@@ -1,0 +1,90 @@
+/*
+ * Tokyo Paper — Card.
+ *
+ * <article class="tp-card">
+ *   <p class="tp-eyebrow">Guide</p>
+ *   <h3 class="tp-card__title"><a class="tp-card__link" href="…">Title</a></h3>
+ *   <p class="tp-card__body">Description</p>
+ * </article>
+ *
+ * A .tp-card__link makes the whole card clickable (its ::after covers the card),
+ * while the link text stays the accessible name. Keep other controls out of
+ * clickable cards.
+ */
+
+.tp-card {
+  --_line: var(--line);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: var(--line-width) solid var(--_line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  color: var(--ink);
+  transition:
+    border-color var(--dur-instant) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.tp-card > * {
+  margin: 0;
+}
+
+.tp-card__title {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-heading);
+}
+
+.tp-card__body {
+  color: var(--ink-2);
+}
+
+.tp-card__body > :last-child {
+  margin-bottom: 0;
+}
+
+.tp-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+/* Clickable card */
+.tp-card:has(.tp-card__link) {
+  --_line: var(--line-strong);
+}
+
+.tp-card__link {
+  text-decoration-line: underline;
+}
+
+.tp-card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.tp-card__link:focus-visible {
+  outline: none;
+}
+
+.tp-card:has(.tp-card__link:focus-visible) {
+  outline: var(--focus-width) solid var(--accent);
+  outline-offset: var(--focus-offset);
+}
+
+@media (hover: hover) {
+  .tp-card:has(.tp-card__link):hover {
+    --_line: var(--accent);
+    transform: translateY(-1px);
+  }
+}

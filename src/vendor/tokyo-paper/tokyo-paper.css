@@ -1,0 +1,27 @@
+/*
+ * Tokyo Paper Design System — entry point.
+ * Everything sits in the tokyo-paper layer, so app styles (unlayered)
+ * override it without !important.
+ */
+
+@layer tokyo-paper.tokens, tokyo-paper.theme, tokyo-paper.base, tokyo-paper.components;
+
+@import url("tokens.css") layer(tokyo-paper.tokens);
+@import url("theme.css") layer(tokyo-paper.theme);
+@import url("base.css") layer(tokyo-paper.base);
+@import url("components/button/button.css") layer(tokyo-paper.components);
+@import url("components/field/field.css") layer(tokyo-paper.components);
+@import url("components/choice/choice.css") layer(tokyo-paper.components);
+@import url("components/switch/switch.css") layer(tokyo-paper.components);
+@import url("components/card/card.css") layer(tokyo-paper.components);
+@import url("components/pill/pill.css") layer(tokyo-paper.components);
+@import url("components/stat/stat.css") layer(tokyo-paper.components);
+@import url("components/alert/alert.css") layer(tokyo-paper.components);
+@import url("components/toast/toast.css") layer(tokyo-paper.components);
+@import url("components/dialog/dialog.css") layer(tokyo-paper.components);
+@import url("components/menu/menu.css") layer(tokyo-paper.components);
+@import url("components/tabs/tabs.css") layer(tokyo-paper.components);
+@import url("components/nav/nav.css") layer(tokyo-paper.components);
+@import url("components/table/table.css") layer(tokyo-paper.components);
+@import url("components/code/code.css") layer(tokyo-paper.components);
+@import url("components/empty-state/empty-state.css") layer(tokyo-paper.components);

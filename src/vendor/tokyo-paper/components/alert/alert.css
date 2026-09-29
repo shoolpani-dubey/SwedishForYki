@@ -1,0 +1,96 @@
+/*
+ * Tokyo Paper — Alert (inline message) and banner.
+ *
+ * <div class="tp-alert tp-alert--warning">
+ *   <svg class="tp-alert__icon" aria-hidden="true">…</svg>
+ *   <div class="tp-alert__content">
+ *     <p class="tp-alert__title">Title</p>
+ *     <p class="tp-alert__body">What happened and what to do.</p>
+ *     <div class="tp-alert__actions">…buttons…</div>
+ *   </div>
+ *   <button class="tp-button tp-button--quiet tp-button--icon tp-alert__dismiss" aria-label="Dismiss">…</button>
+ * </div>
+ *
+ * Tones: --info (default), --success, --warning, --danger. Each has its own
+ * icon; color is never the only signal.
+ * Add role="alert" only when an urgent message is inserted after page load;
+ * use role="status" for non-urgent ones. Static alerts need no role.
+ * .tp-alert--banner spans its container, for page- or app-wide status.
+ */
+
+.tp-alert {
+  --_tone: var(--info);
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--line-width) solid var(--line-strong);
+  border-inline-start: 3px solid var(--_tone);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--_tone) 7%, var(--paper-raised));
+  color: var(--ink);
+}
+
+.tp-alert--success { --_tone: var(--success); }
+.tp-alert--warning { --_tone: var(--warning); }
+.tp-alert--danger  { --_tone: var(--danger); }
+
+.tp-alert__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15em;
+  color: var(--_tone);
+}
+
+.tp-alert__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.tp-alert__content > * {
+  margin: 0;
+}
+
+.tp-alert__title {
+  font-family: var(--font-mono);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-ui);
+}
+
+.tp-alert__body {
+  color: var(--ink-2);
+  line-height: var(--leading-ui);
+}
+
+.tp-alert__body > :last-child {
+  margin-bottom: 0;
+}
+
+.tp-alert__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* Pull the dismiss button into the padding so it lines up with the title */
+.tp-alert__dismiss {
+  margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-2)) 0 0;
+}
+
+/* Banner: full width, rules top and bottom only */
+.tp-alert--banner {
+  border-inline-end: 0;
+  border-block-start: 0;
+  padding-inline: var(--gutter);
+}
+
+@media (forced-colors: active) {
+  .tp-alert {
+    border-inline-start-color: CanvasText;
+  }
+}

@@ -1,0 +1,97 @@
+/*
+ * Tokyo Paper — scale tokens.
+ * Type, space, shape, size and motion. Colors live in theme.css.
+ * Sizes use rem so they follow the user's font-size setting.
+ */
+
+:root {
+  /* Type families */
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  --font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+
+  /* Type scale. Fluid sizes mix rem + vw so they still grow with browser zoom. */
+  --text-xs: 0.875rem;   /* 14px, the floor for readable text */
+  --text-sm: 0.9375rem;  /* 15px */
+  --text-md: 1rem;       /* 16px, body */
+  --text-lg: 1.25rem;    /* 20px */
+  --text-xl: 1.5rem;     /* 24px */
+  --text-2xl: clamp(1.75rem, 1.2rem + 2.2vw, 2.625rem);
+  --text-display: clamp(2.625rem, 1.5rem + 5vw, 5.75rem);
+  --text-stat: clamp(1.75rem, 1.2rem + 2vw, 2.875rem);
+
+  --leading-display: 0.98;
+  --leading-heading: 1.1;
+  --leading-snug: 1.25;
+  --leading-ui: 1.5;
+  --leading-body: 1.6;
+
+  --tracking-display: -0.04em;
+  --tracking-heading: -0.02em;
+  --tracking-label: 0.12em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-heavy: 800;
+
+  /* Space: 4px base grid */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.5rem;   /* 24px */
+  --space-6: 2rem;     /* 32px */
+  --space-7: 3rem;     /* 48px */
+  --space-8: 4rem;     /* 64px */
+  --space-9: 6rem;     /* 96px */
+
+  /* Shape */
+  --radius: 0;
+  --radius-sm: 2px;
+  --radius-round: 50%;
+  --line-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 2px;
+
+  /* Size */
+  --target-min: 2.75rem;     /* 44px */
+  --target-compact: 2rem;    /* 32px, desktop compact density only */
+  --control-height: var(--target-min);
+  --container-max: 82.5rem;  /* 1320px */
+  --gutter: var(--space-5);
+  --nav-height: 4rem;        /* 64px */
+  --measure: 68ch;
+
+  /* Motion */
+  --dur-instant: 100ms;
+  --dur-fast: 150ms;
+  --dur-base: 200ms;
+  --dur-slow: 400ms;
+  --dur-spin: 800ms;  /* one spinner turn */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+
+  /* Stacking */
+  --z-nav: 100;
+  --z-float: 200;
+  --z-dialog: 300;
+  --z-toast: 400;
+}
+
+@media (width < 640px) {
+  :root {
+    --gutter: var(--space-4);
+  }
+}
+
+/* Compact density: desktop only. Coarse pointers keep full-size targets. */
+[data-density="compact"] {
+  --control-height: var(--target-compact);
+}
+
+@media (pointer: coarse) {
+  [data-density="compact"] {
+    --control-height: var(--target-min);
+  }
+}
