@@ -1,0 +1,111 @@
+================================================================================
+YKI SVENSKA — MELLANNIVÅ (B1) — SJU ÄMNEN
+YKI SWEDISH — INTERMEDIATE LEVEL (B1) — SEVEN TOPICS
+================================================================================
+
+Källa / Source:
+  books/e-kirja-Förbered-dig-för-allmän-språkexamen.pdf (Gimara Oy, 2022)
+  books/Textbook_YKI-Preparation-for-Beginners_A0-A2-Swedish (1).pdf
+  (den senare är redan översatt i ../a1-a2.txt)
+  (the latter is already translated in ../a1-a2.txt)
+
+Varje fil är tvåspråkig: svensk rad, engelsk rad under.
+Every file is bilingual: Swedish line, English line underneath.
+
+
+FILERNA / THE FILES
+--------------------------------------------------------------------------------
+1-manniskan-och-omgivningen.txt   Människan och omgivningen
+                                  The person and their surroundings
+                                  familj, relationer, fester, bostad,
+                                  problem i hemmet, disponenten
+
+2-vardagsliv.txt                  Vardagsliv
+                                  Everyday life
+                                  att handla, vägbeskrivning, trafik,
+                                  rutiner, restaurang, frisör, reklamation
+
+3-natur-och-miljo.txt             Natur och miljö
+                                  Nature and the environment
+                                  finsk natur, årstider, sopsortering,
+                                  återvinning, klimat, naturkatastrofer
+
+4-halsa-och-valmaende.txt         Hälsa och välmående
+                                  Health and well-being
+                                  kroppen, sjukdomar, apotek, nödsamtal 112,
+                                  psykisk hälsa, hälsovården i Finland
+
+5-arbete-och-utbildning.txt       Arbete och utbildning
+                                  Work and education
+                                  arbetsplatsen, sjukanmälan, möten, lön,
+                                  skolsystem, AI och robotar
+
+6-fritid-och-hobbyer.txt          Fritid och hobbyer
+                                  Free time and hobbies
+                                  bibliotek, motion, resa, hotell, tåg,
+                                  teater, kursanmälan, sociala medier
+                                  (bokens största kapitel — börja här om du
+                                  har ont om tid)
+
+7-samhalle.txt                    Samhälle
+                                  Society
+                                  Migri, FPA, polisen, skatt, försäkring,
+                                  medborgarskap, jämlikhet
+
+
+SÅ ÄR VARJE FIL UPPBYGGD / HOW EACH FILE IS BUILT
+--------------------------------------------------------------------------------
+DEL A   Ordförråd — vocabulary, grouped by theme
+DEL B   Uppvärmning — the book's warm-up questions, with model answers
+DEL C   Dialoger — the book's dialogues, with YOUR lines written out
+DEL D   Reagera — short reaction situations, with model answers
+DEL E   Berätta — longer monologues (2–3 min), with model talks
+DEL F   Din åsikt — opinion tasks, with model opinions
+DEL G   Att skriva — writing tasks, with full model texts
+DEL H   Snabbrepetition — 15 sentences to know by heart
+
+[NOTIS]-rutor genom hela filerna förklarar HUR man gör uppgiften på provet,
+inte bara vad man säger.
+[NOTE] boxes throughout the files explain HOW to do the task in the exam, not
+just what to say.
+
+
+DE TRE STRUKTURERNA SOM ÅTERKOMMER I ALLA ÄMNEN
+THE THREE STRUCTURES THAT RECUR IN EVERY TOPIC
+--------------------------------------------------------------------------------
+
+1. ATT TACKA NEJ ARTIGT / DECLINING POLITELY
+   (1) tacka — thank
+   (2) "tyvärr" + konkret orsak — "unfortunately" + a concrete reason
+   (3) föreslå ett alternativ — suggest an alternative
+
+2. ATT KLAGA ARTIGT / COMPLAINING POLITELY
+   (1) "Ursäkta, men jag måste säga att..." — soft opening
+   (2) konkret problem — the concrete problem
+   (3) "Skulle jag kunna få...?" — a concrete wish
+
+3. ATT GE EN ÅSIKT / GIVING AN OPINION
+   (1) "Jag tycker att... / Enligt min åsikt..."
+   (2) "För det första... eftersom..."
+   (3) "För det andra... dessutom..."
+   (4) "Å andra sidan... / Visst kan man säga att..."
+   (5) "Sammanfattningsvis tycker jag alltså att..."
+
+Kan du de tre strukturerna kan du lösa nästan varje muntlig uppgift på YKI.
+If you know those three structures you can solve almost every oral task in YKI.
+
+
+LIVLINAN / THE LIFELINE
+--------------------------------------------------------------------------------
+Ursäkta, jag hörde inte riktigt. Kan du upprepa det?
+Excuse me, I didn't quite hear. Could you repeat that?
+
+Kan du säga det lite långsammare, tack?
+Could you say that a bit more slowly, please?
+
+Hur menar du?
+What do you mean?
+
+Tystnad ger noll poäng. En fråga ger poäng.
+Silence gives zero points. A question gives points.
+================================================================================

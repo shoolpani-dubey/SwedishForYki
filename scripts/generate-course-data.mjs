@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import legacyEnhancements from '../src/data/courseEnhancements.js';
+import { parseTopics } from './parse-topics.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outputPath = path.resolve(__dirname, '../src/data/swedishYkiCourse.json');
@@ -3157,54 +3158,6 @@ const allLevelSpecs = [
   { id: 'B1', specs: b1Lessons },
 ];
 
-function makeTableFromVocab(vocabulary) {
-  return vocabulary.map((item) => ({
-    Swedish: item.swedish,
-    English: item.english,
-    'Example Swedish': item.exampleSwedish,
-    'Example English': item.exampleEnglish,
-  }));
-}
-
-function makeExercises(vocabulary, examTask) {
-  const items = vocabulary.slice(0, 4);
-
-  return [
-    {
-      prompt: 'Translate these into English',
-      items: items.map((item) => item.swedish),
-      answers: items.map((item) => item.english),
-    },
-    {
-      prompt: 'Translate these into Swedish',
-      items: items.map((item) => item.english),
-      answers: items.map((item) => item.swedish),
-    },
-    {
-      prompt: 'Exam-style micro task',
-      items: [examTask],
-      answers: ['Model answer varies. Focus on clarity, useful vocabulary, and full sentences.'],
-    },
-  ];
-}
-
-function buildSkillCycle(spec) {
-  return [
-    `Reading: skim a short text about ${spec.title.toLowerCase()} and underline the main point before checking details.`,
-    `Listening: listen for one key fact, one reason, and one action connected to ${spec.title.toLowerCase()}.`,
-    `Speaking: answer aloud for 45-90 seconds using at least three lesson words and one connector.`,
-    `Writing: produce 50-120 words, depending on level, and leave one minute for self-correction.`,
-  ];
-}
-
-function buildSelfCheck(spec) {
-  return [
-    `Can I speak about ${spec.title.toLowerCase()} without translating every sentence from English?`,
-    'Can I use at least three of today’s words in a new sentence?',
-    'Can I identify one grammar pattern from the lesson and use it correctly once?',
-  ];
-}
-
 function makeLesson({ day, levelId, spec }) {
   const legacyLesson = legacyBaseLessonsByDay.get(day) ?? null;
   const legacyResources = [
@@ -3218,62 +3171,32 @@ function makeLesson({ day, levelId, spec }) {
     ...legacyResources.map((resource) => resource.vocabulary ?? []),
   );
 
+  // A day is what you study: words, short grammar tips, dialogues and the
+  // reference tables from the original course (alphabet, numbers, countries…).
+  const companionSections = legacyLesson?.sections ?? [];
+  const companionDialogue = companionSections.find((section) => section.dialogue);
+  const companionTips = companionSections
+    .filter((section) => section.heading === 'Grammar note')
+    .flatMap((section) => section.content ?? []);
+
   return {
     day,
     level: levelId,
     title: spec.title,
-    phase: levelMeta[levelId].title,
-    durationMinutes: spec.durationMinutes,
     goal: spec.goal,
-    ykiSkills: spec.ykiSkills,
-    sections: [
-      {
-        heading: 'Lesson focus',
-        content: [spec.focus],
-      },
-      {
-        heading: 'Can-do targets',
-        list: spec.canDo,
-      },
-      {
-        heading: 'Core phrases',
-        table: makeTableFromVocab(spec.vocabulary),
-      },
-      {
-        heading: 'Grammar note',
-        content: [spec.grammarNote],
-      },
-      {
-        heading: 'Mini-dialogue',
-        dialogue: spec.dialogue,
-      },
-      {
-        heading: 'YKI skill cycle',
-        list: buildSkillCycle(spec),
-      },
-      {
-        heading: 'Speaking and writing practice',
-        list: spec.practice,
-      },
-      {
-        heading: 'Self-check',
-        list: buildSelfCheck(spec),
-      },
-    ],
     vocabulary: mergedVocabulary,
-    exercises: makeExercises(spec.vocabulary, spec.examTask),
-    examTask: spec.examTask,
-    legacyCompanion: legacyLesson
-      ? {
-          sourceLabel: 'Original 60-day course',
-          title: legacyLesson.title,
-          phase: legacyLesson.phase,
-          goal: legacyLesson.goal,
-          sections: legacyLesson.sections,
-          exercises: legacyLesson.exercises,
-        }
-      : null,
-    legacyResources,
+    tips: [spec.grammarNote, ...companionTips].filter(
+      (tip, index, tips) => tip && tips.indexOf(tip) === index,
+    ),
+    dialogues: [
+      { title: spec.title, lines: spec.dialogue },
+      ...(companionDialogue && legacyLesson.title !== spec.title
+        ? [{ title: legacyLesson.title, lines: companionDialogue.dialogue }]
+        : []),
+    ],
+    tables: companionSections
+      .filter((section) => section.table && section.heading !== 'Core phrases')
+      .map((section) => ({ heading: section.heading, rows: section.table })),
   };
 }
 
@@ -3297,7 +3220,7 @@ allLevelSpecs.forEach(({ id, specs }) => {
     startDay,
     endDay,
     lessonCount: levelLessons.length,
-    lessons: levelLessons,
+    lessons: levelLessons.map((lesson) => ({ day: lesson.day, title: lesson.title })),
   });
 
   lessons.push(...levelLessons);
@@ -3542,98 +3465,88 @@ const grammarTopics = [...ykiGrammarTopics, ...legacyGrammarTopics].reduce((topi
   return topics;
 }, []);
 
-function formatDate(date) {
-  return new Intl.DateTimeFormat('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-    timeZone: 'UTC',
-  }).format(date);
+const topics = parseTopics(path.resolve(__dirname, '../src/data/topics'));
+
+// The topic files are B1 vocabulary, so each word group joins the B1 day on
+// the closest subject. Every group must be placed exactly once.
+const topicWordDays = {
+  'samhalle-uppehallstillstand-och-medborgarskap': 52,
+  'manniskan-och-omgivningen-biografi-viktiga-verb': 53,
+  'manniskan-och-omgivningen-familj-och-relationer': 53,
+  'halsa-och-valmaende-sjukdomar-och-symtom': 54,
+  'arbete-och-utbildning-arbetsplatsen': 55,
+  'samhalle-myndigheter-i-finland': 56,
+  'manniskan-och-omgivningen-bostad-och-problem-i-hemmet': 57,
+  'samhalle-skatt-forsakring-och-social-trygghet': 58,
+  'fritid-och-hobbyer-nat-medier-och-underhallning': 59,
+  'natur-och-miljo-atervinning-och-sopsortering': 60,
+  'fritid-och-hobbyer-konst-och-kultur': 61,
+  'manniskan-och-omgivningen-fest-och-firande': 61,
+  'vardagsliv-rutiner-och-tid': 62,
+  'natur-och-miljo-naturkatastrofer': 63,
+  'arbete-och-utbildning-tre-uttryck-som-boken-ber-dig-anvanda': 64,
+  'arbete-och-utbildning-utbildning-och-presentation': 64,
+  'fritid-och-hobbyer-resa-och-semester': 65,
+  'halsa-och-valmaende-vard-och-medicin': 66,
+  'vardagsliv-att-handla': 67,
+  'fritid-och-hobbyer-bibliotek-och-litteratur': 69,
+  'vardagsliv-vagbeskrivning-och-trafik': 70,
+  'manniskan-och-omgivningen-f-uttryck': 71,
+  'vardagsliv-restaurang-och-kafe': 74,
+  'vardagsliv-frisor-och-utseende': 74,
+  'fritid-och-hobbyer-motion-och-idrott': 75,
+  'halsa-och-valmaende-valmaende-och-kanslor': 76,
+  'natur-och-miljo-arstider-och-vader': 80,
+  'halsa-och-valmaende-kroppen': 80,
+  'natur-och-miljo-naturen-i-finland': 81,
+};
+
+const groupIds = topics.flatMap((topic) => topic.wordGroups.map((group) => group.id));
+const unplaced = groupIds.filter((id) => !(id in topicWordDays));
+const unknown = Object.keys(topicWordDays).filter((id) => !groupIds.includes(id));
+if (unplaced.length || unknown.length) {
+  throw new Error(
+    `Topic word groups and topicWordDays disagree.\nNot placed on a day: ${unplaced.join(', ') || '-'}\nNo such group: ${unknown.join(', ') || '-'}`,
+  );
 }
 
-const studyPlanFocus = [
-  'A1 pronunciation, greetings, numbers, home, and daily routines.',
-  'A1 food, shopping, transport, town navigation, and weather.',
-  'A1 health, work/study, hobbies, dates, chores, and simple past.',
-  'A1 future, short messaging, and first consolidation mock.',
-  'A2 description, comparison, housing, moving, and healthcare service language.',
-  'A2 feelings, work tasks, jobs, learning plans, digital problems, and money.',
-  'A2 public services, family logistics, travel, leisure, and emergencies.',
-  'A2 narration, perfect tense, future intentions, and connectors.',
-  'A2 reading notices, email writing, rules, environment, news, and B1 bridge.',
-  'B1 society, personal journey, wellbeing, work culture, and official communication.',
-  'B1 housing conflict, finances, media, environment, culture, and project planning.',
-  'B1 narration, justification, comparison, formal phone calls, and formal emails.',
-  'B1 statistics, longer reading, listening strategy, discussion, disagreement, and hypotheticals.',
-  'B1 mock practice, final consolidation, and late-August readiness.',
-];
-
-const studyPlan = [];
-const roadmapStart = new Date('2026-05-25T00:00:00Z');
-
-for (let week = 1; week <= 14; week += 1) {
-  const weekStart = new Date(roadmapStart);
-  weekStart.setUTCDate(roadmapStart.getUTCDate() + (week - 1) * 7);
-  const weekEnd = new Date(weekStart);
-  weekEnd.setUTCDate(weekStart.getUTCDate() + 6);
-
-  const lessonStart = (week - 1) * 6 + 1;
-  const lessonEnd = Math.min(week * 6, lessons.length);
-  const overlappingLevels = levels
-    .filter((level) => lessonStart <= level.endDay && lessonEnd >= level.startDay)
-    .map((level) => level.id);
-  const levelLabel = overlappingLevels.join('/');
-
-  studyPlan.push({
-    week,
-    level: levelLabel,
-    startDate: formatDate(weekStart),
-    endDate: formatDate(weekEnd),
-    lessonRange: `Days ${lessonStart}-${lessonEnd}`,
-    focus: studyPlanFocus[week - 1],
-    checkpoint:
-      week === 4
-        ? 'Checkpoint: complete the A1 mini mock and note the three slowest retrieval areas.'
-        : week === 9
-          ? 'Checkpoint: complete one A2 reading, one A2 listening, one email, and one two-minute speaking task.'
-          : week === 14
-            ? 'Checkpoint: keep the final days light, review high-frequency structures, and protect sleep before the late-August test window.'
-            : 'Checkpoint: do six study days, keep one lighter review/rest day, and revisit day N on D+1, D+3, and D+7.',
+lessons.forEach((lesson) => {
+  lesson.topicWords = [];
+});
+topics.forEach((topic) => {
+  topic.wordGroups.forEach((group) => {
+    const lesson = lessons.find((entry) => entry.day === topicWordDays[group.id]);
+    const known = new Set(
+      lesson.vocabulary.map((item) => `${item.swedish.toLowerCase()}::${item.english.toLowerCase()}`),
+    );
+    const words = group.words
+      .filter((word) => !known.has(`${word.swedish.toLowerCase()}::${word.english.toLowerCase()}`))
+      .map((word) => ({
+        swedish: word.swedish,
+        english: word.english,
+        exampleSwedish: word.examples[0]?.sv ?? '',
+        exampleEnglish: word.examples[0]?.en ?? '',
+      }));
+    lesson.topicWords.push({
+      topicId: topic.id,
+      topicNumber: topic.number,
+      topicTitle: topic.title,
+      title: group.title,
+      titleEn: group.titleEn,
+      words,
+    });
   });
-}
+});
 
 const course = {
-  courseTitle: 'Swedish for YKI: A1 to B1 Late-August Course',
+  courseTitle: 'Swedish for YKI: A1 to B1',
   description:
-    'An 84-lesson Swedish course organized into A1, A2, and B1 sections, designed for steady preparation toward a late-August 2026 YKI-style target with daily retrieval practice, weekly checkpoints, and skill-balanced tasks.',
-  examGoal:
-    'Target: practical B1-level Swedish for reading, listening, speaking, and writing in citizenship-oriented YKI preparation.',
-  targetWindow:
-    'Late August 2026 (assumption based on your note; roadmap runs through August 30, 2026).',
-  estimatedDays: lessons.length,
-  estimatedHours: Math.round(lessons.reduce((sum, lesson) => sum + lesson.durationMinutes, 0) / 60),
-  studyMethod: [
-    'Use six study days per week and keep one lighter review/rest day.',
-    'Review each new lesson on D+1, D+3, and D+7 to force retrieval.',
-    'Spend at least 15 minutes per day on speaking aloud, not only reading silently.',
-    'Do one timed production task every week from the start and one full mock block in the B1 stage.',
-  ],
-  testWeekAdvice: [
-    'In the final week, reduce new vocabulary and prioritize stability, sleep, and short mixed-skill review.',
-    'Keep one reusable structure ready for greeting, narration, opinion, comparison, problem-solving, and formal messages.',
-    'If you miss one detail in listening or reading, recover to the main point instead of freezing.',
-  ],
-  legacySources: [
-    'Original 60-day Swedish A1 course',
-    legacyEnhancements.sourceLabel,
-    'a1_a2_swedish_vocabulary.md',
-    'Textbook_YKI-Preparation-for-Beginners_A0-A2-Swedish.pdf',
-  ],
+    'Words and sentences for the YKI exam: 84 short daily lessons from A1 to B1, and 7 B1 exam topics.',
   levels,
   days: lessons,
+  topics,
   grammarTopics,
-  studyPlan,
 };
 
 fs.writeFileSync(outputPath, JSON.stringify(course, null, 2));
-console.log(`Generated ${lessons.length} lessons in ${outputPath}`);
+console.log(`Generated ${lessons.length} lessons and ${topics.length} topics in ${outputPath}`);

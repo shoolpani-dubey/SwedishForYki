@@ -1,7 +1,8 @@
-import React, { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { AlertTriangle, CheckCircle2, Clock3, Search, Target } from 'lucide-react';
+import { AlertTriangle, Lightbulb, Search } from 'lucide-react';
 import courseUrl from './data/swedishYkiCourse.json?url';
+import PracticePage from './PracticePage.jsx';
 import './vendor/tokyo-paper/tokyo-paper.css';
 import './styles.css';
 
@@ -16,9 +17,10 @@ const iconProps = {
 
 const PAGES = [
   { id: 'lessons', label: 'Lessons' },
-  { id: 'roadmap', label: 'Roadmap' },
+  { id: 'topics', label: 'Topics' },
   { id: 'vocabulary', label: 'Vocabulary' },
   { id: 'grammar', label: 'Grammar' },
+  { id: 'practice', label: 'Speaking & writing' },
 ];
 
 const THEMES = [
@@ -27,20 +29,30 @@ const THEMES = [
   { value: 'night', label: 'Night' },
 ];
 
-// Routes live in the hash (#/lessons/12, #/grammar?q=V2) so Back works and
-// the page survives a refresh on any static host.
+// Tabs on a topic page, and which parts of the topic file feed each one.
+const TOPIC_TABS = [
+  { id: 'words', label: 'Words' },
+  { id: 'dialogues', label: 'Dialogues', kinds: ['dialogues'] },
+  { id: 'phrases', label: 'Quick answers', kinds: ['warmup', 'react'] },
+  { id: 'talks', label: 'Talks & opinions', kinds: ['talks', 'opinions'] },
+  { id: 'writing', label: 'Writing', kinds: ['writing'] },
+  { id: 'by-heart', label: 'By heart' },
+];
+
+// Routes live in the hash (#/lessons/12, #/topics/samhalle, #/grammar?q=V2)
+// so Back works and the page survives a refresh on any static host.
 function parseHash(hash) {
   const [path, search = ''] = hash.replace(/^#\/?/, '').split('?');
   const [page, arg] = path.split('/');
   return {
     page: PAGES.some((entry) => entry.id === page) ? page : 'lessons',
-    day: Number(arg) || null,
+    arg: arg ? decodeURIComponent(arg) : null,
     query: new URLSearchParams(search).get('q'),
   };
 }
 
-function hrefFor(page, { day, query } = {}) {
-  if (day) return `#/${page}/${day}`;
+function hrefFor(page, { arg, query } = {}) {
+  if (arg) return `#/${page}/${encodeURIComponent(arg)}`;
   if (query) return `#/${page}?${new URLSearchParams({ q: query })}`;
   return `#/${page}`;
 }
@@ -54,7 +66,31 @@ function useHashRoute() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  return [hash, useMemo(() => parseHash(hash), [hash])];
+  return useMemo(() => parseHash(hash), [hash]);
+}
+
+// Browser storage can be blocked; every read and write falls back quietly.
+function readStored(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : JSON.parse(value);
+  } catch {
+    return fallback;
+  }
+}
+
+function writeStored(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    // The setting still applies for this visit.
+  }
+}
+
+function useStoredState(key, fallback) {
+  const [value, setValue] = useState(() => readStored(key, fallback));
+  useEffect(() => writeStored(key, value), [key, value]);
+  return [value, setValue];
 }
 
 function useTheme() {
@@ -92,20 +128,36 @@ function closeNavMenu() {
   }
 }
 
+const cardKey = (card) => `${card.sv}::${card.en}`;
+
 function App() {
   const [courseData, setCourseData] = useState(null);
   const [loadError, setLoadError] = useState(false);
   const [lastDay, setLastDay] = useState(1);
   const [vocabularyQuery, setVocabularyQuery] = useState('');
   const [grammarQuery, setGrammarQuery] = useState('');
-  const [hash, route] = useHashRoute();
+  const [hideEnglish, setHideEnglish] = useStoredState('hide-english', false);
+  const [known, setKnown] = useStoredState('known-cards', []);
+  const route = useHashRoute();
   const deferredVocabularyQuery = useDeferredValue(vocabularyQuery);
   const deferredGrammarQuery = useDeferredValue(grammarQuery);
   const lessons = courseData?.days ?? [];
   const levels = courseData?.levels ?? [];
+  const topics = courseData?.topics ?? [];
   const grammarTopics = courseData?.grammarTopics ?? [];
   const page = route.page;
-  const selectedDay = route.day ?? lastDay;
+  const routeDay = page === 'lessons' ? Number(route.arg) || null : null;
+  const selectedDay = routeDay ?? lastDay;
+  const knownSet = useMemo(() => new Set(known), [known]);
+
+  const learning = {
+    hideEnglish,
+    knownSet,
+    setKnown: (key, isKnown) =>
+      setKnown((current) =>
+        isKnown ? [...new Set([...current, key])] : current.filter((entry) => entry !== key),
+      ),
+  };
 
   const loadCourse = () => {
     let active = true;
@@ -133,19 +185,20 @@ function App() {
   useEffect(loadCourse, []);
 
   useEffect(() => {
-    if (route.day) {
-      setLastDay(route.day);
+    if (routeDay) {
+      setLastDay(routeDay);
     }
-  }, [route.day]);
+  }, [routeDay]);
 
   useEffect(() => {
-    if (route.query !== null) {
+    if (page === 'grammar' && route.query !== null) {
       setGrammarQuery(route.query);
     }
-  }, [route.query]);
+  }, [page, route.query]);
 
   // On every in-app navigation, start at the top and move focus to the new
   // page title so keyboard and screen reader users land on the new content.
+  const location = `${page}/${route.arg ?? ''}/${route.query ?? ''}`;
   const firstRender = useRef(true);
   useEffect(() => {
     if (firstRender.current) {
@@ -154,9 +207,8 @@ function App() {
     }
     window.scrollTo(0, 0);
     document.getElementById('page-title')?.focus({ preventScroll: true });
-  }, [hash]);
+  }, [location]);
 
-  const course = courseData;
   const selectedLesson = lessons.find((lesson) => lesson.day === selectedDay) ?? lessons[0] ?? null;
   const selectedLevel = levels.find(
     (level) =>
@@ -164,50 +216,47 @@ function App() {
       selectedLesson.day >= level.startDay &&
       selectedLesson.day <= level.endDay,
   );
+  const selectedTopic = page === 'topics' ? topics.find((topic) => topic.id === route.arg) : null;
 
+  // One searchable list: lesson words (A1–B1) and topic words (B1).
   const vocabulary = useMemo(() => {
     const wordMap = new Map();
+    const entryFor = (swedish, english, level) => {
+      const key = `${swedish.trim().toLowerCase()}::${english.trim().toLowerCase()}`;
+      if (!wordMap.has(key)) {
+        wordMap.set(key, { swedish, english, level, days: [], topics: [], examples: [] });
+      }
+      return wordMap.get(key);
+    };
+    const addExample = (entry, sv, en) => {
+      if (sv && sv !== entry.swedish && !entry.examples.some((example) => example.sv === sv)) {
+        entry.examples.push({ sv, en });
+      }
+    };
 
     lessons.forEach((lesson) => {
-      lesson.vocabulary.forEach((item) => {
-        const key = `${item.swedish.trim().toLowerCase()}::${item.english
-          .trim()
-          .toLowerCase()}`;
-        const existing = wordMap.get(key);
-        const example = {
-          day: lesson.day,
-          title: lesson.title,
-          exampleSwedish: item.exampleSwedish,
-          exampleEnglish: item.exampleEnglish,
-        };
+      const topicWords = (lesson.topicWords ?? []).flatMap((group) => group.words);
+      [...lesson.vocabulary, ...topicWords].forEach((item) => {
+        const entry = entryFor(item.swedish, item.english, lesson.level);
+        if (!entry.days.includes(lesson.day)) entry.days.push(lesson.day);
+        addExample(entry, item.exampleSwedish, item.exampleEnglish);
+      });
+    });
 
-        if (existing) {
-          if (!existing.days.includes(lesson.day)) {
-            existing.days.push(lesson.day);
+    topics.forEach((topic) => {
+      topic.wordGroups.forEach((group) => {
+        group.words.forEach((word) => {
+          const entry = entryFor(word.swedish, word.english, 'B1');
+          if (!entry.topics.some((entryTopic) => entryTopic.id === topic.id)) {
+            entry.topics.push({ id: topic.id, number: topic.number, title: topic.title });
           }
-          const duplicateExample = existing.examples.some(
-            (entry) =>
-              entry.exampleSwedish === example.exampleSwedish &&
-              entry.exampleEnglish === example.exampleEnglish,
-          );
-          if (!duplicateExample) {
-            existing.examples.push(example);
-          }
-          return;
-        }
-
-        wordMap.set(key, {
-          swedish: item.swedish,
-          english: item.english,
-          days: [lesson.day],
-          level: lesson.level,
-          examples: [example],
+          word.examples.forEach((example) => addExample(entry, example.sv, example.en));
         });
       });
     });
 
     return [...wordMap.values()].sort((a, b) => a.swedish.localeCompare(b.swedish, 'sv'));
-  }, [lessons]);
+  }, [lessons, topics]);
 
   const filteredVocabulary = useMemo(() => {
     const normalizedQuery = deferredVocabularyQuery.trim().toLowerCase();
@@ -222,11 +271,8 @@ function App() {
         item.english,
         item.level,
         item.days.join(' '),
-        ...item.examples.flatMap((example) => [
-          example.title,
-          example.exampleSwedish,
-          example.exampleEnglish,
-        ]),
+        ...item.topics.map((topic) => topic.title),
+        ...item.examples.flatMap((example) => [example.sv, example.en]),
       ]
         .join(' ')
         .toLowerCase();
@@ -266,6 +312,10 @@ function App() {
     [grammarTopics, selectedLesson],
   );
 
+  if (!courseData && page === 'practice') {
+    return <Shell page={page}><PracticePage /></Shell>;
+  }
+
   if (!courseData) {
     return (
       <Shell page={page}>
@@ -274,9 +324,7 @@ function App() {
             <AlertTriangle {...iconProps} className="tp-alert__icon" />
             <div className="tp-alert__content">
               <p className="tp-alert__title">Couldn’t load the course</p>
-              <p className="tp-alert__body">
-                Check your internet connection, then try again.
-              </p>
+              <p className="tp-alert__body">Check your internet connection, then try again.</p>
               <div className="tp-alert__actions">
                 <button className="tp-button tp-button--primary" type="button" onClick={loadCourse}>
                   Try again
@@ -290,17 +338,16 @@ function App() {
             <h1 className="page-title" id="page-title" tabIndex={-1}>
               Preparing the course…
             </h1>
-            <p className="lead">
-              The A1 to B1 curriculum loads as a separate file so the app stays light.
-            </p>
           </header>
         )}
       </Shell>
     );
   }
 
+  const hideEnglishSwitch = <HideEnglishSwitch checked={hideEnglish} onChange={setHideEnglish} />;
+
   return (
-    <Shell page={page} courseTitle={course.courseTitle}>
+    <Shell page={page} courseTitle={courseData.courseTitle}>
       {page === 'lessons' && selectedLesson ? (
         <div className="lessons-layout">
           <DayIndex levels={levels} selectedDay={selectedLesson.day} />
@@ -310,19 +357,21 @@ function App() {
             levels={levels}
             lessons={lessons}
             relatedGrammarTopics={relatedGrammarTopics}
+            learning={learning}
+            hideEnglishSwitch={hideEnglishSwitch}
           />
         </div>
       ) : null}
 
-      {page === 'roadmap' ? (
-        <RoadmapPage
-          course={course}
-          levels={levels}
-          stats={{
-            lessons: lessons.length,
-            words: vocabulary.length,
-            grammarTopics: grammarTopics.length,
-          }}
+      {page === 'topics' && !selectedTopic ? <TopicList topics={topics} /> : null}
+
+      {page === 'topics' && selectedTopic ? (
+        <TopicView
+          key={selectedTopic.id}
+          topic={selectedTopic}
+          topics={topics}
+          learning={learning}
+          hideEnglishSwitch={hideEnglishSwitch}
         />
       ) : null}
 
@@ -343,6 +392,8 @@ function App() {
           total={grammarTopics.length}
         />
       ) : null}
+
+      {page === 'practice' ? <PracticePage /> : null}
     </Shell>
   );
 }
@@ -417,6 +468,76 @@ function Shell({ page, courseTitle, children }) {
   );
 }
 
+function HideEnglishSwitch({ checked, onChange }) {
+  return (
+    <div className="tp-choice hide-english">
+      <input
+        className="tp-switch"
+        type="checkbox"
+        role="switch"
+        id="hide-english"
+        checked={checked}
+        onChange={(event) => onChange(event.target.checked)}
+        aria-describedby="hide-english-hint"
+      />
+      <label className="tp-choice__label" htmlFor="hide-english">
+        Hide English <span className="tp-switch__state" aria-hidden="true"></span>
+      </label>
+      <p className="tp-field__hint" id="hide-english-hint">
+        Say the Swedish first, then tap to check.
+      </p>
+    </div>
+  );
+}
+
+// English helper text. With "Hide English" on, it waits behind a button so you
+// can test yourself; the reveal resets when the switch changes.
+function English({ text, hidden, className = 'pair__en' }) {
+  const [shown, setShown] = useState(false);
+  useEffect(() => setShown(false), [hidden]);
+
+  if (hidden && !shown) {
+    return (
+      <button className="reveal" type="button" onClick={() => setShown(true)}>
+        Show English
+      </button>
+    );
+  }
+  return <span className={className}>{text}</span>;
+}
+
+function Pair({ sv, en, hideEnglish, speaker, you, hint }) {
+  return (
+    <div className={you ? 'pair pair--you' : 'pair'}>
+      {speaker ? (
+        <span className="pair__speaker" lang="sv">
+          {speaker}
+        </span>
+      ) : null}
+      <div className="pair__text">
+        {hint ? <span className="pair__hint">Task: {hint}</span> : null}
+        <span className="pair__sv" lang="sv">
+          {sv}
+        </span>
+        <English text={en} hidden={hideEnglish} />
+      </div>
+    </div>
+  );
+}
+
+function PairList({ pairs, hideEnglish, ordered = false }) {
+  const List = ordered ? 'ol' : 'ul';
+  return (
+    <List className={ordered ? 'pair-list pair-list--numbered' : 'pair-list'}>
+      {pairs.map((pair, index) => (
+        <li key={index}>
+          <Pair {...pair} hideEnglish={hideEnglish} />
+        </li>
+      ))}
+    </List>
+  );
+}
+
 function DayIndex({ levels, selectedDay }) {
   return (
     <aside className="day-index" aria-label="Course days">
@@ -433,7 +554,7 @@ function DayIndex({ levels, selectedDay }) {
               <li key={lesson.day}>
                 <a
                   className="day-grid__link"
-                  href={hrefFor('lessons', { day: lesson.day })}
+                  href={hrefFor('lessons', { arg: lesson.day })}
                   aria-current={selectedDay === lesson.day ? 'page' : undefined}
                   title={lesson.title}
                 >
@@ -444,15 +565,6 @@ function DayIndex({ levels, selectedDay }) {
               </li>
             ))}
           </ol>
-          <details className="disclosure">
-            <summary>About {level.id}</summary>
-            <p>{level.description}</p>
-            <ul className="rule-list">
-              {level.objectives.map((objective, index) => (
-                <li key={`${level.id}-objective-${index}`}>{objective}</li>
-              ))}
-            </ul>
-          </details>
         </section>
       ))}
     </aside>
@@ -467,14 +579,14 @@ function LessonPager({ lesson, lessons, levels, position }) {
     return (
       <nav className="pager pager--end" aria-label="Next and previous lesson">
         {previous ? (
-          <a className="tp-button" href={hrefFor('lessons', { day: previous.day })}>
+          <a className="tp-button" href={hrefFor('lessons', { arg: previous.day })}>
             <span aria-hidden="true">←</span> Day {previous.day}
           </a>
         ) : (
           <span />
         )}
         {next ? (
-          <a className="tp-button tp-button--primary" href={hrefFor('lessons', { day: next.day })}>
+          <a className="tp-button tp-button--primary" href={hrefFor('lessons', { arg: next.day })}>
             Next: Day {next.day}, {next.title}
             <span className="tp-button__arrow" aria-hidden="true">→</span>
           </a>
@@ -486,7 +598,7 @@ function LessonPager({ lesson, lessons, levels, position }) {
   return (
     <nav className="pager" aria-label="Lesson">
       {previous ? (
-        <a className="tp-button" href={hrefFor('lessons', { day: previous.day })}>
+        <a className="tp-button" href={hrefFor('lessons', { arg: previous.day })}>
           <span aria-hidden="true">←</span> Day {previous.day}
         </a>
       ) : (
@@ -503,7 +615,7 @@ function LessonPager({ lesson, lessons, levels, position }) {
           id="day-select"
           value={lesson.day}
           onChange={(event) => {
-            window.location.hash = hrefFor('lessons', { day: event.target.value });
+            window.location.hash = hrefFor('lessons', { arg: event.target.value });
           }}
         >
           {levels.map((level) => (
@@ -518,7 +630,7 @@ function LessonPager({ lesson, lessons, levels, position }) {
         </select>
       </div>
       {next ? (
-        <a className="tp-button" href={hrefFor('lessons', { day: next.day })}>
+        <a className="tp-button" href={hrefFor('lessons', { arg: next.day })}>
           Day {next.day} <span aria-hidden="true">→</span>
         </a>
       ) : (
@@ -530,109 +642,105 @@ function LessonPager({ lesson, lessons, levels, position }) {
   );
 }
 
-function LessonView({ lesson, level, levels, lessons, relatedGrammarTopics }) {
+function LessonView({
+  lesson,
+  level,
+  levels,
+  lessons,
+  relatedGrammarTopics,
+  learning,
+  hideEnglishSwitch,
+}) {
+  const words = lesson.vocabulary.map((item) => ({
+    sv: item.swedish,
+    en: item.english,
+    exampleSv: item.exampleSwedish,
+    exampleEn: item.exampleEnglish,
+  }));
+
   return (
     <article className="lesson" aria-labelledby="page-title">
       <header className="page-header">
         <p className="tp-eyebrow">
-          {level?.id} · {lesson.phase} · Day {lesson.day} of {lessons.length}
+          {level?.id} · Day {lesson.day} of {lessons.length}
         </p>
         <h1 className="page-title" id="page-title" tabIndex={-1}>
           {lesson.title}
         </h1>
         <p className="lead">{lesson.goal}</p>
-        <div className="meta-row">
-          <span className="tp-pill">
-            <Clock3 {...iconProps} />
-            {lesson.durationMinutes} minutes
-          </span>
-          <span className="meta-label" id="skills-label">
-            YKI skills
-          </span>
-          <ul className="pill-row" aria-labelledby="skills-label">
-            {lesson.ykiSkills.map((skill) => (
-              <li key={skill}>
-                <span className="tp-pill">{capitalize(skill)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {hideEnglishSwitch}
       </header>
 
       <LessonPager lesson={lesson} lessons={lessons} levels={levels} position="start" />
 
       <div className="lesson-body">
-        {lesson.sections.map((section, index) => (
+        <LessonSection id="words" title={`Words (${words.length})`}>
+          <WordTable words={words} learning={learning} label="Words for this lesson" />
+        </LessonSection>
+
+        {(lesson.topicWords ?? []).map((group, index) => (
           <LessonSection
-            key={`${section.heading}-${index}`}
-            id={`section-${index}`}
-            title={section.heading}
+            key={`${group.topicId}-${group.title}`}
+            id={`topic-words-${index}`}
+            title={
+              <>
+                <span lang="sv">{group.title}</span> ({group.words.length})
+                <span className="section-title__en">
+                  {group.titleEn} · from{' '}
+                  <a href={hrefFor('topics', { arg: group.topicId })}>
+                    Topic {group.topicNumber}: <span lang="sv">{group.topicTitle}</span>
+                  </a>
+                </span>
+              </>
+            }
           >
-            <SectionContent section={section} />
+            <WordTable
+              words={group.words.map((item) => ({
+                sv: item.swedish,
+                en: item.english,
+                exampleSv: item.exampleSwedish,
+                exampleEn: item.exampleEnglish,
+              }))}
+              learning={learning}
+              label={`${group.title}: words`}
+            />
           </LessonSection>
         ))}
 
-        <div className="tp-alert exam-task">
-          <Target {...iconProps} className="tp-alert__icon" />
-          <div className="tp-alert__content">
-            <h2 className="tp-alert__title">Exam-style task</h2>
-            <p className="tp-alert__body">{lesson.examTask}</p>
+        {lesson.tips.length ? (
+          <div className="tp-alert">
+            <Lightbulb {...iconProps} className="tp-alert__icon" />
+            <div className="tp-alert__content">
+              <h2 className="tp-alert__title">Grammar tip</h2>
+              {lesson.tips.map((tip, index) => (
+                <p className="tp-alert__body" key={index}>
+                  {tip}
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {lesson.legacyCompanion ? (
-          <section className="tp-card note" aria-labelledby="legacy-companion">
-            <p className="tp-eyebrow">
-              Legacy 60-day companion · {lesson.legacyCompanion.phase}
-            </p>
-            <h2 className="tp-card__title" id="legacy-companion">
-              {lesson.legacyCompanion.title}
-            </h2>
-            <p className="tp-card__body">{lesson.legacyCompanion.goal}</p>
-            <p className="note-meta">Source: {lesson.legacyCompanion.sourceLabel}</p>
-            {lesson.legacyCompanion.sections.map((section, index) => (
-              <div
-                className="note__section"
-                key={`legacy-companion-${lesson.day}-${section.heading}-${index}`}
-              >
-                <h3>{section.heading}</h3>
-                <SectionContent section={section} />
-              </div>
-            ))}
-            {lesson.legacyCompanion.exercises?.length ? (
-              <div className="note__section">
-                <h3>Legacy exercises</h3>
-                <ExerciseList exercises={lesson.legacyCompanion.exercises} />
-              </div>
-            ) : null}
-          </section>
         ) : null}
 
-        {lesson.legacyResources.map((resource, resourceIndex) => (
-          <section
-            className="tp-card note"
-            key={`legacy-resource-${lesson.day}-${resource.resourceType}-${resourceIndex}`}
-            aria-labelledby={`resource-${resourceIndex}`}
-          >
-            <p className="tp-eyebrow">
-              {resource.sourceLabel}
-              {resource.pageNumber ? ` · page ${resource.pageNumber}` : ''}
-              {resource.sourceDates?.length ? ` · ${resource.sourceDates.join(', ')}` : ''}
-            </p>
-            <h2 className="tp-card__title" id={`resource-${resourceIndex}`}>
-              {resource.resourceType}
-            </h2>
-            <p className="tp-card__body">{resource.summary}</p>
-            {resource.sections.map((section, index) => (
-              <div
-                className="note__section"
-                key={`legacy-resource-section-${lesson.day}-${resourceIndex}-${index}`}
-              >
-                <h3>{section.heading}</h3>
-                <SectionContent section={section} />
-              </div>
-            ))}
-          </section>
+        <LessonSection id="dialogues" title={lesson.dialogues.length > 1 ? 'Dialogues' : 'Dialogue'}>
+          {lesson.dialogues.map((dialogue, index) => (
+            <div className="stack" key={index}>
+              {lesson.dialogues.length > 1 ? <h3 className="sub-title">{dialogue.title}</h3> : null}
+              <PairList
+                pairs={dialogue.lines.map((line) => ({
+                  speaker: line.speaker,
+                  sv: line.swedish,
+                  en: line.english,
+                }))}
+                hideEnglish={learning.hideEnglish}
+              />
+            </div>
+          ))}
+        </LessonSection>
+
+        {lesson.tables.map((table, index) => (
+          <LessonSection key={table.heading} id={`table-${index}`} title={table.heading}>
+            <DataTable rows={table.rows} label={table.heading} />
+          </LessonSection>
         ))}
 
         {relatedGrammarTopics.length ? (
@@ -648,22 +756,6 @@ function LessonView({ lesson, level, levels, lessons, relatedGrammarTopics }) {
             </ul>
           </LessonSection>
         ) : null}
-
-        <LessonSection id="lesson-vocabulary" title="Vocabulary for this lesson">
-          <DataTable
-            label="Vocabulary for this lesson"
-            rows={lesson.vocabulary.map((item) => ({
-              Swedish: item.swedish,
-              English: item.english,
-              'Example Swedish': item.exampleSwedish,
-              'Example English': item.exampleEnglish,
-            }))}
-          />
-        </LessonSection>
-
-        <LessonSection id="practice" title="Practice">
-          <ExerciseList exercises={lesson.exercises} />
-        </LessonSection>
       </div>
 
       <LessonPager lesson={lesson} lessons={lessons} levels={levels} position="end" />
@@ -671,155 +763,490 @@ function LessonView({ lesson, level, levels, lessons, relatedGrammarTopics }) {
   );
 }
 
-function LessonSection({ id, title, children }) {
+function LessonSection({ id, title, children, level = 2 }) {
+  const Heading = `h${level}`;
   return (
     <section className="lesson-section" aria-labelledby={id}>
-      <h2 className="section-title" id={id}>
+      <Heading className="section-title" id={id}>
         {title}
-      </h2>
+      </Heading>
       {children}
     </section>
   );
 }
 
-function ExerciseList({ exercises }) {
+// Words with their example, plus a flashcard drill over the same words.
+function WordTable({ words, learning, label }) {
+  const [practising, setPractising] = useState(false);
+  const knownCount = words.filter((word) => learning.knownSet.has(cardKey(word))).length;
+
   return (
-    <div className="exercise-list">
-      {exercises.map((exercise, index) => (
-        <details className="disclosure disclosure--boxed" key={index}>
-          <summary>{exercise.prompt}</summary>
-          <ol className="rule-list">
-            {exercise.items.map((item, itemIndex) => (
-              <li key={itemIndex}>{item}</li>
+    <div className="stack">
+      <div className="word-toolbar">
+        <button
+          className="tp-button"
+          type="button"
+          aria-expanded={practising}
+          onClick={() => setPractising((value) => !value)}
+        >
+          {practising ? 'Close flashcards' : 'Practise with flashcards'}
+        </button>
+        <span className="meta-label">
+          {knownCount} of {words.length} known
+        </span>
+      </div>
+      {practising ? (
+        <Flashcards cards={words} learning={learning} onClose={() => setPractising(false)} />
+      ) : null}
+      <div className="tp-table-wrap" role="region" aria-label={label} tabIndex={0}>
+        <table className="tp-table word-table">
+          <thead>
+            <tr>
+              <th scope="col">Swedish</th>
+              <th scope="col">English</th>
+              <th scope="col">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            {words.map((word, index) => (
+              <tr key={`${cardKey(word)}-${index}`}>
+                <th scope="row" lang="sv">
+                  {learning.knownSet.has(cardKey(word)) ? (
+                    <span className="known-mark" title="You know this word">
+                      ✓<span className="tp-visually-hidden"> known: </span>
+                    </span>
+                  ) : null}
+                  {word.sv}
+                </th>
+                <td>
+                  <English text={word.en} hidden={learning.hideEnglish} className="" />
+                </td>
+                <td>
+                  {word.exampleSv && word.exampleSv !== word.sv ? (
+                    <>
+                      <span className="example__sv" lang="sv">
+                        {word.exampleSv}
+                      </span>
+                      <English text={word.exampleEn} hidden={learning.hideEnglish} className="example__en" />
+                    </>
+                  ) : null}
+                </td>
+              </tr>
             ))}
-          </ol>
-          <details className="disclosure disclosure--answers">
-            <summary>Show answers</summary>
-            <ol className="rule-list">
-              {exercise.answers.map((answer, answerIndex) => (
-                <li key={answerIndex}>{answer}</li>
-              ))}
-            </ol>
-          </details>
-        </details>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function shuffle(list) {
+  const copy = [...list];
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+// Flashcards: see one side, say the other, then mark it. "Again" puts the
+// card back at the end of the round; known cards are remembered.
+function Flashcards({ cards, learning, onClose, unit = 'words' }) {
+  const [direction, setDirection] = useState('sv');
+  const [onlyUnknown, setOnlyUnknown] = useState(false);
+  const [round, setRound] = useState(() => shuffle(cards));
+  const [revealed, setRevealed] = useState(false);
+  const [stats, setStats] = useState({ knew: 0, again: 0 });
+  const answerRef = useRef(null);
+  const id = useId();
+
+  const restart = (unknownOnly = onlyUnknown) => {
+    const pool = unknownOnly ? cards.filter((card) => !learning.knownSet.has(cardKey(card))) : cards;
+    setRound(shuffle(pool));
+    setRevealed(false);
+    setStats({ knew: 0, again: 0 });
+  };
+
+  const card = round[0];
+  const front = card ? (direction === 'sv' ? card.sv : card.en) : '';
+  const back = card ? (direction === 'sv' ? card.en : card.sv) : '';
+
+  const answer = (knewIt) => {
+    learning.setKnown(cardKey(card), knewIt);
+    setStats((current) => ({ ...current, [knewIt ? 'knew' : 'again']: current[knewIt ? 'knew' : 'again'] + 1 }));
+    setRound((current) => (knewIt ? current.slice(1) : [...current.slice(1), current[0]]));
+    setRevealed(false);
+  };
+
+  useEffect(() => {
+    if (revealed) answerRef.current?.focus();
+  }, [revealed]);
+
+  return (
+    <section className="flashcards" aria-label="Flashcards">
+      <div className="flashcards__controls">
+        <div className="tp-field">
+          <label className="tp-field__label" htmlFor={`${id}-direction`}>
+            Show first
+          </label>
+          <select
+            className="tp-select"
+            id={`${id}-direction`}
+            value={direction}
+            onChange={(event) => {
+              setDirection(event.target.value);
+              setRevealed(false);
+            }}
+          >
+            <option value="sv">Swedish, then English</option>
+            <option value="en">English, then Swedish</option>
+          </select>
+        </div>
+        <div className="tp-choice">
+          <input
+            className="tp-checkbox"
+            type="checkbox"
+            id={`${id}-unknown`}
+            checked={onlyUnknown}
+            onChange={(event) => {
+              setOnlyUnknown(event.target.checked);
+              restart(event.target.checked);
+            }}
+          />
+          <label className="tp-choice__label" htmlFor={`${id}-unknown`}>
+            Only {unit} I don’t know yet
+          </label>
+        </div>
+      </div>
+
+      {card ? (
+        <div className="flashcard">
+          <p className="meta-label" role="status">
+            {round.length} left · {stats.knew} known · {stats.again} again
+          </p>
+          <p className="flashcard__front" lang={direction === 'sv' ? 'sv' : undefined}>
+            {front}
+          </p>
+          {revealed ? (
+            <>
+              <p
+                className="flashcard__back"
+                lang={direction === 'sv' ? undefined : 'sv'}
+                tabIndex={-1}
+                ref={answerRef}
+              >
+                {back}
+              </p>
+              {card.exampleSv && card.exampleSv !== card.sv ? (
+                <p className="flashcard__example">
+                  <span lang="sv">{card.exampleSv}</span>
+                  <span className="example__en">{card.exampleEn}</span>
+                </p>
+              ) : null}
+              <div className="flashcard__actions">
+                <button className="tp-button" type="button" onClick={() => answer(false)}>
+                  Again
+                </button>
+                <button className="tp-button tp-button--primary" type="button" onClick={() => answer(true)}>
+                  I knew it
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="flashcard__actions">
+              <button className="tp-button tp-button--primary" type="button" onClick={() => setRevealed(true)}>
+                Show answer
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="flashcard flashcard--done" role="status">
+          <p className="flashcard__front">
+            {stats.knew + stats.again ? 'Round complete' : `You know all these ${unit}`}
+          </p>
+          {stats.knew + stats.again ? (
+            <p>
+              {stats.knew} known, {stats.again} needed another look.
+            </p>
+          ) : null}
+          <div className="flashcard__actions">
+            <button
+              className="tp-button tp-button--primary"
+              type="button"
+              onClick={() => {
+                setOnlyUnknown(false);
+                restart(false);
+              }}
+            >
+              Practise all again
+            </button>
+            {onClose ? (
+              <button className="tp-button tp-button--quiet" type="button" onClick={onClose}>
+                Close
+              </button>
+            ) : null}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function TopicList({ topics }) {
+  return (
+    <>
+      <header className="page-header">
+        <p className="tp-eyebrow">B1 exam topics</p>
+        <h1 className="page-title" id="page-title" tabIndex={-1}>
+          Topics
+        </h1>
+        <p className="lead">
+          The seven YKI themes. Each has its words, dialogues, quick answers, talks,
+          model texts and the sentences to know by heart.
+        </p>
+      </header>
+      <ul className="card-grid">
+        {topics.map((topic) => {
+          const wordCount = topic.wordGroups.reduce((sum, group) => sum + group.words.length, 0);
+          const dialogueCount =
+            topic.sections.find((section) => section.kind === 'dialogues')?.sets.length ?? 0;
+          return (
+            <li className="tp-card" key={topic.id}>
+              <p className="tp-eyebrow">Topic {topic.number}</p>
+              <h2 className="tp-card__title">
+                <a className="tp-card__link" href={hrefFor('topics', { arg: topic.id })} lang="sv">
+                  {topic.title}
+                </a>
+              </h2>
+              <p className="tp-card__body">{topic.titleEn}</p>
+              <div className="tp-card__footer">
+                <span className="tp-pill">{wordCount} words</span>
+                <span className="tp-pill">{dialogueCount} dialogues</span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}
+
+function TopicView({ topic, topics, learning, hideEnglishSwitch }) {
+  const tabs = TOPIC_TABS.filter((tab) => {
+    if (tab.id === 'words') return topic.wordGroups.length;
+    if (tab.id === 'by-heart') return topic.keySentences.length;
+    return topic.sections.some((section) => tab.kinds.includes(section.kind));
+  });
+  const [selected, setSelected] = useState(tabs[0]?.id);
+  const tabRefs = useRef([]);
+  const index = topics.findIndex((entry) => entry.id === topic.id);
+  const next = topics[index + 1];
+
+  const onKeyDown = (event) => {
+    const current = tabs.findIndex((tab) => tab.id === selected);
+    let target;
+    if (event.key === 'ArrowRight') target = (current + 1) % tabs.length;
+    else if (event.key === 'ArrowLeft') target = (current - 1 + tabs.length) % tabs.length;
+    else if (event.key === 'Home') target = 0;
+    else if (event.key === 'End') target = tabs.length - 1;
+    if (target === undefined) return;
+    event.preventDefault();
+    setSelected(tabs[target].id);
+    tabRefs.current[target]?.focus();
+  };
+
+  return (
+    <article aria-labelledby="page-title">
+      <header className="page-header">
+        <p className="tp-eyebrow">
+          <a href={hrefFor('topics')}>Topics</a> · Topic {topic.number} of {topics.length}
+        </p>
+        <h1 className="page-title" id="page-title" tabIndex={-1} lang="sv">
+          {topic.title}
+        </h1>
+        <p className="lead">{topic.titleEn}</p>
+        {hideEnglishSwitch}
+      </header>
+
+      <div className="tp-tabs">
+        <div className="tp-tabs__list" role="tablist" aria-label="Topic sections" onKeyDown={onKeyDown}>
+          {tabs.map((tab, tabIndex) => (
+            <button
+              key={tab.id}
+              ref={(node) => {
+                tabRefs.current[tabIndex] = node;
+              }}
+              className="tp-tab"
+              type="button"
+              role="tab"
+              id={`tab-${tab.id}`}
+              aria-selected={selected === tab.id}
+              aria-controls={`panel-${tab.id}`}
+              tabIndex={selected === tab.id ? 0 : -1}
+              onClick={() => setSelected(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        {tabs.map((tab) => (
+          <div
+            key={tab.id}
+            className="tp-tabs__panel topic-panel"
+            role="tabpanel"
+            id={`panel-${tab.id}`}
+            aria-labelledby={`tab-${tab.id}`}
+            tabIndex={0}
+            hidden={selected !== tab.id}
+          >
+            {selected === tab.id ? <TopicPanel tab={tab} topic={topic} learning={learning} /> : null}
+          </div>
+        ))}
+      </div>
+
+      {next ? (
+        <nav className="pager pager--end" aria-label="Next topic">
+          <span />
+          <a className="tp-button tp-button--primary" href={hrefFor('topics', { arg: next.id })}>
+            Next topic: {next.title}
+            <span className="tp-button__arrow" aria-hidden="true">→</span>
+          </a>
+        </nav>
+      ) : null}
+    </article>
+  );
+}
+
+function TopicPanel({ tab, topic, learning }) {
+  const { hideEnglish } = learning;
+
+  if (tab.id === 'words') {
+    return (
+      <div className="topic-sections">
+        {topic.wordGroups.map((group) => (
+          <section className="lesson-section" key={group.id} aria-labelledby={group.id}>
+            <h2 className="section-title" id={group.id}>
+              <span lang="sv">{group.title}</span>{' '}
+              <span className="section-title__en">{group.titleEn}</span>
+            </h2>
+            {group.tips.map((tip, index) => (
+              <p className="tip" key={index}>
+                <Lightbulb {...iconProps} />
+                <span>{tip}</span>
+              </p>
+            ))}
+            <WordTable
+              words={group.words.map((word) => ({
+                sv: word.swedish,
+                en: word.english,
+                exampleSv: word.examples[0]?.sv,
+                exampleEn: word.examples[0]?.en,
+              }))}
+              learning={learning}
+              label={`${group.title}: words`}
+            />
+          </section>
+        ))}
+      </div>
+    );
+  }
+
+  if (tab.id === 'by-heart') {
+    return (
+      <ByHeart sentences={topic.keySentences} learning={learning} />
+    );
+  }
+
+  const sections = topic.sections.filter((section) => tab.kinds.includes(section.kind));
+  return (
+    <div className="topic-sections">
+      {sections.map((section) => (
+        <div className="stack" key={section.id}>
+          {sections.length > 1 ? (
+            <p className="tp-eyebrow">
+              {section.title} · {section.titleEn}
+            </p>
+          ) : null}
+          {section.sets.map((set, setIndex) => (
+            <TopicSet
+              key={`${section.id}-${setIndex}`}
+              id={`${section.id}-${setIndex}`}
+              set={set}
+              kind={section.kind}
+              hideEnglish={hideEnglish}
+            />
+          ))}
+        </div>
       ))}
     </div>
   );
 }
 
-function RoadmapPage({ course, levels, stats }) {
+function ByHeart({ sentences, learning }) {
+  const [practising, setPractising] = useState(false);
   return (
-    <>
-      <header className="page-header">
-        <p className="tp-eyebrow">Study plan · May 25 – August 30, 2026</p>
-        <h1 className="page-title" id="page-title" tabIndex={-1}>
-          Roadmap to late August
-        </h1>
-        <p className="lead">
-          Six study days per week, with one lighter review or rest day each week.
-          Retrieval on D+1, D+3 and D+7, and speaking and writing output every week.
-        </p>
-        <p>{course.examGoal}</p>
-      </header>
-
-      <dl className="tp-stats">
-        <div className="tp-stat tp-stat--highlight">
-          <dt className="tp-stat__key">Lessons</dt>
-          <dd className="tp-stat__value">{stats.lessons}</dd>
-          <dd className="tp-stat__note">One per study day</dd>
-        </div>
-        <div className="tp-stat">
-          <dt className="tp-stat__key">Study time</dt>
-          <dd className="tp-stat__value">
-            {course.estimatedHours}
-            <span className="tp-stat__unit">h</span>
-          </dd>
-          <dd className="tp-stat__note">Estimated in total</dd>
-        </div>
-        <div className="tp-stat">
-          <dt className="tp-stat__key">Words</dt>
-          <dd className="tp-stat__value">{stats.words}</dd>
-          <dd className="tp-stat__note">Unique vocabulary items</dd>
-        </div>
-        <div className="tp-stat">
-          <dt className="tp-stat__key">Grammar hubs</dt>
-          <dd className="tp-stat__value">{stats.grammarTopics}</dd>
-          <dd className="tp-stat__note">Across {levels.length} CEFR levels</dd>
-        </div>
-      </dl>
-
-      <section className="page-section" aria-labelledby="architecture">
-        <h2 className="section-title" id="architecture">
-          Course architecture
-        </h2>
-        <ul className="card-grid">
-          {levels.map((level) => (
-            <li className="tp-card" key={level.id}>
-              <p className="tp-eyebrow">
-                {level.id} · Days {level.startDay}–{level.endDay}
-              </p>
-              <h3 className="tp-card__title">
-                <a className="tp-card__link" href={hrefFor('lessons', { day: level.startDay })}>
-                  {level.title}
-                </a>
-              </h3>
-              <p className="tp-card__body">{level.description}</p>
-              <div className="tp-card__footer">
-                <span className="tp-pill">{level.lessonCount} lessons</span>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <div className="page-section two-col">
-        <section aria-labelledby="routine">
-          <h2 className="section-title" id="routine">
-            Spaced repetition routine
-          </h2>
-          <ul className="rule-list">
-            {course.studyMethod.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </section>
-        <section aria-labelledby="final-week">
-          <h2 className="section-title" id="final-week">
-            Final week
-          </h2>
-          <ul className="rule-list">
-            {course.testWeekAdvice.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </section>
+    <div className="stack">
+      <p className="lead">The sentences to know by heart for this topic.</p>
+      <div className="word-toolbar">
+        <button
+          className="tp-button"
+          type="button"
+          aria-expanded={practising}
+          onClick={() => setPractising((value) => !value)}
+        >
+          {practising ? 'Close flashcards' : 'Practise with flashcards'}
+        </button>
       </div>
+      {practising ? (
+        <Flashcards cards={sentences} learning={learning} unit="sentences" onClose={() => setPractising(false)} />
+      ) : null}
+      <PairList pairs={sentences} hideEnglish={learning.hideEnglish} ordered />
+    </div>
+  );
+}
 
-      <section className="page-section" aria-labelledby="weeks">
-        <h2 className="section-title" id="weeks">
-          Week by week
+function TopicSet({ id, set, kind, hideEnglish }) {
+  const titled = Boolean(set.title);
+  return (
+    <section className="lesson-section" aria-labelledby={titled ? id : undefined}>
+      {titled ? (
+        <h2 className="section-title" id={id}>
+          <span lang="sv">{set.title}</span>{' '}
+          <span className="section-title__en">{set.titleEn}</span>
         </h2>
-        <p className="note-meta">{course.targetWindow}</p>
-        <ol className="card-grid">
-          {course.studyPlan.map((week) => (
-            <li className="tp-card" key={week.week}>
-              <p className="tp-eyebrow">
-                Week {week.week} · {week.startDate} – {week.endDate}
+      ) : null}
+      <div className="stack">
+        {set.items.map((item, index) => (
+          <div className={item.prompt ? 'prompt-item' : 'stack'} key={index}>
+            {item.prompt ? (
+              <p className="prompt">
+                <span className="prompt__sv" lang="sv">
+                  {item.prompt.sv}
+                </span>
+                <span className="prompt__en">{item.prompt.en}</span>
               </p>
-              <h3 className="tp-card__title">{week.lessonRange}</h3>
-              <p className="tp-card__body">{week.focus}</p>
-              <div className="tp-card__footer">
-                <span className="tp-pill">{week.level}</span>
+            ) : null}
+            {item.lines.length ? (
+              <PairList pairs={item.lines} hideEnglish={hideEnglish && kind !== 'writing'} />
+            ) : null}
+          </div>
+        ))}
+        {set.paragraphs?.length ? (
+          <div className="model-text">
+            <p className="tp-eyebrow">Model text</p>
+            {set.paragraphs.map((paragraph, index) => (
+              <div className="model-text__row" key={index}>
+                <p lang="sv">{paragraph.sv}</p>
+                <p className="pair__en">
+                  <English text={paragraph.en} hidden={hideEnglish} className="" />
+                </p>
               </div>
-              <p className="checkpoint">
-                <CheckCircle2 {...iconProps} />
-                <span>{week.checkpoint}</span>
-              </p>
-            </li>
-          ))}
-        </ol>
-      </section>
-    </>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </section>
   );
 }
 
@@ -871,18 +1298,15 @@ function VocabularyPage({ query, setQuery, words, total }) {
       <header className="page-header">
         <p className="tp-eyebrow">Vocabulary review</p>
         <h1 className="page-title" id="page-title" tabIndex={-1}>
-          Course vocabulary
+          All words
         </h1>
-        <p className="lead">
-          Every word from the A1, A2 and B1 lessons in one list, so you can revise
-          by keyword, level or lesson.
-        </p>
+        <p className="lead">Every word from the lessons and the topics in one list.</p>
       </header>
 
       <SearchField
         id="vocabulary-search"
-        label="Search vocabulary"
-        hint="A Swedish or English word, a level (A1, A2, B1), a day number, or part of an example."
+        label="Search words"
+        hint="A Swedish or English word, a level (A1, A2, B1), a day number or a topic."
         query={query}
         setQuery={setQuery}
       />
@@ -891,43 +1315,52 @@ function VocabularyPage({ query, setQuery, words, total }) {
       </p>
 
       {words.length ? (
-        <div className="tp-table-wrap" role="region" aria-label="Course vocabulary" tabIndex={0}>
+        <div className="tp-table-wrap" role="region" aria-label="All words" tabIndex={0}>
           <table className="tp-table">
             <thead>
               <tr>
                 <th scope="col">Swedish</th>
                 <th scope="col">English</th>
-                <th scope="col">Level</th>
-                <th scope="col">Days</th>
                 <th scope="col">Example</th>
+                <th scope="col">Where</th>
               </tr>
             </thead>
             <tbody>
               {words.map((word, index) => {
-                const primaryExample = word.examples[0];
+                const example = word.examples[0];
                 return (
                   <tr key={`${word.swedish}-${word.english}-${index}`}>
                     <th scope="row" lang="sv">
                       {word.swedish}
                     </th>
                     <td>{word.english}</td>
-                    <td className="tp-table__mono">{word.level}</td>
+                    <td>
+                      {example ? (
+                        <>
+                          <span className="example__sv" lang="sv">
+                            {example.sv}
+                          </span>
+                          <span className="example__en">{example.en}</span>
+                        </>
+                      ) : null}
+                    </td>
                     <td>
                       <ul className="day-links">
                         {word.days.map((day) => (
                           <li key={day}>
-                            <a href={hrefFor('lessons', { day })} aria-label={`Day ${day}`}>
+                            <a href={hrefFor('lessons', { arg: day })} aria-label={`Day ${day}`}>
                               {day}
                             </a>
                           </li>
                         ))}
+                        {word.topics.map((topic) => (
+                          <li key={topic.id}>
+                            <a href={hrefFor('topics', { arg: topic.id })} aria-label={`Topic: ${topic.title}`}>
+                              T{topic.number}
+                            </a>
+                          </li>
+                        ))}
                       </ul>
-                    </td>
-                    <td>
-                      <span className="example__sv" lang="sv">
-                        {primaryExample.exampleSwedish}
-                      </span>
-                      <span className="example__en">{primaryExample.exampleEnglish}</span>
                     </td>
                   </tr>
                 );
@@ -952,12 +1385,9 @@ function GrammarPage({ query, setQuery, topics, total }) {
       <header className="page-header">
         <p className="tp-eyebrow">Grammar hub</p>
         <h1 className="page-title" id="page-title" tabIndex={-1}>
-          Grammar and exam patterns
+          Grammar
         </h1>
-        <p className="lead">
-          Pronunciation, sentence structure, time expressions, formal writing and
-          YKI task strategy, each linked to the lessons where it matters most.
-        </p>
+        <p className="lead">Short rules with examples, each linked to the lessons that use them.</p>
       </header>
 
       <SearchField
@@ -981,14 +1411,8 @@ function GrammarPage({ query, setQuery, topics, total }) {
                   {topic.title}
                 </h2>
                 <p className="tp-card__body">{topic.summary}</p>
-                {topic.sourceLabel || topic.sourceDates?.length ? (
-                  <p className="note-meta">
-                    Source: {topic.sourceLabel ?? 'YKI curriculum'}
-                    {topic.sourceDates?.length ? ` · ${topic.sourceDates.join(', ')}` : ''}
-                  </p>
-                ) : null}
                 <div className="note__section">
-                  <h3>Key rules</h3>
+                  <h3>Rules</h3>
                   <ul className="rule-list">
                     {topic.rules.map((rule, index) => (
                       <li key={index}>{rule}</li>
@@ -1006,11 +1430,11 @@ function GrammarPage({ query, setQuery, topics, total }) {
                   />
                 </div>
                 <div className="note__section">
-                  <h3>Linked lessons</h3>
+                  <h3>Lessons</h3>
                   <ul className="link-list">
                     {topic.relatedDays.map((day) => (
                       <li key={`${topic.id}-${day}`}>
-                        <a className="tp-button" href={hrefFor('lessons', { day })}>
+                        <a className="tp-button" href={hrefFor('lessons', { arg: day })}>
                           Day {day}
                         </a>
                       </li>
@@ -1029,25 +1453,6 @@ function GrammarPage({ query, setQuery, topics, total }) {
         />
       )}
     </>
-  );
-}
-
-function SectionContent({ section }) {
-  return (
-    <div className="stack">
-      {section.content?.map((paragraph, paragraphIndex) => (
-        <p key={paragraphIndex}>{paragraph}</p>
-      ))}
-      {section.table && <DataTable rows={section.table} label={section.heading} />}
-      {section.dialogue && <Dialogue dialogue={section.dialogue} />}
-      {section.list && (
-        <ul className="rule-list">
-          {section.list.map((item, listIndex) => (
-            <li key={listIndex}>{item}</li>
-          ))}
-        </ul>
-      )}
-    </div>
   );
 }
 
@@ -1092,30 +1497,6 @@ function DataTable({ rows, label }) {
       </table>
     </div>
   );
-}
-
-function Dialogue({ dialogue }) {
-  return (
-    <ol className="dialogue">
-      {dialogue.map((line, index) => (
-        <li key={index}>
-          <span className="dialogue__speaker" lang="sv">
-            {line.speaker}
-          </span>
-          <div>
-            <p className="dialogue__sv" lang="sv">
-              {line.swedish}
-            </p>
-            <p className="dialogue__en">{line.english}</p>
-          </div>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-function capitalize(text) {
-  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 createRoot(document.getElementById('root')).render(<App />);

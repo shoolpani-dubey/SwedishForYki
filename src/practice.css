@@ -1,0 +1,40 @@
+.practice-page { max-width: var(--container-max); }
+.practice-modes { display: flex; gap: var(--space-2); border-bottom: var(--line-width) solid var(--line); margin-bottom: var(--space-6); }
+.practice-modes .tp-tab[aria-current="true"] { color: var(--ink); box-shadow: inset 0 -2px var(--accent); }
+.practice-layout { display: grid; grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr); gap: var(--space-7); align-items: start; }
+.practice-sidebar { border: var(--line-width) solid var(--line); background: var(--paper-raised); padding: var(--space-5); }
+.practice-sidebar__title { margin: var(--space-6) 0 var(--space-3); font-size: var(--text-md); }
+.practice-task-list { list-style: none; margin: 0 0 var(--space-5); padding: 0; display: grid; gap: var(--space-1); }
+.practice-task-button { width: 100%; min-height: var(--target-min); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: var(--space-1); padding: var(--space-2) var(--space-3); border: var(--line-width) solid transparent; background: transparent; color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
+.practice-task-button small { color: var(--ink-3); font-size: var(--text-xs); }
+.practice-task-button:hover { background: var(--paper-hover); }
+.practice-task-button[aria-current="step"] { background: var(--paper-hover); border-color: var(--line-strong); box-shadow: inset 2px 0 var(--accent); font-weight: var(--weight-semibold); }
+.practice-main { min-width: 0; }
+.practice-card { padding: var(--space-6); border: var(--line-width) solid var(--line); background: var(--paper-raised); }
+.practice-card .section-title { margin: var(--space-2) 0 var(--space-4); }
+.practice-subtitle { color: var(--ink-3); font-size: var(--text-md); font-weight: var(--weight-regular); }
+.practice-targets, .practice-actions, .practice-choice { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); }
+.practice-targets { margin-bottom: var(--space-5); }
+.practice-choice { margin-bottom: var(--space-4); }
+.practice-choice .tp-button[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 2px 0 var(--accent); }
+.practice-prompt { padding: var(--space-5); border-left: 2px solid var(--accent); background: var(--paper-hover); }
+.practice-prompt p { margin: var(--space-2) 0 0; font-size: var(--text-lg); line-height: var(--leading-body); }
+.practice-card > .tp-button { margin-top: var(--space-4); }
+.practice-translation { max-width: var(--measure); margin: var(--space-2) 0 0; color: var(--ink-2); }
+.practice-tip { margin-top: var(--space-6); }
+.practice-tip p { margin: var(--space-2) 0 0; line-height: var(--leading-body); }
+.practice-timer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-5); margin-top: var(--space-5); padding: var(--space-5); border: var(--line-width) solid var(--line); }
+.practice-timer .meta-label { margin: 0; }
+.practice-timer__time { display: block; margin-top: var(--space-1); font-family: var(--font-mono); font-size: var(--text-stat); font-variant-numeric: tabular-nums; line-height: 1; }
+.practice-timer__done { margin: var(--space-2) 0 0; color: var(--ink-2); }
+.practice-recorder { margin-top: var(--space-5); }
+.practice-recorder audio { display: block; max-width: 100%; margin-top: var(--space-3); }
+.practice-recorder .tp-field__error { margin-top: var(--space-2); }
+.practice-editor { --field-max: none; margin-top: var(--space-5); }
+.practice-editor textarea { min-height: 18rem; }
+.practice-editor__footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-2); }
+.practice-count { color: var(--ink-2); font-family: var(--font-mono); font-size: var(--text-sm); }
+.practice-count--good { color: var(--success); }
+.practice-next { justify-content: flex-end; margin-top: var(--space-6); }
+@media (width < 800px) { .practice-layout { grid-template-columns: 1fr; gap: var(--space-5); } .practice-sidebar { padding: var(--space-4); } .practice-task-list { grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); } }
+@media (width < 500px) { .practice-card { padding: var(--space-4); } .practice-modes .tp-tab { padding-inline: var(--space-2); font-size: var(--text-xs); } }
