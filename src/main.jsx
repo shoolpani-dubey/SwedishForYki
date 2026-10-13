@@ -136,7 +136,7 @@ function App() {
   const [lastDay, setLastDay] = useState(1);
   const [vocabularyQuery, setVocabularyQuery] = useState('');
   const [grammarQuery, setGrammarQuery] = useState('');
-  const [hideEnglish, setHideEnglish] = useStoredState('hide-english', false);
+  const [hideSwedish, setHideSwedish] = useStoredState('hide-swedish', true);
   const [known, setKnown] = useStoredState('known-cards', []);
   const route = useHashRoute();
   const deferredVocabularyQuery = useDeferredValue(vocabularyQuery);
@@ -151,7 +151,7 @@ function App() {
   const knownSet = useMemo(() => new Set(known), [known]);
 
   const learning = {
-    hideEnglish,
+    hideSwedish,
     knownSet,
     setKnown: (key, isKnown) =>
       setKnown((current) =>
@@ -344,7 +344,7 @@ function App() {
     );
   }
 
-  const hideEnglishSwitch = <HideEnglishSwitch checked={hideEnglish} onChange={setHideEnglish} />;
+  const hideSwedishSwitch = <HideSwedishSwitch checked={hideSwedish} onChange={setHideSwedish} />;
 
   return (
     <Shell page={page} courseTitle={courseData.courseTitle}>
@@ -358,7 +358,7 @@ function App() {
             lessons={lessons}
             relatedGrammarTopics={relatedGrammarTopics}
             learning={learning}
-            hideEnglishSwitch={hideEnglishSwitch}
+            hideSwedishSwitch={hideSwedishSwitch}
           />
         </div>
       ) : null}
@@ -371,7 +371,7 @@ function App() {
           topic={selectedTopic}
           topics={topics}
           learning={learning}
-          hideEnglishSwitch={hideEnglishSwitch}
+          hideSwedishSwitch={hideSwedishSwitch}
         />
       ) : null}
 
@@ -468,45 +468,45 @@ function Shell({ page, courseTitle, children }) {
   );
 }
 
-function HideEnglishSwitch({ checked, onChange }) {
+function HideSwedishSwitch({ checked, onChange }) {
   return (
-    <div className="tp-choice hide-english">
+    <div className="tp-choice hide-swedish">
       <input
         className="tp-switch"
         type="checkbox"
         role="switch"
-        id="hide-english"
+        id="hide-swedish"
         checked={checked}
         onChange={(event) => onChange(event.target.checked)}
-        aria-describedby="hide-english-hint"
+        aria-describedby="hide-swedish-hint"
       />
-      <label className="tp-choice__label" htmlFor="hide-english">
-        Hide English <span className="tp-switch__state" aria-hidden="true"></span>
+      <label className="tp-choice__label" htmlFor="hide-swedish">
+        Hide Swedish <span className="tp-switch__state" aria-hidden="true"></span>
       </label>
-      <p className="tp-field__hint" id="hide-english-hint">
-        Say the Swedish first, then tap to check.
+      <p className="tp-field__hint" id="hide-swedish-hint">
+        Read the English, say it in Swedish, then tap to check.
       </p>
     </div>
   );
 }
 
-// English helper text. With "Hide English" on, it waits behind a button so you
-// can test yourself; the reveal resets when the switch changes.
-function English({ text, hidden, className = 'pair__en' }) {
+// Swedish answer text waits behind a button when practice mode is on. The
+// reveal resets whenever the switch changes.
+function Swedish({ text, hidden, className = 'pair__sv' }) {
   const [shown, setShown] = useState(false);
   useEffect(() => setShown(false), [hidden]);
 
   if (hidden && !shown) {
     return (
       <button className="reveal" type="button" onClick={() => setShown(true)}>
-        Show English
+        Show Swedish
       </button>
     );
   }
-  return <span className={className}>{text}</span>;
+  return <span className={className} lang="sv">{text}</span>;
 }
 
-function Pair({ sv, en, hideEnglish, speaker, you, hint }) {
+function Pair({ sv, en, hideSwedish, speaker, you, hint }) {
   return (
     <div className={you ? 'pair pair--you' : 'pair'}>
       {speaker ? (
@@ -516,22 +516,20 @@ function Pair({ sv, en, hideEnglish, speaker, you, hint }) {
       ) : null}
       <div className="pair__text">
         {hint ? <span className="pair__hint">Task: {hint}</span> : null}
-        <span className="pair__sv" lang="sv">
-          {sv}
-        </span>
-        <English text={en} hidden={hideEnglish} />
+        <span className="pair__en">{en}</span>
+        <Swedish text={sv} hidden={hideSwedish} />
       </div>
     </div>
   );
 }
 
-function PairList({ pairs, hideEnglish, ordered = false }) {
+function PairList({ pairs, hideSwedish, ordered = false }) {
   const List = ordered ? 'ol' : 'ul';
   return (
     <List className={ordered ? 'pair-list pair-list--numbered' : 'pair-list'}>
       {pairs.map((pair, index) => (
         <li key={index}>
-          <Pair {...pair} hideEnglish={hideEnglish} />
+          <Pair {...pair} hideSwedish={hideSwedish} />
         </li>
       ))}
     </List>
@@ -649,7 +647,7 @@ function LessonView({
   lessons,
   relatedGrammarTopics,
   learning,
-  hideEnglishSwitch,
+  hideSwedishSwitch,
 }) {
   const words = lesson.vocabulary.map((item) => ({
     sv: item.swedish,
@@ -668,7 +666,7 @@ function LessonView({
           {lesson.title}
         </h1>
         <p className="lead">{lesson.goal}</p>
-        {hideEnglishSwitch}
+        {hideSwedishSwitch}
       </header>
 
       <LessonPager lesson={lesson} lessons={lessons} levels={levels} position="start" />
@@ -684,9 +682,9 @@ function LessonView({
             id={`topic-words-${index}`}
             title={
               <>
-                <span lang="sv">{group.title}</span> ({group.words.length})
-                <span className="section-title__en">
-                  {group.titleEn} · from{' '}
+                {group.titleEn} ({group.words.length})
+                <span className="section-title__secondary">
+                  <span lang="sv">{group.title}</span> · from{' '}
                   <a href={hrefFor('topics', { arg: group.topicId })}>
                     Topic {group.topicNumber}: <span lang="sv">{group.topicTitle}</span>
                   </a>
@@ -731,7 +729,7 @@ function LessonView({
                   sv: line.swedish,
                   en: line.english,
                 }))}
-                hideEnglish={learning.hideEnglish}
+                hideSwedish={learning.hideSwedish}
               />
             </div>
           ))}
@@ -802,32 +800,34 @@ function WordTable({ words, learning, label }) {
         <table className="tp-table word-table">
           <thead>
             <tr>
-              <th scope="col">Swedish</th>
               <th scope="col">English</th>
+              <th scope="col">Swedish</th>
               <th scope="col">Example</th>
             </tr>
           </thead>
           <tbody>
             {words.map((word, index) => (
               <tr key={`${cardKey(word)}-${index}`}>
-                <th scope="row" lang="sv">
+                <th scope="row">
+                  {word.en}
+                </th>
+                <td>
                   {learning.knownSet.has(cardKey(word)) ? (
                     <span className="known-mark" title="You know this word">
                       ✓<span className="tp-visually-hidden"> known: </span>
                     </span>
                   ) : null}
-                  {word.sv}
-                </th>
-                <td>
-                  <English text={word.en} hidden={learning.hideEnglish} className="" />
+                  <Swedish text={word.sv} hidden={learning.hideSwedish} className="" />
                 </td>
                 <td>
                   {word.exampleSv && word.exampleSv !== word.sv ? (
                     <>
-                      <span className="example__sv" lang="sv">
-                        {word.exampleSv}
-                      </span>
-                      <English text={word.exampleEn} hidden={learning.hideEnglish} className="example__en" />
+                      <span className="example__en">{word.exampleEn}</span>
+                      <Swedish
+                        text={word.exampleSv}
+                        hidden={learning.hideSwedish}
+                        className="example__sv"
+                      />
                     </>
                   ) : null}
                 </td>
@@ -852,7 +852,7 @@ function shuffle(list) {
 // Flashcards: see one side, say the other, then mark it. "Again" puts the
 // card back at the end of the round; known cards are remembered.
 function Flashcards({ cards, learning, onClose, unit = 'words' }) {
-  const [direction, setDirection] = useState('sv');
+  const [direction, setDirection] = useState('en');
   const [onlyUnknown, setOnlyUnknown] = useState(false);
   const [round, setRound] = useState(() => shuffle(cards));
   const [revealed, setRevealed] = useState(false);
@@ -898,8 +898,8 @@ function Flashcards({ cards, learning, onClose, unit = 'words' }) {
               setRevealed(false);
             }}
           >
-            <option value="sv">Swedish, then English</option>
             <option value="en">English, then Swedish</option>
+            <option value="sv">Swedish, then English</option>
           </select>
         </div>
         <div className="tp-choice">
@@ -1015,11 +1015,11 @@ function TopicList({ topics }) {
             <li className="tp-card" key={topic.id}>
               <p className="tp-eyebrow">Topic {topic.number}</p>
               <h2 className="tp-card__title">
-                <a className="tp-card__link" href={hrefFor('topics', { arg: topic.id })} lang="sv">
-                  {topic.title}
+                <a className="tp-card__link" href={hrefFor('topics', { arg: topic.id })}>
+                  {topic.titleEn}
                 </a>
               </h2>
-              <p className="tp-card__body">{topic.titleEn}</p>
+              <p className="tp-card__body" lang="sv">{topic.title}</p>
               <div className="tp-card__footer">
                 <span className="tp-pill">{wordCount} words</span>
                 <span className="tp-pill">{dialogueCount} dialogues</span>
@@ -1032,7 +1032,7 @@ function TopicList({ topics }) {
   );
 }
 
-function TopicView({ topic, topics, learning, hideEnglishSwitch }) {
+function TopicView({ topic, topics, learning, hideSwedishSwitch }) {
   const tabs = TOPIC_TABS.filter((tab) => {
     if (tab.id === 'words') return topic.wordGroups.length;
     if (tab.id === 'by-heart') return topic.keySentences.length;
@@ -1062,11 +1062,11 @@ function TopicView({ topic, topics, learning, hideEnglishSwitch }) {
         <p className="tp-eyebrow">
           <a href={hrefFor('topics')}>Topics</a> · Topic {topic.number} of {topics.length}
         </p>
-        <h1 className="page-title" id="page-title" tabIndex={-1} lang="sv">
-          {topic.title}
+        <h1 className="page-title" id="page-title" tabIndex={-1}>
+          {topic.titleEn}
         </h1>
-        <p className="lead">{topic.titleEn}</p>
-        {hideEnglishSwitch}
+        <p className="lead" lang="sv">{topic.title}</p>
+        {hideSwedishSwitch}
       </header>
 
       <div className="tp-tabs">
@@ -1109,7 +1109,7 @@ function TopicView({ topic, topics, learning, hideEnglishSwitch }) {
         <nav className="pager pager--end" aria-label="Next topic">
           <span />
           <a className="tp-button tp-button--primary" href={hrefFor('topics', { arg: next.id })}>
-            Next topic: {next.title}
+            Next topic: {next.titleEn}
             <span className="tp-button__arrow" aria-hidden="true">→</span>
           </a>
         </nav>
@@ -1119,7 +1119,7 @@ function TopicView({ topic, topics, learning, hideEnglishSwitch }) {
 }
 
 function TopicPanel({ tab, topic, learning }) {
-  const { hideEnglish } = learning;
+  const { hideSwedish } = learning;
 
   if (tab.id === 'words') {
     return (
@@ -1127,8 +1127,8 @@ function TopicPanel({ tab, topic, learning }) {
         {topic.wordGroups.map((group) => (
           <section className="lesson-section" key={group.id} aria-labelledby={group.id}>
             <h2 className="section-title" id={group.id}>
-              <span lang="sv">{group.title}</span>{' '}
-              <span className="section-title__en">{group.titleEn}</span>
+              {group.titleEn}{' '}
+              <span className="section-title__secondary" lang="sv">{group.title}</span>
             </h2>
             {group.tips.map((tip, index) => (
               <p className="tip" key={index}>
@@ -1165,7 +1165,7 @@ function TopicPanel({ tab, topic, learning }) {
         <div className="stack" key={section.id}>
           {sections.length > 1 ? (
             <p className="tp-eyebrow">
-              {section.title} · {section.titleEn}
+              {section.titleEn} · <span lang="sv">{section.title}</span>
             </p>
           ) : null}
           {section.sets.map((set, setIndex) => (
@@ -1173,8 +1173,7 @@ function TopicPanel({ tab, topic, learning }) {
               key={`${section.id}-${setIndex}`}
               id={`${section.id}-${setIndex}`}
               set={set}
-              kind={section.kind}
-              hideEnglish={hideEnglish}
+              hideSwedish={hideSwedish}
             />
           ))}
         </div>
@@ -1201,19 +1200,19 @@ function ByHeart({ sentences, learning }) {
       {practising ? (
         <Flashcards cards={sentences} learning={learning} unit="sentences" onClose={() => setPractising(false)} />
       ) : null}
-      <PairList pairs={sentences} hideEnglish={learning.hideEnglish} ordered />
+      <PairList pairs={sentences} hideSwedish={learning.hideSwedish} ordered />
     </div>
   );
 }
 
-function TopicSet({ id, set, kind, hideEnglish }) {
+function TopicSet({ id, set, hideSwedish }) {
   const titled = Boolean(set.title);
   return (
     <section className="lesson-section" aria-labelledby={titled ? id : undefined}>
       {titled ? (
         <h2 className="section-title" id={id}>
-          <span lang="sv">{set.title}</span>{' '}
-          <span className="section-title__en">{set.titleEn}</span>
+          {set.titleEn}{' '}
+          <span className="section-title__secondary" lang="sv">{set.title}</span>
         </h2>
       ) : null}
       <div className="stack">
@@ -1221,14 +1220,12 @@ function TopicSet({ id, set, kind, hideEnglish }) {
           <div className={item.prompt ? 'prompt-item' : 'stack'} key={index}>
             {item.prompt ? (
               <p className="prompt">
-                <span className="prompt__sv" lang="sv">
-                  {item.prompt.sv}
-                </span>
                 <span className="prompt__en">{item.prompt.en}</span>
+                <Swedish text={item.prompt.sv} hidden={hideSwedish} className="prompt__sv" />
               </p>
             ) : null}
             {item.lines.length ? (
-              <PairList pairs={item.lines} hideEnglish={hideEnglish && kind !== 'writing'} />
+              <PairList pairs={item.lines} hideSwedish={hideSwedish} />
             ) : null}
           </div>
         ))}
@@ -1237,9 +1234,9 @@ function TopicSet({ id, set, kind, hideEnglish }) {
             <p className="tp-eyebrow">Model text</p>
             {set.paragraphs.map((paragraph, index) => (
               <div className="model-text__row" key={index}>
-                <p lang="sv">{paragraph.sv}</p>
-                <p className="pair__en">
-                  <English text={paragraph.en} hidden={hideEnglish} className="" />
+                <p className="pair__en">{paragraph.en}</p>
+                <p>
+                  <Swedish text={paragraph.sv} hidden={hideSwedish} className="" />
                 </p>
               </div>
             ))}

@@ -382,8 +382,8 @@ ul.rule-list {
   }
 }
 
-/* Section titles carry the English name in a quieter voice */
-.section-title__en {
+/* Section titles carry the secondary-language name in a quieter voice */
+.section-title__secondary {
   display: block;
   margin-top: var(--space-1);
   font-family: var(--font-text);
@@ -399,17 +399,17 @@ ul.rule-list {
   font-weight: var(--weight-semibold);
 }
 
-/* Hide English switch */
-.hide-english {
+/* Swedish-answer practice switch */
+.hide-swedish {
   margin-top: var(--space-4);
 }
 
-.hide-english .tp-field__hint {
+.hide-swedish .tp-field__hint {
   grid-column: 1 / -1;
   margin: 0;
 }
 
-/* English waiting behind a tap */
+/* Swedish waiting behind a tap */
 .reveal {
   display: inline-flex;
   align-items: center;
@@ -434,7 +434,7 @@ ul.rule-list {
   }
 }
 
-/* Sentence pairs: Swedish first, English as the helper below */
+/* Sentence pairs: English cue first, Swedish answer below */
 .pair-list {
   margin: 0;
   padding: 0;

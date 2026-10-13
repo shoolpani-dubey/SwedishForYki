@@ -161,7 +161,7 @@ export default function PracticePage() {
   const [writingIndex, setWritingIndex] = useState(0);
   const [choice, setChoice] = useState(0);
   const [longOpinion, setLongOpinion] = useState(false);
-  const [showEnglish, setShowEnglish] = useState(false);
+  const [showSwedish, setShowSwedish] = useState(false);
   const topic = practiceTopics.find((entry) => entry.id === topicId);
   const tasks = mode === 'speaking' ? SPEAKING_TASKS : WRITING_TASKS;
   const index = mode === 'speaking' ? speakingIndex : writingIndex;
@@ -173,12 +173,14 @@ export default function PracticePage() {
     : [['Write', task.minutes * 60]];
   const changeTopic = (id) => { setTopicId(id); setSpeakingIndex(0); setWritingIndex(0); setChoice(0); };
 
+  useEffect(() => setShowSwedish(false), [timerKey]);
+
   return (
     <article className="practice-page">
       <header className="page-header">
-        <p className="tp-eyebrow">YKI practice · Swedish with English support</p>
+        <p className="tp-eyebrow">YKI practice · English prompts with Swedish checks</p>
         <h1 className="page-title" id="page-title" tabIndex={-1}>Speaking & writing</h1>
-        <p className="lead">Practise exam-style tasks from the seven topic notes. Read the Swedish prompt first, then reveal English if you need it.</p>
+        <p className="lead">Read the English prompt, say or write your answer in Swedish, then reveal the Swedish version to check yourself.</p>
       </header>
 
       <div className="practice-modes" aria-label="Practice mode">
@@ -191,16 +193,16 @@ export default function PracticePage() {
           <div className="tp-field">
             <label className="tp-field__label" htmlFor="practice-topic">Topic · Ämne</label>
             <select className="tp-select" id="practice-topic" value={topicId} onChange={(event) => changeTopic(event.target.value)}>
-              {practiceTopics.map((entry) => <option key={entry.id} value={entry.id}>{entry.name}</option>)}
+              {practiceTopics.map((entry) => <option key={entry.id} value={entry.id}>{entry.english}</option>)}
             </select>
-            <p className="tp-field__hint">{topic.english}</p>
+            <p className="tp-field__hint" lang="sv">{topic.name}</p>
           </div>
           <h2 className="practice-sidebar__title">{mode === 'speaking' ? '9 speaking tasks' : '3 writing texts'}</h2>
           <ol className="practice-task-list">
             {tasks.map((entry, taskIndex) => <li key={entry.id}>
               <button type="button" className="practice-task-button" aria-current={index === taskIndex ? 'step' : undefined} onClick={() => { mode === 'speaking' ? setSpeakingIndex(taskIndex) : setWritingIndex(taskIndex); setChoice(0); }}>
-                <span>{String(taskIndex + 1).padStart(2, '0')} · {entry.label}</span>
-                <small>{entry.english}</small>
+                <span>{String(taskIndex + 1).padStart(2, '0')} · {entry.english}</span>
+                <small lang="sv">{entry.label}</small>
               </button>
             </li>)}
           </ol>
@@ -209,8 +211,8 @@ export default function PracticePage() {
 
         <div className="practice-main">
           <div className="practice-card">
-            <p className="tp-eyebrow">{topic.name} · Task {index + 1} of {tasks.length}</p>
-            <h2 className="section-title">{task.label} <span className="practice-subtitle">/ {task.english}</span></h2>
+            <p className="tp-eyebrow">{topic.english} · Task {index + 1} of {tasks.length}</p>
+            <h2 className="section-title">{task.english} <span className="practice-subtitle" lang="sv">/ {task.label}</span></h2>
             <div className="practice-targets">
               {mode === 'speaking' ? phases.map(([label, seconds]) => <span className="tp-pill" key={label}>{label}: {seconds}s</span>) : <><span className="tp-pill">{task.minutes} min</span><span className="tp-pill">{task.min}–{task.max} words{task.id === 'opinion' ? ' · aim ~120' : ''}</span></>}
             </div>
@@ -218,10 +220,14 @@ export default function PracticePage() {
               {[0, 1].map((option) => <button key={option} className="tp-button" type="button" aria-pressed={choice === option} onClick={() => setChoice(option)}>{option === 0 ? 'A' : 'B'}</button>)}
               <button className="tp-button" type="button" aria-pressed={longOpinion} onClick={() => setLongOpinion(!longOpinion)}>{longOpinion ? '2 min answer' : '1½ min answer'}</button>
             </div> : null}
-            <div className="practice-prompt" lang="sv"><span className="meta-label">Uppgift · Prompt</span><p>{prompt[0]}</p></div>
-            <button className="tp-button tp-button--quiet" type="button" aria-expanded={showEnglish} onClick={() => setShowEnglish(!showEnglish)}>{showEnglish ? 'Hide English help' : 'Show English help'}</button>
-            {showEnglish ? <p className="practice-translation" lang="en">{prompt[1]}</p> : null}
-            <div className="practice-tip"><span className="meta-label">Stöd · Useful structure</span><p lang="sv">{task.tip}</p></div>
+            <div className="practice-prompt" lang="en"><span className="meta-label">Prompt · Uppgift</span><p>{prompt[1]}</p></div>
+            <button className="tp-button tp-button--quiet" type="button" aria-expanded={showSwedish} onClick={() => setShowSwedish(!showSwedish)}>{showSwedish ? 'Hide Swedish' : 'Show Swedish'}</button>
+            {showSwedish ? (
+              <>
+                <p className="practice-translation" lang="sv">{prompt[0]}</p>
+                <div className="practice-tip"><span className="meta-label">Useful structure · Stöd</span><p lang="sv">{task.tip}</p></div>
+              </>
+            ) : null}
           </div>
 
           <PracticeTimer key={`timer:${timerKey}`} phases={phases} />
