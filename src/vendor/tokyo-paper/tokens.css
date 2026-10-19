@@ -6,7 +6,7 @@
 
 :root {
   /* Type families */
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
   --font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
 
   /* Type scale. Fluid sizes mix rem + vw so they still grow with browser zoom. */

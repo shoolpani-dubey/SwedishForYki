@@ -8,6 +8,12 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['apple-touch-icon.png', 'favicon.svg'],
+      devOptions: {
+        // Expose the manifest and service worker during `npm run dev` so the
+        // app can be installed and its PWA behavior can be tested locally.
+        enabled: true,
+        suppressWarnings: true,
+      },
       manifest: {
         id: './',
         name: 'Swedish for YKI',
@@ -40,9 +46,10 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // The course content is emitted as a 1.5 MB JSON asset, so include it
-        // explicitly to make lessons available without a connection.
-        globPatterns: ['**/*.{js,css,html,json,ico,woff2}'],
+        // Precache the complete app shell, locally hosted font, icons, and the
+        // emitted course JSON so every lesson works after the first visit.
+        // Manifest icons and includeAssets are added by the PWA plugin.
+        globPatterns: ['**/*.{js,css,html,json,woff,woff2}'],
       },
     }),
   ],

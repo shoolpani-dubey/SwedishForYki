@@ -1,6 +1,7 @@
 import React, { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { AlertTriangle, Lightbulb, Search } from 'lucide-react';
+import '@fontsource-variable/jetbrains-mono/wght.css';
 import courseUrl from './data/swedishYkiCourse.json?url';
 import PracticePage from './PracticePage.jsx';
 import './vendor/tokyo-paper/tokyo-paper.css';
