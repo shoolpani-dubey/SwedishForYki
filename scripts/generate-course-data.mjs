@@ -3466,6 +3466,24 @@ const grammarTopics = [...ykiGrammarTopics, ...legacyGrammarTopics].reduce((topi
 }, []);
 
 const topics = parseTopics(path.resolve(__dirname, '../src/data/topics'));
+// Supplement the source vocabulary lists with bilingual usage examples. Keep
+// examples already supplied by the topic files; lessons reuse these below.
+const topicWordExamples = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, '../src/data/topicWordExamples.json'), 'utf8'),
+);
+topics.forEach((topic) => {
+  topic.wordGroups.forEach((group) => {
+    group.words.forEach((word) => {
+      if (!word.examples.length) {
+        const example = topicWordExamples[word.swedish];
+        if (!example?.sv?.trim() || !example?.en?.trim()) {
+          throw new Error(`Missing bilingual topic example: ${group.id}: ${word.swedish}`);
+        }
+        word.examples.push(example);
+      }
+    });
+  });
+});
 
 // The topic files are B1 vocabulary, so each word group joins the B1 day on
 // the closest subject. Every group must be placed exactly once.

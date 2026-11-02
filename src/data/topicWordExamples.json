@@ -1,0 +1,3326 @@
+{
+  "en familj": {
+    "sv": "Min familj bor i Indien.",
+    "en": "My family lives in India."
+  },
+  "föräldrar": {
+    "sv": "Hej alla föräldrar!",
+    "en": "Hello all parents!"
+  },
+  "ett barnbarn": {
+    "sv": "Nu bor hon nära sina barnbarn och odlar grönsaker i sin trädgård.",
+    "en": "Now she lives near her grandchildren and grows vegetables in her garden."
+  },
+  "en sambo": {
+    "sv": "Jag har en sambo.",
+    "en": "I have a live-in partner."
+  },
+  "en änka / en änkling": {
+    "sv": "För tio år sedan blev hon änka, vilket var väldigt tungt för henne.",
+    "en": "Ten years ago she became a widow, which was very hard for her."
+  },
+  "skild": {
+    "sv": "Jag är skild.",
+    "en": "I am divorced."
+  },
+  "ensam": {
+    "sv": "Jämfört med mitt hemland är vardagen här mer organiserad men mer ensam.",
+    "en": "Compared with my home country everyday life here is more organised but more lonely."
+  },
+  "Grattis!": {
+    "sv": "Vad roligt för dig! Stort grattis!",
+    "en": "How lovely for you! Big congratulations!"
+  },
+  "en present": {
+    "sv": "Hej! Jag skulle behöva en bukett blommor i present.",
+    "en": "Hello! I need a bouquet of flowers as a present."
+  },
+  "ett önskemål": {
+    "sv": "Okej. Och har du några önskemål om gåvor?",
+    "en": "Okay. And do you have any wishes about presents?"
+  },
+  "en bekräftelse": {
+    "sv": "Jag vill ha en bekräftelse via mejl.",
+    "en": "I would like a confirmation by email."
+  },
+  "ett hinder": {
+    "sv": "Priserna är också ett hinder — ett hotellrum och en restaurangmåltid kostar dubbelt så mycket som i södra Europa.",
+    "en": "Prices are also an obstacle — a hotel room and a restaurant meal cost twice as much as in southern Europe."
+  },
+  "att tacka nej": {
+    "sv": "Det är verkligen snällt av dig, men jag måste tyvärr tacka nej.",
+    "en": "That's really kind of you, but unfortunately I have to decline."
+  },
+  "en aftonklänning": {
+    "sv": "Åh nej! Det stämmer. För kvinnor innebär det en lång aftonklänning och jag har inte ens en sådan. Jag undrar om jag kan bära den korta klänningen?",
+    "en": "Oh no! That's right. For women it means a long evening gown and I don't even have one. I wonder if I can wear the short dress?"
+  },
+  "en bostad": {
+    "sv": "För tre år sedan halkade min pappa på isen utanför sin bostad i februari.",
+    "en": "Three years ago my father slipped on the ice outside his home in February."
+  },
+  "ett egnahemshus": {
+    "sv": "Vad är det bästa sättet att bo: egnahemshus, radhus eller höghus?",
+    "en": "What is the best way to live: a detached house, a terraced house or a block of flats?"
+  },
+  "ett radhus": {
+    "sv": "Vad är det bästa sättet att bo: egnahemshus, radhus eller höghus?",
+    "en": "What is the best way to live: a detached house, a terraced house or a block of flats?"
+  },
+  "ett höghus": {
+    "sv": "Vad är det bästa sättet att bo: egnahemshus, radhus eller höghus?",
+    "en": "What is the best way to live: a detached house, a terraced house or a block of flats?"
+  },
+  "en lägenhet": {
+    "sv": "Jag bor i en lägenhet.",
+    "en": "I live in an apartment."
+  },
+  "kvadratmeter (kvm)": {
+    "sv": "Tack. Du har ett vackert hem. Hur många kvadratmeter finns det?",
+    "en": "Thanks. You have a beautiful home. How many square metres is it?"
+  },
+  "att hyra": {
+    "sv": "Vad är bäst — att äga eller att hyra?",
+    "en": "What is best — to own or to rent?"
+  },
+  "att äga": {
+    "sv": "Vad är bäst — att äga eller att hyra?",
+    "en": "What is best — to own or to rent?"
+  },
+  "att renovera": {
+    "sv": "Då betalar man till sig själv istället för till en hyresvärd, och man får renovera som man vill.",
+    "en": "Then you pay yourself instead of a landlord, and you may renovate as you like."
+  },
+  "en renovering": {
+    "sv": "Ja, vi gör köksrenoveringar. Vilken typ av renovering har du tänkt dig?",
+    "en": "Yes, we do kitchen renovations. What kind of renovation did you have in mind?"
+  },
+  "en offert": {
+    "sv": "Hej Anna, jag heter Rahul Sharma. Jag ringer för att jag vill renovera mitt kök och skulle vilja be om en offert. Gör ni sådana arbeten?",
+    "en": "Hi Anna, my name is Rahul Sharma. I'm calling because I want to renovate my kitchen and would like to ask for a quote. Do you do that kind of work?"
+  },
+  "en budget": {
+    "sv": "Min budget är ungefär fyrtio euro. Vad skulle du rekommendera?",
+    "en": "My budget is about forty euros. What would you recommend?"
+  },
+  "en disponent / en fastighetsförvaltare": {
+    "sv": "Det är disponent Virtanen, hej. Jag ringer för att en granne har klagat på det oljud du gjorde häromdagen. Hade ni någon slags fest där?",
+    "en": "This is building manager Virtanen, hello. I'm calling because a neighbour has complained about the noise you made the other day. Did you have some kind of party there?"
+  },
+  "ett klagomål": {
+    "sv": "Tyvärr kompenserar vi inte i situationer som denna. Du kan göra ett skriftligt klagomål till kundtjänsten.",
+    "en": "Unfortunately we don't compensate in situations like this. You can make a written complaint to customer service."
+  },
+  "oljud / buller": {
+    "sv": "Det är disponent Virtanen, hej. Jag ringer för att en granne har klagat på det oljud du gjorde häromdagen. Hade ni någon slags fest där?",
+    "en": "This is building manager Virtanen, hello. I'm calling because a neighbour has complained about the noise you made the other day. Did you have some kind of party there?"
+  },
+  "grannarnas lugn": {
+    "sv": "Så där ja. Den här gången blir det bara en varning, men nästa gång kan du sätta upp ett meddelande i trapphuset före festen, så att grannarnas lugn bevaras bättre.",
+    "en": "There we are. This time it will just be a warning, but next time you can put up a notice in the stairwell before the party, so that the neighbours' peace is better preserved."
+  },
+  "en varning": {
+    "sv": "Så där ja. Den här gången blir det bara en varning, men nästa gång kan du sätta upp ett meddelande i trapphuset före festen, så att grannarnas lugn bevaras bättre.",
+    "en": "There we are. This time it will just be a warning, but next time you can put up a notice in the stairwell before the party, so that the neighbours' peace is better preserved."
+  },
+  "att läcka": {
+    "sv": "Kylskåpet oroar mig mest eftersom det kan läcka farliga ämnen i marken.",
+    "en": "The fridge worries me most because it can leak dangerous substances into the ground."
+  },
+  "att reparera": {
+    "sv": "Vi behöver reparera tvättmaskinen.",
+    "en": "We need to repair the washing machine."
+  },
+  "att byta": {
+    "sv": "Kan jag byta den här?",
+    "en": "Can I exchange this?"
+  },
+  "service": {
+    "sv": "Där får man bättre service och pengarna stannar i området.",
+    "en": "There you get better service and the money stays in the area."
+  },
+  "Jag tycker att...": {
+    "sv": "Jag tycker att kursen är bra.",
+    "en": "I think the course is good."
+  },
+  "Enligt min åsikt / Enligt min mening...": {
+    "sv": "Gränsen går enligt min mening där hobbyn slutar vara rolig.",
+    "en": "The line is drawn, in my opinion, where the hobby stops being fun."
+  },
+  "Jag håller delvis med.": {
+    "sv": "Det här är en intressant fråga och jag håller delvis med.",
+    "en": "This is an interesting question and I partly agree."
+  },
+  "Till exempel": {
+    "sv": "Till exempel sparar det tid.",
+    "en": "For example it saves time."
+  },
+  "Trots att": {
+    "sv": "Ja! Jag glömmer alltid mjölk, trots att det står överst på listan.",
+    "en": "Yes! I always forget milk, even though it's at the top of the list."
+  },
+  "en kedja": {
+    "sv": "Den största fördelen är priset — en stor kedja kan köpa in enorma mängder och därför sälja billigt.",
+    "en": "The biggest advantage is the price — a big chain can buy in enormous quantities and therefore sell cheaply."
+  },
+  "en kund": {
+    "sv": "Jag har varit kund hos er i tio år och alltid betalat i tid.",
+    "en": "I've been a customer with you for ten years and always paid on time."
+  },
+  "betjäning / service": {
+    "sv": "Där får man bättre service och pengarna stannar i området.",
+    "en": "There you get better service and the money stays in the area."
+  },
+  "en inköpslista": {
+    "sv": "Jag skriver en inköpslista.",
+    "en": "I write a shopping list."
+  },
+  "en produkt": {
+    "sv": "Du returnerar en trasig produkt till sportbutiken.",
+    "en": "You return a broken product to the sports shop."
+  },
+  "en möbel / möbler": {
+    "sv": "Du har köpt en möbel men alla delar finns inte i paketet.",
+    "en": "You've bought furniture but not all parts are in the package."
+  },
+  "ett bonuskort / ett stamkundskort": {
+    "sv": "Har du ett bonuskort? Är det bra? Varför?",
+    "en": "Do you have a loyalty card? Is it good? Why?"
+  },
+  "att betala kontant": {
+    "sv": "Du kan betala kontant första gången, men du bör ha med dig kontanter. Har du varit elev hos oss tidigare?",
+    "en": "You can pay cash the first time, but you should bring cash with you. Have you been a student with us before?"
+  },
+  "dyr": {
+    "sv": "Den är för dyr.",
+    "en": "It is too expensive."
+  },
+  "billig": {
+    "sv": "Den här är billig.",
+    "en": "This one is cheap."
+  },
+  "att pruta / att förhandla": {
+    "sv": "Här är priserna fasta och det är omöjligt att förhandla.",
+    "en": "Here the prices are fixed and it is impossible to negotiate."
+  },
+  "sparsam": {
+    "sv": "Jag skulle säga att jag är ganska sparsam.",
+    "en": "I would say I'm quite thrifty."
+  },
+  "att returnera": {
+    "sv": "Hej, jag skulle vilja returnera de här löparskorna.",
+    "en": "Hello, I'd like to return these running shoes."
+  },
+  "garantin gäller fortfarande": {
+    "sv": "Garantin gäller fortfarande.",
+    "en": "The warranty still applies."
+  },
+  "ett byte / att byta ut": {
+    "sv": "Ah, äsch då! Jag är ledsen. Jag kan givetvis byta ut kaffet och ge dig ett nytt i stället.",
+    "en": "Oh dear! I'm sorry. Of course I can replace the coffee and give you a new one instead."
+  },
+  "en ersättning": {
+    "sv": "Skulle jag kunna få ersättning för det?",
+    "en": "Could I get compensation for that?"
+  },
+  "sönder / trasig": {
+    "sv": "Lampan är trasig.",
+    "en": "The lamp is broken."
+  },
+  "ett märke": {
+    "sv": "Här är kvittot. Jag skulle helst vilja ha pengarna tillbaka, eller byta till ett annat märke.",
+    "en": "Here's the receipt. I'd prefer to have my money back, or exchange them for a different brand."
+  },
+  "att fortsätta": {
+    "sv": "Kan vi fortsätta på svenska?",
+    "en": "Can we continue in Swedish?"
+  },
+  "att stanna": {
+    "sv": "Det här är ett övergångsställe — du måste stanna för gående!",
+    "en": "This is a pedestrian crossing — you have to stop for pedestrians!"
+  },
+  "en trottoar": {
+    "sv": "Det som förvånade mig mest var att en enda sekund kan ändra allt — hans hela vardag blev annorlunda på grund av en halkig trottoar.",
+    "en": "What surprised me most was that a single second can change everything — his whole everyday life became different because of a slippery pavement."
+  },
+  "ett övergångsställe": {
+    "sv": "En bil kör nästan på dig vid ett övergångsställe.",
+    "en": "A car almost hits you at a pedestrian crossing."
+  },
+  "ett kvarter": {
+    "sv": "Gå rakt fram två kvarter.",
+    "en": "Go straight ahead two blocks."
+  },
+  "under": {
+    "sv": "Katten sover under stolen.",
+    "en": "The cat sleeps under the chair."
+  },
+  "bakom": {
+    "sv": "Du har hört att din vän talat illa om dig bakom din rygg.",
+    "en": "You have heard your friend has spoken badly about you behind your back."
+  },
+  "mittemot": {
+    "sv": "Mitt hus är det gula huset mittemot lekparken, portkod 1234.",
+    "en": "My building is the yellow one opposite the playground, door code 1234."
+  },
+  "bredvid": {
+    "sv": "Skolan ligger bredvid biblioteket.",
+    "en": "The school is next to the library."
+  },
+  "förbi": {
+    "sv": "När du kliver av, gå rakt fram förbi affären och sväng sedan till höger.",
+    "en": "When you get off, walk straight ahead past the shop and then turn right."
+  },
+  "att hitta": {
+    "sv": "Min adress är enkel att hitta.",
+    "en": "My address is easy to find."
+  },
+  "kollektivtrafik": {
+    "sv": "Enligt mig behöver vi mer kollektivtrafik.",
+    "en": "In my opinion we need more public transport."
+  },
+  "en hållplats": {
+    "sv": "Var är nästa hållplats?",
+    "en": "Where is the next stop?"
+  },
+  "en biljett": {
+    "sv": "Jag har ingen biljett.",
+    "en": "I have no ticket."
+  },
+  "en förare / en chaufför": {
+    "sv": "En berusad förare kommer in på parkeringen. Du känner igen personen. Ring polisen.",
+    "en": "A drunk driver enters the car park. You recognise the person. Call the police."
+  },
+  "att kliva på / att kliva av": {
+    "sv": "Ursäkta, jag är inte säker på var jag ska kliva av.",
+    "en": "Excuse me, I'm not sure where I should get off."
+  },
+  "i tid": {
+    "sv": "Du måste komma i tid.",
+    "en": "You must come on time."
+  },
+  "försenad": {
+    "sv": "Hej, jag heter Rahul Sharma. Jag har fått en påminnelse per e-post om en försenad bok, men jag har faktiskt inte lånat någon bok. Det måste vara något fel.",
+    "en": "Hello, my name is Rahul Sharma. I've received a reminder by email about an overdue book, but I actually haven't borrowed any book. There must be some mistake."
+  },
+  "en vardag": {
+    "sv": "Hur ser din normala vardag ut?",
+    "en": "What does your normal weekday look like?"
+  },
+  "ett schema": {
+    "sv": "Mitt schema ändras ofta.",
+    "en": "My schedule changes often."
+  },
+  "en kalender": {
+    "sv": "Jag skriver allt i min kalender.",
+    "en": "I write everything in my calendar."
+  },
+  "att åka till jobbet": {
+    "sv": "Tanken var helt tom när jag skulle åka till jobbet i morse och jag kom nästan för sent.",
+    "en": "The tank was completely empty when I was going to work this morning and I was almost late."
+  },
+  "att handla": {
+    "sv": "Jag brukar handla en gång i veckan och betalar alltid med kort.",
+    "en": "I usually shop once a week and always pay by card."
+  },
+  "att laga mat": {
+    "sv": "Vi ska laga mat ikväll.",
+    "en": "We are going to cook this evening."
+  },
+  "att diska": {
+    "sv": "Oftast bråkar jag med min fru, och nästan alltid om små vardagliga saker: vem som ska diska, hur mycket vi ska lägga på semestern, eller varför jag alltid kommer sent.",
+    "en": "Most often I argue with my wife, and almost always about small everyday things: who is going to do the dishes, how much we should spend on the holiday, or why I'm always late."
+  },
+  "att städa": {
+    "sv": "Någon måste städa, köra buss och ta hand om gamla människor på natten.",
+    "en": "Someone has to clean, drive buses and take care of old people at night."
+  },
+  "att tvätta (kläder)": {
+    "sv": "När jag köper nya kläder tittar jag på materialet, priset och om plagget går att tvätta i maskin.",
+    "en": "When I buy new clothes I look at the material, the price and whether the garment can be machine washed."
+  },
+  "en städare": {
+    "sv": "Jag har bestämt mig för att anlita en städare en gång i veckan.",
+    "en": "I've decided to hire a cleaner once a week."
+  },
+  "att hinna": {
+    "sv": "Vi skulle vilja flytta före augusti, eftersom vår äldsta dotter börjar skolan då och vi vill att hon ska hinna vänja sig innan terminen börjar.",
+    "en": "We would like to move before August, because our eldest daughter starts school then and we want her to have time to get used to things before the term begins."
+  },
+  "att slösa tid": {
+    "sv": "Jag vill inte slösa tid på att vänta i köer eller på att bråka om småsaker.",
+    "en": "I don't want to waste time queueing or arguing about small things."
+  },
+  "att prioritera": {
+    "sv": "Jag måste prioritera nu.",
+    "en": "I need to prioritize now."
+  },
+  "bråttom": {
+    "sv": "Varför verkar alla ha bråttom?",
+    "en": "Why does everyone seem to be in a hurry?"
+  },
+  "en förrätt / en huvudrätt / en efterrätt": {
+    "sv": "Vi delar en förrätt.",
+    "en": "We are sharing a starter."
+  },
+  "en portion": {
+    "sv": "Här beställer var och en sin egen portion och betalar sin egen räkning.",
+    "en": "Here everyone orders their own portion and pays their own bill."
+  },
+  "en dryck": {
+    "sv": "Ja, det är förstås förståeligt. Skulle en annan dryck vara bättre?",
+    "en": "Yes, that's understandable of course. Would another drink be better?"
+  },
+  "en bulle": {
+    "sv": "Gärna, men då måste vi skynda oss. Jag tar en kaffe med mjölk och hämtar en bulle också om det finns kvar. Kom, vi går!",
+    "en": "Gladly, but then we have to hurry. I'll get a coffee with milk and grab a bun too if there are any left. Come on, let's go!"
+  },
+  "bränt": {
+    "sv": "Nej, tyvärr inte. Jag måste säga att kaffet är helt kallt, och dessutom smakar det ganska bränt. Jag är ledsen att behöva säga det.",
+    "en": "No, unfortunately not. I have to say the coffee is completely cold, and it also tastes quite burnt. I'm sorry to have to say it."
+  },
+  "en atmosfär / en stämning": {
+    "sv": "Vilken atmosfär ska en restaurang ha? Vad vill du se mer av?",
+    "en": "What atmosphere should a restaurant have? What would you like to see more of?"
+  },
+  "att klaga": {
+    "sv": "Jag vill klaga på produkten.",
+    "en": "I want to complain about the product."
+  },
+  "att boka tid": {
+    "sv": "Man måste boka tid i förväg — man kan inte bara gå dit.",
+    "en": "You have to book an appointment in advance — you can't just walk in."
+  },
+  "redskap": {
+    "sv": "Ja, ja. Jag ska gå och hämta lite redskap och sedan kan vi börja.",
+    "en": "Yes, yes. I'll go and fetch some tools and then we can start."
+  },
+  "naturen": {
+    "sv": "Hur kan vi skydda naturen?",
+    "en": "How can we protect nature?"
+  },
+  "ett träsk / ett kärr / en myr": {
+    "sv": "Vad är ett träsk?",
+    "en": "What is a bog?"
+  },
+  "en nationalpark": {
+    "sv": "Nuuksio nationalpark ligger en halvtimme bort med bil, och dit åker vi flera gånger varje sommar.",
+    "en": "Nuuksio National Park is half an hour away by car, and we go there several times every summer."
+  },
+  "en campingplats": {
+    "sv": "Vad kan man göra på en campingplats?",
+    "en": "What can you do at a campsite?"
+  },
+  "en stuga": {
+    "sv": "Man kan sätta upp ett tält eller hyra en stuga, grilla, bada och fiska.",
+    "en": "You can put up a tent or rent a cabin, barbecue, swim and fish."
+  },
+  "allemansrätten": {
+    "sv": "Tack vare allemansrätten får alla plocka bär och svamp gratis.",
+    "en": "Thanks to everyman's right everyone may pick berries and mushrooms for free."
+  },
+  "en tall": {
+    "sv": "En hög tall växer vid stugan.",
+    "en": "A tall pine grows by the cottage."
+  },
+  "en gran": {
+    "sv": "Vi har en stor gran i trädgården.",
+    "en": "We have a large spruce in the garden."
+  },
+  "en björk": {
+    "sv": "En björk har vit stam.",
+    "en": "A birch has a white trunk."
+  },
+  "mossa": {
+    "sv": "Runtomkring finns höga tallar och marken är täckt av mjuk mossa och blåbär.",
+    "en": "All around there are tall pines and the ground is covered with soft moss and blueberries."
+  },
+  "en svamp": {
+    "sv": "Fyra hekto svamp, tack.",
+    "en": "Four hectograms of mushrooms, please."
+  },
+  "ett bär": {
+    "sv": "Tack vare allemansrätten får alla plocka bär och svamp gratis.",
+    "en": "Thanks to everyman's right everyone may pick berries and mushrooms for free."
+  },
+  "blåbär / lingon / hjortron / smultron": {
+    "sv": "På hösten plockar man svamp och lingon, och många jagar.",
+    "en": "In autumn people pick mushrooms and lingonberries, and many go hunting."
+  },
+  "att plocka bär och svamp": {
+    "sv": "Tack vare allemansrätten får alla plocka bär och svamp gratis.",
+    "en": "Thanks to everyman's right everyone may pick berries and mushrooms for free."
+  },
+  "att fiska": {
+    "sv": "Ja, ja. Var ska du fiska?",
+    "en": "Yes, yes. Where are you going to fish?"
+  },
+  "ett fisketillstånd": {
+    "sv": "Hej! Jag heter Rahul Sharma. Jag skulle vilja börja fiska men jag har inget fisketillstånd. Kan du berätta hur jag ska göra för att få ett?",
+    "en": "Hello! My name is Rahul Sharma. I'd like to start fishing but I don't have a fishing permit. Can you tell me how to get one?"
+  },
+  "redskap / utrustning": {
+    "sv": "Vilken utrustning behöver du?",
+    "en": "What equipment do you need?"
+  },
+  "ett vilt djur": {
+    "sv": "Vad är skillnaden mellan ett vilt djur och ett tamdjur?",
+    "en": "What is the difference between a wild animal and a domestic animal?"
+  },
+  "ett tamdjur / ett husdjur": {
+    "sv": "Varför har människor husdjur?",
+    "en": "Why do people have pets?"
+  },
+  "en älg": {
+    "sv": "När är en älg farlig för människor?",
+    "en": "When is an elk dangerous for people?"
+  },
+  "en huggorm": {
+    "sv": "Vad ska du göra om en huggorm biter dig?",
+    "en": "What should you do if an adder bites you?"
+  },
+  "våren / sommaren / hösten / vintern": {
+    "sv": "De gjorde slut förra sommaren.",
+    "en": "They broke up last summer."
+  },
+  "på våren / på sommaren": {
+    "sv": "På sommaren cyklar jag ibland istället, då tar det en halvtimme.",
+    "en": "In summer I sometimes cycle instead, then it takes half an hour."
+  },
+  "kaamos / polarnatt": {
+    "sv": "Under polarnatten går solen inte upp.",
+    "en": "During the polar night the sun does not rise."
+  },
+  "den nattlösa natten / midnattssol": {
+    "sv": "Vi vill se midnattssol i Lappland.",
+    "en": "We want to see the midnight sun in Lapland."
+  },
+  "ruska": {
+    "sv": "På hösten reser vi till Lappland för att se ruska.",
+    "en": "In autumn we travel to Lapland to see the autumn colours."
+  },
+  "norrsken": {
+    "sv": "Naturen är det största: skogar, tusentals sjöar, skärgården och Lappland med norrsken och midnattssol.",
+    "en": "Nature is the biggest thing: forests, thousands of lakes, the archipelago and Lapland with the northern lights and the midnight sun."
+  },
+  "soligt / molnigt / regnigt / blåsigt": {
+    "sv": "Det är soligt idag.",
+    "en": "It is sunny today."
+  },
+  "att försvinna / försvunnen": {
+    "sv": "Utan synen skulle både mitt arbete och mina fritidsintressen försvinna.",
+    "en": "Without sight both my work and my hobbies would disappear."
+  },
+  "att sortera / sortering": {
+    "sv": "Som individ kan man sortera sina sopor, äta mindre kött, åka kollektivt och köpa färre saker.",
+    "en": "As an individual you can sort your waste, eat less meat, use public transport and buy fewer things."
+  },
+  "att återvinna / återvinning": {
+    "sv": "Enligt mig är återvinning viktigt.",
+    "en": "In my opinion recycling is important."
+  },
+  "avfall / sopor": {
+    "sv": "Det är olagligt att lämna avfall i skogen.",
+    "en": "It's illegal to leave waste in the forest."
+  },
+  "matavfall / organiskt avfall / bioavfall": {
+    "sv": "Vi sorterar bioavfall, kartong, plast, metall, glas och papper.",
+    "en": "We sort bio waste, cardboard, plastic, metal, glass and paper."
+  },
+  "kartong": {
+    "sv": "Vi sorterar bioavfall, kartong, plast, metall, glas och papper.",
+    "en": "We sort bio waste, cardboard, plastic, metal, glass and paper."
+  },
+  "glas / glasinsamling": {
+    "sv": "Vi återvinner plast och glas.",
+    "en": "We recycle plastic and glass."
+  },
+  "plast / en plastpåse": {
+    "sv": "Vi återvinner plast och glas.",
+    "en": "We recycle plastic and glass."
+  },
+  "pant": {
+    "sv": "Man betalar pant på flaskor och burkar och tar tillbaka dem till affären.",
+    "en": "You pay a deposit on bottles and cans and take them back to the shop."
+  },
+  "en burk": {
+    "sv": "Jag behöver en burk tomatsås.",
+    "en": "I need a can of tomato sauce."
+  },
+  "att donera / att skänka": {
+    "sv": "Du flyttar och vill skänka gamla saker till en vän.",
+    "en": "You're moving and want to give old things to a friend."
+  },
+  "begagnad": {
+    "sv": "Du har sett en annons om en begagnad tvättmaskin. Ring säljaren.",
+    "en": "You've seen an advert for a second-hand washing machine. Call the seller."
+  },
+  "att skydda": {
+    "sv": "Hur kan vi skydda naturen?",
+    "en": "How can we protect nature?"
+  },
+  "miljövänlig": {
+    "sv": "Är du själv miljövänlig? Hur?",
+    "en": "Are you environmentally friendly yourself? How?"
+  },
+  "en förorening": {
+    "sv": "Förorening påverkar hälsan.",
+    "en": "Pollution affects health."
+  },
+  "utsläpp": {
+    "sv": "Men det räcker inte — samhället måste också fatta beslut om utsläpp, industri och energi.",
+    "en": "But that isn't enough — society must also make decisions about emissions, industry and energy."
+  },
+  "koldioxid": {
+    "sv": "Dessutom släpper den inte ut någon koldioxid alls och tar lite plats i staden.",
+    "en": "Moreover it produces no carbon dioxide at all and takes up little space in the city."
+  },
+  "ett klimatavtryck / en miljöpåverkan": {
+    "sv": "Det jag är dålig på är flygresor — jag flyger hem till familjen ett par gånger om året, och det är en stor miljöpåverkan.",
+    "en": "What I'm bad at is flying — I fly home to my family a couple of times a year, and that has a big environmental impact."
+  },
+  "ett huvud": {
+    "sv": "Mitt huvud gör ont.",
+    "en": "My head hurts."
+  },
+  "en hjärna": {
+    "sv": "Hur tar du hand om din hjärna?",
+    "en": "How do you take care of your brain?"
+  },
+  "blod": {
+    "sv": "Man säger att blod är tjockare än vatten, men jag håller inte riktigt med.",
+    "en": "People say blood is thicker than water, but I don't really agree."
+  },
+  "ett sinne / sinnen": {
+    "sv": "Vilket sinne är viktigast för dig?",
+    "en": "Which sense is most important to you?"
+  },
+  "lukt": {
+    "sv": "Det skulle vara sorgligt eftersom lukt hör ihop med minnen, och maten skulle smaka mindre.",
+    "en": "It would be sad because smell is connected to memories, and food would taste less."
+  },
+  "ett symtom": {
+    "sv": "Mina symtom började igår.",
+    "en": "My symptoms started yesterday."
+  },
+  "sjuk": {
+    "sv": "Jag är sjuk idag.",
+    "en": "I am sick today."
+  },
+  "frisk": {
+    "sv": "Hur håller du dig frisk?",
+    "en": "How do you keep yourself healthy?"
+  },
+  "en influensa": {
+    "sv": "Han blev sjuk i influensa.",
+    "en": "He fell ill with the flu."
+  },
+  "feber": {
+    "sv": "Jag tror att jag har feber.",
+    "en": "I think I have a fever."
+  },
+  "Jag har feber.": {
+    "sv": "Jag tror att jag har feber.",
+    "en": "I think I have a fever."
+  },
+  "ont i halsen": {
+    "sv": "Jag har feber och ont i halsen.",
+    "en": "I have a fever and a sore throat."
+  },
+  "huvudvärk": {
+    "sv": "Har ni något receptfritt mot huvudvärk?",
+    "en": "Do you have anything over the counter for a headache?"
+  },
+  "magont / ont i magen": {
+    "sv": "Barnet har ont i magen.",
+    "en": "The child has a stomach ache."
+  },
+  "tandvärk": {
+    "sv": "Man använder den mot huvudvärk, feber, tandvärk och muskelvärk.",
+    "en": "You use it for headache, fever, toothache and muscle pain."
+  },
+  "en olycka": {
+    "sv": "Det har varit en liten olycka.",
+    "en": "There has been a small accident."
+  },
+  "medveten / medvetslös": {
+    "sv": "Personen andas men är medvetslös.",
+    "en": "The person is breathing but is unconscious."
+  },
+  "att andas": {
+    "sv": "Andas personen?",
+    "en": "Is the person breathing?"
+  },
+  "cancer": {
+    "sv": "Min farfar dog i cancer.",
+    "en": "My grandfather died of cancer."
+  },
+  "depression": {
+    "sv": "Hon får hjälp för sin depression.",
+    "en": "She is getting help for her depression."
+  },
+  "utmattning / utbrändhet": {
+    "sv": "Elitidrott med hård träning sex dagar i veckan kan ge skador och utbrändhet hos en tolvåring.",
+    "en": "Elite sport with hard training six days a week can give injuries and burnout in a twelve-year-old."
+  },
+  "en hälsocentral": {
+    "sv": "Min fru är sjuksköterska och arbetar på en hälsocentral.",
+    "en": "My wife is a nurse and works at a health centre."
+  },
+  "företagshälsovård": {
+    "sv": "Det skapar ett orättvist system där den som har företagshälsovård eller pengar till privat vård får hjälp direkt.",
+    "en": "That creates an unfair system where the person who has occupational health care or money for private care gets help immediately."
+  },
+  "en undersökning": {
+    "sv": "Läkaren bokade en undersökning.",
+    "en": "The doctor booked an examination."
+  },
+  "en sjukskrivning / sjukfrånvaro": {
+    "sv": "Okej. Krya på dig nu snart. Säg till när du vet hur lång din sjukskrivning blir.",
+    "en": "Okay. Get well soon. Let me know when you know how long your sick leave will be."
+  },
+  "en medicin": {
+    "sv": "Behöver jag medicin?",
+    "en": "Do I need medicine?"
+  },
+  "ett recept": {
+    "sv": "Behöver jag ett recept?",
+    "en": "Do I need a prescription?"
+  },
+  "ögondroppar": {
+    "sv": "Jag frågade på apoteket efter ögondroppar.",
+    "en": "I asked at the pharmacy for eye drops."
+  },
+  "ett plåster": {
+    "sv": "Ja, gärna. Jag behöver också köpa plåster och vitaminer.",
+    "en": "Yes, gladly. I also need to buy plasters and vitamins."
+  },
+  "vitaminer": {
+    "sv": "Ja, gärna. Jag behöver också köpa plåster och vitaminer.",
+    "en": "Yes, gladly. I also need to buy plasters and vitamins."
+  },
+  "en nödsituation": {
+    "sv": "Finns det något sätt att skynda på processen i en nödsituation?",
+    "en": "Is there any way to speed up the process in an emergency?"
+  },
+  "en ambulans": {
+    "sv": "Behöver vi ringa ambulans?",
+    "en": "Do we need to call an ambulance?"
+  },
+  "välmående / välbefinnande": {
+    "sv": "Vad är viktigt för hjärnans välbefinnande?",
+    "en": "What is important for the brain's well-being?"
+  },
+  "psykisk hälsa": {
+    "sv": "Fysisk och psykisk hälsa är lika viktiga.",
+    "en": "Physical and mental health are equally important."
+  },
+  "fysisk hälsa": {
+    "sv": "Jag tycker att psykisk och fysisk hälsa är lika viktiga, men samhället behandlar dem olika.",
+    "en": "I think mental and physical health are equally important, but society treats them differently."
+  },
+  "stress / stressad": {
+    "sv": "Jag känner mig stressad idag.",
+    "en": "I feel stressed today."
+  },
+  "att koppla av": {
+    "sv": "Tack, jag tar en tidning. Jag tänkte faktiskt bara sitta och koppla av en stund.",
+    "en": "Thanks, I'll take a magazine. I was actually just going to sit and relax for a while."
+  },
+  "att motionera / att träna": {
+    "sv": "Min plan är att träna mer.",
+    "en": "My plan is to exercise more."
+  },
+  "en kost": {
+    "sv": "Vill du ändra något i din kost?",
+    "en": "Do you want to change anything in your diet?"
+  },
+  "hälsosam / nyttig": {
+    "sv": "Vilken mat är hälsosam? Varför?",
+    "en": "Which food is healthy? Why?"
+  },
+  "att sova ordentligt": {
+    "sv": "Jag håller mig frisk genom att motionera och sova ordentligt.",
+    "en": "I keep healthy by exercising and sleeping properly."
+  },
+  "en känsla": {
+    "sv": "Å andra sidan är medborgarskap också en känsla av att höra hemma.",
+    "en": "On the other hand citizenship is also a feeling of belonging."
+  },
+  "rädd": {
+    "sv": "Är du rädd för något i trafiken?",
+    "en": "Are you afraid of anything in traffic?"
+  },
+  "nervös / spänd": {
+    "sv": "Språkprov gör mig också spänd!",
+    "en": "Language exams make me tense too!"
+  },
+  "att skratta / att gråta": {
+    "sv": "Det är helt okej att gråta, du behöver inte be om ursäkt.",
+    "en": "It's completely okay to cry, you don't have to apologise."
+  },
+  "missbruk": {
+    "sv": "Vilka problem kan missbruk orsaka?",
+    "en": "What problems can substance abuse cause?"
+  },
+  "alkohol / tobak / droger": {
+    "sv": "Vad anser du om att minderåriga använder droger?",
+    "en": "What do you think about minors using drugs?"
+  },
+  "berusad / full": {
+    "sv": "En berusad förare kommer in på parkeringen. Du känner igen personen. Ring polisen.",
+    "en": "A drunk driver enters the car park. You recognise the person. Call the police."
+  },
+  "att röka": {
+    "sv": "Här får man inte röka.",
+    "en": "You may not smoke here."
+  },
+  "doping": {
+    "sv": "Kan en toppidrottare klara sig utan doping?",
+    "en": "Can a top athlete manage without doping?"
+  },
+  "minderårig": {
+    "sv": "Dörrvakten tror att du är minderårig.",
+    "en": "The doorman thinks you're under age."
+  },
+  "ett yrke": {
+    "sv": "Vad är ditt yrke? Var arbetar du?",
+    "en": "What is your profession? Where do you work?"
+  },
+  "ett företag": {
+    "sv": "Jag arbetar på ett IT-företag.",
+    "en": "I work at an IT company."
+  },
+  "en arbetsgivare / en arbetstagare": {
+    "sv": "Och skickas kortet automatiskt till min arbetsgivare?",
+    "en": "And is the card sent automatically to my employer?"
+  },
+  "en anställd": {
+    "sv": "En ny anställd vet inte vad hen ska göra. Hjälp hen.",
+    "en": "A new employee doesn't know what to do. Help them."
+  },
+  "regler": {
+    "sv": "Rättvisa regler skapar trygghet.",
+    "en": "Fair rules create security."
+  },
+  "en löneförhöjning": {
+    "sv": "Du tycker att din lön är för låg. Förklara varför du behöver en löneförhöjning.",
+    "en": "You think your salary is too low. Explain why you need a pay rise."
+  },
+  "ett konto": {
+    "sv": "Pengarna finns på mitt konto.",
+    "en": "The money is in my account."
+  },
+  "mammaledighet / föräldraledighet": {
+    "sv": "Din kollega ska gå på mammaledighet.",
+    "en": "Your colleague is going on maternity leave."
+  },
+  "arbetstid": {
+    "sv": "Det borde också finnas bra språkutbildning på arbetstid, eftersom språket är det största hindret.",
+    "en": "There should also be good language training during working hours, since the language is the biggest obstacle."
+  },
+  "övertid": {
+    "sv": "Jag har tre projekt samtidigt just nu och gör övertid nästan varje kväll.",
+    "en": "I have three projects at the same time right now and work overtime almost every evening."
+  },
+  "en paus": {
+    "sv": "En kort paus är okej.",
+    "en": "A short pause is okay."
+  },
+  "ett mötesrum": {
+    "sv": "Boka ett mötesrum.",
+    "en": "Book a meeting room."
+  },
+  "ett projekt": {
+    "sv": "Det är ett viktigt projekt.",
+    "en": "It is an important project."
+  },
+  "en deadline / ett slutdatum": {
+    "sv": "Deadline är ganska tight.",
+    "en": "The deadline is fairly tight."
+  },
+  "färdig": {
+    "sv": "Rapporten är färdig nu.",
+    "en": "The report is finished now."
+  },
+  "en affärsresa": {
+    "sv": "Hej! Ja, jag har varit på affärsresa i Tyskland, i München närmare bestämt. Jag var borta i fem dagar, från måndag till fredag.",
+    "en": "Hi! Yes, I've been on a business trip to Germany, to Munich to be precise. I was away for five days, from Monday to Friday."
+  },
+  "att söka (ett jobb)": {
+    "sv": "Jag tänker söka ett jobb på biblioteket.",
+    "en": "I intend to apply for a job at the library."
+  },
+  "en anställningsintervju / en arbetsintervju": {
+    "sv": "Du ringer efter en anställningsintervju med fler frågor.",
+    "en": "You call after a job interview with more questions."
+  },
+  "att välja": {
+    "sv": "Jag skulle välja det andra alternativet.",
+    "en": "I would choose the other option."
+  },
+  "en vikarie / en ersättare": {
+    "sv": "Okej. Har du något viktigt arbete att utföra och behöver en ersättare?",
+    "en": "Okay. Do you have any important work to do and do you need a stand-in?"
+  },
+  "en arbetsbörda": {
+    "sv": "Kan vi boka en halvtimme för att prata om min arbetsbörda?",
+    "en": "Can we book half an hour to talk about my workload?"
+  },
+  "arbetslös": {
+    "sv": "Om jag blir arbetslös eller sjuk faller jag inte rakt ner i fattigdom.",
+    "en": "If I become unemployed or ill I don't fall straight into poverty."
+  },
+  "ett gymnasium": {
+    "sv": "Efter grundskolan vill hon börja på ett gymnasium.",
+    "en": "After comprehensive school she wants to attend an upper secondary school."
+  },
+  "en utbildning": {
+    "sv": "Du vill delta i en utbildning. Berätta för chefen hur den gynnar jobbet.",
+    "en": "You want to take part in a training course. Tell your boss how it benefits the job."
+  },
+  "en examen": {
+    "sv": "Den som aldrig har fått sin examen underkänd vet inte varför så många välutbildade kör taxi.",
+    "en": "Someone who has never had their degree rejected doesn't know why so many well-educated people drive taxis."
+  },
+  "en skoluniform": {
+    "sv": "I mitt hemland hade vi skoluniform, så jag har egen erfarenhet av det.",
+    "en": "In my home country we had a school uniform, so I have personal experience of it."
+  },
+  "mobbning / att mobba": {
+    "sv": "Du såg ett barn mobba ett annat på skolgården. Ring rektorn.",
+    "en": "You saw a child bullying another in the school yard. Call the principal."
+  },
+  "att förklara": {
+    "sv": "Jag förstår inte motiveringen i beslutet. Kan ni förklara?",
+    "en": "I don't understand the reasoning in the decision. Could you explain?"
+  },
+  "att öva": {
+    "sv": "Jag ska öva varje dag.",
+    "en": "I am going to practice every day."
+  },
+  "en presentation / en föreläsning": {
+    "sv": "Jag kommer inte ihåg hens namn. Jag vet inte vad hen heter. Vänta lite. Minns du vilken tid hens presentation var?",
+    "en": "I don't remember their name. I don't know what they're called. Wait a moment. Do you remember what time their presentation was?"
+  },
+  "en talare / en föreläsare": {
+    "sv": "Ja, här! Helena Roihu. Hon är en riktigt bra talare! Jag blev i alla fall inspirerad när jag lyssnade. Hur är det med dig?",
+    "en": "Yes, here! Helena Roihu. She's a really good speaker! I was inspired listening to her, at least. How about you?"
+  },
+  "en diskussion / en konversation": {
+    "sv": "Jag heter Rahul Sharma och jag har idag anmält mig till din kurs i svensk konversation på tisdagskvällar, som börjar den 7 oktober.",
+    "en": "My name is Rahul Sharma and today I have enrolled in your course in Swedish conversation on Tuesday evenings, which starts on 7 October."
+  },
+  "att föreslå": {
+    "sv": "Kan du föreslå något billigt?",
+    "en": "Can you suggest something cheap?"
+  },
+  "språkkunskaper": {
+    "sv": "Hur ser dina språkkunskaper ut på jobbet? Vad är en tillräcklig nivå?",
+    "en": "What are your language skills like at work? What is a sufficient level?"
+  },
+  "en nivå": {
+    "sv": "Mitt mål är B1-nivå.",
+    "en": "My goal is B1 level."
+  },
+  "modersmål": {
+    "sv": "Där ligger min barndom, mitt modersmål och mina föräldrar.",
+    "en": "My childhood, my mother tongue and my parents are there."
+  },
+  "ett bibliotekskort": {
+    "sv": "Verkligen? Det är intressant. Då måste det vara ett misstag. Är det möjligt att någon annan har använt ditt bibliotekskort?",
+    "en": "Really? That's interesting. Then it must be a mistake. Is it possible that someone else has used your library card?"
+  },
+  "att låna": {
+    "sv": "Traditionell bok eller e-bok? Köpa eller låna?",
+    "en": "Traditional book or e-book? Buy or borrow?"
+  },
+  "att returnera / att lämna tillbaka": {
+    "sv": "Jag ska lämna tillbaka böckerna i morgon.",
+    "en": "I am going to return the books tomorrow."
+  },
+  "en bokning / en reservation": {
+    "sv": "Jag har en bokning i mitt namn.",
+    "en": "I have a booking in my name."
+  },
+  "en påminnelse": {
+    "sv": "Jag har fått en påminnelse, men det måste vara ett misstag.",
+    "en": "I've received a reminder, but it must be a mistake."
+  },
+  "en e-bok / en ljudbok": {
+    "sv": "Traditionell bok eller e-bok? Köpa eller låna?",
+    "en": "Traditional book or e-book? Buy or borrow?"
+  },
+  "en roman": {
+    "sv": "Det är en roman från 1954 som handlar om vanliga finska soldater under kriget.",
+    "en": "It's a novel from 1954 about ordinary Finnish soldiers during the war."
+  },
+  "en deckare": {
+    "sv": "Mest läser jag deckare och facklitteratur om historia och teknik.",
+    "en": "Mostly I read crime novels and non-fiction about history and technology."
+  },
+  "en författare": {
+    "sv": "Vilken författare är viktig för dig och varför?",
+    "en": "Which author is important to you and why?"
+  },
+  "en nyhet": {
+    "sv": "Det var en intressant nyhet.",
+    "en": "It was an interesting news item."
+  },
+  "att röra på sig": {
+    "sv": "En läkare kan och bör säga att man måste röra på sig av medicinska skäl, men en chef ska inte bestämma över min fritid.",
+    "en": "A doctor can and should say you have to move for medical reasons, but a boss shouldn't decide over my free time."
+  },
+  "motion": {
+    "sv": "Man får motion samtidigt som man reser, vilket sparar tid.",
+    "en": "You get exercise at the same time as you travel, which saves time."
+  },
+  "att träna / träning": {
+    "sv": "Min plan är att träna mer.",
+    "en": "My plan is to exercise more."
+  },
+  "ett gym": {
+    "sv": "Vilka saker är viktiga när du väljer gym?",
+    "en": "What things are important when you choose a gym?"
+  },
+  "ett lag": {
+    "sv": "Gå med i en hobbygrupp, en kör, ett lag eller en kurs på medborgarinstitutet.",
+    "en": "Join a hobby group, a choir, a team or a course at the adult education centre."
+  },
+  "en hobby / att ha som hobby": {
+    "sv": "Jag har fotboll som hobby.",
+    "en": "I have football as a hobby."
+  },
+  "kondition": {
+    "sv": "Man får bättre kondition, starkare muskler, bättre sömn och lägre risk för hjärtsjukdomar och diabetes.",
+    "en": "You get better fitness, stronger muscles, better sleep and a lower risk of heart disease and diabetes."
+  },
+  "muskler": {
+    "sv": "Man får bättre kondition, starkare muskler, bättre sömn och lägre risk för hjärtsjukdomar och diabetes.",
+    "en": "You get better fitness, stronger muscles, better sleep and a lower risk of heart disease and diabetes."
+  },
+  "stark": {
+    "sv": "Min motivation är stark.",
+    "en": "My motivation is strong."
+  },
+  "utrustning": {
+    "sv": "Vilken utrustning behöver du?",
+    "en": "What equipment do you need?"
+  },
+  "ett spår / en perron": {
+    "sv": "Hej! Jag hittar inte mitt tåg på tavlan. Jag ska till Tammerfors och tåget skulle avgå klockan 14:32. Från vilket spår går det?",
+    "en": "Hello! I can't find my train on the board. I'm going to Tampere and the train was supposed to leave at 14:32. Which platform does it go from?"
+  },
+  "att avgå": {
+    "sv": "Hej! Jag hittar inte mitt tåg på tavlan. Jag ska till Tammerfors och tåget skulle avgå klockan 14:32. Från vilket spår går det?",
+    "en": "Hello! I can't find my train on the board. I'm going to Tampere and the train was supposed to leave at 14:32. Which platform does it go from?"
+  },
+  "ett bromsfel": {
+    "sv": "Tja, det går inte eftersom tåget hade ett bromsfel och vi kunde inte få något likvärdigt tåg för att snabbt ersätta det. Jag är verkligen ledsen för det som hände.",
+    "en": "Well, it can't be helped because the train had a brake fault and we couldn't get an equivalent train to replace it quickly. I'm really sorry about what happened."
+  },
+  "en ersättning / en kompensation": {
+    "sv": "Skulle jag kunna få ersättning för det?",
+    "en": "Could I get compensation for that?"
+  },
+  "att slappna av": {
+    "sv": "Musik hjälper mig att slappna av.",
+    "en": "Music helps me relax."
+  },
+  "att sova länge": {
+    "sv": "Jag vill sova länge, läsa, simma och äta god mat utan klocka.",
+    "en": "I want to sleep in, read, swim and eat good food without a clock."
+  },
+  "nätet / internet": {
+    "sv": "Internet fungerar inte hemma.",
+    "en": "The internet is not working at home."
+  },
+  "en app / en applikation": {
+    "sv": "Nästa gång kan du jämföra priser i en app innan du köper.",
+    "en": "Next time you can compare prices in an app before you buy."
+  },
+  "sociala medier": {
+    "sv": "Jag använder sociala medier varje dag.",
+    "en": "I use social media every day."
+  },
+  "ett abonnemang": {
+    "sv": "Ja, jag har ett abonnemang med obegränsad data. Jag använder faktiskt telefonen mer än datorn på fritiden.",
+    "en": "Yes, I have a subscription with unlimited data. I actually use the phone more than the computer in my free time."
+  },
+  "en åldersgräns": {
+    "sv": "Det där programmet har en åldersgräns på arton år, och det är därför att det innehåller mycket våld.",
+    "en": "That programme has an age limit of eighteen, and that's because it contains a lot of violence."
+  },
+  "nytta / nyttig": {
+    "sv": "Det är en hobby som man har nytta av varje dag hela livet.",
+    "en": "It's a hobby you benefit from every day your whole life."
+  },
+  "en film / en serie": {
+    "sv": "Jag såg en bra film.",
+    "en": "I saw a good movie."
+  },
+  "en annons": {
+    "sv": "Du har sett en annons om en begagnad tvättmaskin. Ring säljaren.",
+    "en": "You've seen an advert for a second-hand washing machine. Call the seller."
+  },
+  "konst": {
+    "sv": "Finsk konst är ofta lugn, med mycket natur, ljus och tomma ytor.",
+    "en": "Finnish art is often calm, with a lot of nature, light and empty spaces."
+  },
+  "en konstnär": {
+    "sv": "Det är en tavla av en konstnär från min hemstad.",
+    "en": "It's a painting by an artist from my home town."
+  },
+  "en utställning": {
+    "sv": "Det finns en ny utställning i stan.",
+    "en": "There is a new exhibition in town."
+  },
+  "en teater": {
+    "sv": "Lagsporter, musik, scouting och teater uppfyller allt det.",
+    "en": "Team sports, music, scouting and theatre fulfil all of that."
+  },
+  "en konsert / en spelning": {
+    "sv": "Vi går på konsert på fredag.",
+    "en": "We are going to a concert on Friday."
+  },
+  "främre raden / första raden": {
+    "sv": "Okej. Du har de något dyrare biljetterna på första raden, men det finns inga fler platser på första raden. De nya platserna finns i rad 12.",
+    "en": "Okay. You have the slightly more expensive tickets in the front row, but there are no more seats in the front row. The new seats are in row 12."
+  },
+  "ett medborgarinstitut / en medborgarskola": {
+    "sv": "Kontoret för Kojo medborgarinstitut, vad kan jag hjälpa dig med?",
+    "en": "The office of Kojo Adult Education Centre, what can I help you with?"
+  },
+  "en kurs": {
+    "sv": "Jag har hittat en kurs som jag gärna skulle vilja gå.",
+    "en": "I've found a course I'd really like to take."
+  },
+  "en termin": {
+    "sv": "Kursen kostar 25 euro per termin, men om du köper hela året på en gång kostar det 40 euro totalt.",
+    "en": "The course costs 25 euros per term, but if you buy the whole year at once it costs 40 euros in total."
+  },
+  "en garderoblapp / en nummerlapp": {
+    "sv": "Hej! Jag har ett litet problem. Jag ska gå hem men jag hittar inte min garderoblapp någonstans. Jag har letat överallt.",
+    "en": "Hi! I have a small problem. I'm about to go home but I can't find my cloakroom ticket anywhere. I've looked everywhere."
+  },
+  "FPA (Folkpensionsanstalten, fi. Kela)": {
+    "sv": "Du har ett problem med FPA. Ring dem.",
+    "en": "You have a problem with Kela. Call them."
+  },
+  "polisen": {
+    "sv": "Du har utsatts för ett brott. Anmäl det till polisen.",
+    "en": "You've been the victim of a crime. Report it to the police."
+  },
+  "skatteförvaltningen / skattekontoret": {
+    "sv": "Din arbetssituation har ändrats. Ring skattekontoret om skattesatsen.",
+    "en": "Your work situation has changed. Call the tax office about your tax rate."
+  },
+  "ett försäkringsbolag": {
+    "sv": "Jag behöver också ett intyg på anmälan till mitt försäkringsbolag.",
+    "en": "I also need a certificate of the report for my insurance company."
+  },
+  "en blankett / ett formulär": {
+    "sv": "Jag måste fylla i en blankett.",
+    "en": "I need to fill in a form."
+  },
+  "att fylla i en blankett": {
+    "sv": "Jag måste fylla i en blankett.",
+    "en": "I need to fill in a form."
+  },
+  "en ansökan / att ansöka om": {
+    "sv": "Jag skickade min ansökan igår.",
+    "en": "I sent my application yesterday."
+  },
+  "ett beslut": {
+    "sv": "Jag väntar på ett beslut.",
+    "en": "I am waiting for a decision."
+  },
+  "ett intyg": {
+    "sv": "De bad om ett intyg.",
+    "en": "They asked for a certificate."
+  },
+  "en bilaga": {
+    "sv": "Kan ni kontrollera om min bilaga har kommit fram?",
+    "en": "Could you check whether my attachment has arrived?"
+  },
+  "en personbeteckning / ett personnummer": {
+    "sv": "Här är mitt personnummer.",
+    "en": "Here is my personal identity number."
+  },
+  "ett uppehållstillstånd": {
+    "sv": "Du har problem med ditt uppehållstillstånd. Ring Migri.",
+    "en": "You have problems with your residence permit. Call Migri."
+  },
+  "giltig": {
+    "sv": "Garantin gäller i två år, så den är fortfarande giltig.",
+    "en": "The warranty is for two years, so it's still valid."
+  },
+  "ett medborgarskap": {
+    "sv": "Vad betyder medborgarskap för dig?",
+    "en": "What does citizenship mean to you?"
+  },
+  "att ansöka om medborgarskap": {
+    "sv": "Du har fått YKI-resultatet och vill ansöka om medborgarskap. Ring Migri.",
+    "en": "You have your YKI result and want to apply for citizenship. Call Migri."
+  },
+  "en invandrare": {
+    "sv": "Varför flyttar invandrare vidare?",
+    "en": "Why do immigrants move on?"
+  },
+  "att flytta": {
+    "sv": "Vi ska flytta nästa månad.",
+    "en": "We are going to move next month."
+  },
+  "ett ursprungsland": {
+    "sv": "Vilket är ditt ursprungsland? Varför tänker du så?",
+    "en": "Which is your country of origin? Why do you think so?"
+  },
+  "en plikt / skyldigheter": {
+    "sv": "Man har också skyldigheter.",
+    "en": "You also have responsibilities."
+  },
+  "laglig / olaglig": {
+    "sv": "Hej, jag vill anmäla olaglig dumpning av avfall.",
+    "en": "Hello, I want to report illegal dumping of waste."
+  },
+  "att diskriminera / diskriminering": {
+    "sv": "Och som invandrare måste jag säga att diskriminering finns.",
+    "en": "And as an immigrant I have to say that discrimination exists."
+  },
+  "ett brott": {
+    "sv": "Du har utsatts för ett brott. Anmäl det till polisen.",
+    "en": "You've been the victim of a crime. Report it to the police."
+  },
+  "en brottsanmälan": {
+    "sv": "Hej, jag vill göra en brottsanmälan.",
+    "en": "Hello, I want to make a criminal report."
+  },
+  "att motivera": {
+    "sv": "Kan du motivera ditt val?",
+    "en": "Can you justify your choice?"
+  },
+  "en skatt / skatter": {
+    "sv": "Sammanfattningsvis: jag betalar gärna hög skatt, men jag vill veta vart pengarna går.",
+    "en": "In summary: I'm happy to pay high tax, but I want to know where the money goes."
+  },
+  "ett skattekort": {
+    "sv": "Hej, jag skulle behöva ett nytt skattekort.",
+    "en": "Hello, I need a new tax card."
+  },
+  "en skattesats / en skatteprocent": {
+    "sv": "Jag är rädd att min nuvarande skatteprocent är för låg och att jag får restskatt nästa år.",
+    "en": "I'm afraid my current tax rate is too low and that I'll get residual tax next year."
+  },
+  "en restskatt / kvarskatt": {
+    "sv": "Jag är rädd att min nuvarande skatteprocent är för låg och att jag får restskatt nästa år.",
+    "en": "I'm afraid my current tax rate is too low and that I'll get residual tax next year."
+  },
+  "en inkomst": {
+    "sv": "Min inkomst varierar lite.",
+    "en": "My income varies a little."
+  },
+  "en hemförsäkring": {
+    "sv": "Hej, jag har en fråga om min hemförsäkring.",
+    "en": "Hello, I have a question about my home insurance."
+  },
+  "en ersättning / en återbetalning": {
+    "sv": "Kan jag få återbetalning?",
+    "en": "Can I get a refund?"
+  },
+  "en räkning / en faktura": {
+    "sv": "Här beställer var och en sin egen portion och betalar sin egen räkning.",
+    "en": "Here everyone orders their own portion and pays their own bill."
+  },
+  "obetald": {
+    "sv": "Tack, jag hittade informationen. Lyssna, det är så olyckligt att den senaste räkningen för hemförsäkringen är obetald, så försäkringen har inte varit giltig på ett par månader.",
+    "en": "Thanks, I found the information. Listen, unfortunately the latest bill for the home insurance is unpaid, so the insurance hasn't been valid for a couple of months."
+  },
+  "ett bostadsbidrag": {
+    "sv": "Hej, jag ringer om min ansökan om bostadsbidrag.",
+    "en": "Hello, I'm calling about my application for housing allowance."
+  },
+  "en pension": {
+    "sv": "Min pappa gick i pension förra året.",
+    "en": "My father retired last year."
+  },
+  "en kärnfamilj": {
+    "sv": "Vi är en kärnfamilj med två barn.",
+    "en": "We are a nuclear family with two children."
+  },
+  "en ny familj": {
+    "sv": "Efter skilsmässan bildade hon en ny familj.",
+    "en": "After the divorce she formed a new family."
+  },
+  "en ensamstående förälder": {
+    "sv": "Min granne är en ensamstående förälder.",
+    "en": "My neighbour is a single parent."
+  },
+  "morföräldrar": {
+    "sv": "Mina morföräldrar bor nära oss.",
+    "en": "My maternal grandparents live near us."
+  },
+  "farföräldrar": {
+    "sv": "Vi hälsar på mina farföräldrar på söndag.",
+    "en": "We are visiting my paternal grandparents on Sunday."
+  },
+  "en svärmor / en svärfar": {
+    "sv": "Min svärmor kommer på middag.",
+    "en": "My mother-in-law is coming for dinner."
+  },
+  "en maka / en make": {
+    "sv": "Hon reser tillsammans med sin make.",
+    "en": "She is travelling with her husband."
+  },
+  "singel": {
+    "sv": "Jag är singel och bor ensam.",
+    "en": "I am single and live alone."
+  },
+  "ogift": {
+    "sv": "Han är ogift men har en sambo.",
+    "en": "He is unmarried but has a live-in partner."
+  },
+  "barnlös": {
+    "sv": "Paret är barnlöst.",
+    "en": "The couple is childless."
+  },
+  "gravid": {
+    "sv": "Min syster är gravid.",
+    "en": "My sister is pregnant."
+  },
+  "på tumanhand": {
+    "sv": "Vi vill äta middag på tumanhand.",
+    "en": "We want to have dinner alone together."
+  },
+  "att sällskapa": {
+    "sv": "De har sällskapat i två år.",
+    "en": "They have been dating for two years."
+  },
+  "att fria till någon": {
+    "sv": "Han vill fria till sin sambo.",
+    "en": "He wants to propose to his partner."
+  },
+  "att förlova sig": {
+    "sv": "De ska förlova sig i sommar.",
+    "en": "They are going to get engaged this summer."
+  },
+  "att flytta ihop": {
+    "sv": "Vi tänker flytta ihop nästa månad.",
+    "en": "We are planning to move in together next month."
+  },
+  "att gifta sig": {
+    "sv": "Min bror ska gifta sig på lördag.",
+    "en": "My brother is getting married on Saturday."
+  },
+  "att gifta om sig": {
+    "sv": "Hon vill gifta om sig.",
+    "en": "She wants to remarry."
+  },
+  "att skilja sig": {
+    "sv": "De bestämde sig för att skilja sig.",
+    "en": "They decided to get divorced."
+  },
+  "att ta hand om någon": {
+    "sv": "Jag tar hand om min gamla pappa.",
+    "en": "I take care of my elderly father."
+  },
+  "→ en brud": {
+    "sv": "Hon är en glad brud i en vit klänning.",
+    "en": "She is a happy bride in a white dress."
+  },
+  "→ ett bröllop": {
+    "sv": "Vi ska gå på ett bröllop i juni.",
+    "en": "We are going to a wedding in June."
+  },
+  "→ en inbjudan": {
+    "sv": "Jag fick en inbjudan till festen.",
+    "en": "I received an invitation to the party."
+  },
+  "→ ett presentkort": {
+    "sv": "Vi köpte ett presentkort till henne.",
+    "en": "We bought her a gift card."
+  },
+  "→ du gratulerar": {
+    "sv": "Du gratulerar din vän på födelsedagen.",
+    "en": "You congratulate your friend on their birthday."
+  },
+  "→ ett cateringföretag": {
+    "sv": "Vi anlitar ett cateringföretag till festen.",
+    "en": "We are hiring a catering company for the party."
+  },
+  "→ en examen": {
+    "sv": "Vi firar hennes examen på fredag.",
+    "en": "We are celebrating her graduation on Friday."
+  },
+  "→ ett farväl": {
+    "sv": "Vi sa ett sista farväl innan hon reste.",
+    "en": "We said a final farewell before she left."
+  },
+  "→ en begravning": {
+    "sv": "Familjen samlades för en begravning.",
+    "en": "The family gathered for a funeral."
+  },
+  "→ gäster (en gäst)": {
+    "sv": "Vi har tio gäster på middag.",
+    "en": "We have ten guests for dinner."
+  },
+  "Grattis på födelsedagen!": {
+    "sv": "Grattis på födelsedagen, Anna! Hoppas du får en fin dag.",
+    "en": "Happy birthday, Anna! I hope you have a lovely day."
+  },
+  "en gåva": {
+    "sv": "Hon fick en fin gåva av sin vän.",
+    "en": "She received a lovely gift from her friend."
+  },
+  "att bjuda in någon": {
+    "sv": "Jag vill bjuda in mina grannar på kaffe.",
+    "en": "I want to invite my neighbours for coffee."
+  },
+  "mörk kostym": {
+    "sv": "På inbjudan står det mörk kostym.",
+    "en": "The invitation says dark suit."
+  },
+  "en studiolägenhet / en etta": {
+    "sv": "Jag hyr en etta nära stationen.",
+    "en": "I rent a studio apartment near the station."
+  },
+  "en stadsdel": {
+    "sv": "Vi bor i en lugn stadsdel.",
+    "en": "We live in a quiet neighbourhood."
+  },
+  "ett försäljningspris": {
+    "sv": "Bostaden har ett försäljningspris på hundratusen euro.",
+    "en": "The home has a sale price of one hundred thousand euros."
+  },
+  "att flytta in": {
+    "sv": "Vi ska flytta in på måndag.",
+    "en": "We are moving in on Monday."
+  },
+  "ett stambyte": {
+    "sv": "Huset behöver ett stambyte.",
+    "en": "The building needs a pipe renovation."
+  },
+  "ett underhållsföretag": {
+    "sv": "Ett underhållsföretag sköter huset.",
+    "en": "A maintenance company looks after the building."
+  },
+  "en bostadsrättsförening / en styrelse": {
+    "sv": "Vår styrelse har möte i kväll.",
+    "en": "Our board has a meeting this evening."
+  },
+  "en allmän nyckel": {
+    "sv": "Vaktmästaren har en allmän nyckel till huset.",
+    "en": "The caretaker has a master key to the building."
+  },
+  "att klaga på något": {
+    "sv": "Jag vill klaga på bullret i huset.",
+    "en": "I want to complain about the noise in the building."
+  },
+  "en vattenskada": {
+    "sv": "Det finns en vattenskada i badrummet.",
+    "en": "There is water damage in the bathroom."
+  },
+  "en kran": {
+    "sv": "En kran i köket droppar.",
+    "en": "A tap in the kitchen is dripping."
+  },
+  "ett avlopp": {
+    "sv": "Vårt avlopp är igentäppt.",
+    "en": "Our drain is blocked."
+  },
+  "att vara igentäppt / att bli täppt": {
+    "sv": "Avloppet verkar vara igentäppt.",
+    "en": "The drain seems to be blocked."
+  },
+  "en säkring": {
+    "sv": "En säkring har gått.",
+    "en": "A fuse has blown."
+  },
+  "en kortslutning": {
+    "sv": "Felet orsakade en kortslutning.",
+    "en": "The fault caused a short circuit."
+  },
+  "ett brandalarm": {
+    "sv": "Vi hörde ett brandalarm i trapphuset.",
+    "en": "We heard a fire alarm in the stairwell."
+  },
+  "ett tjuvalarm": {
+    "sv": "Huset har ett tjuvalarm.",
+    "en": "The house has a burglar alarm."
+  },
+  "uppvärmning": {
+    "sv": "Uppvärmning ingår i hyran.",
+    "en": "Heating is included in the rent."
+  },
+  "gas": {
+    "sv": "Spisen använder gas.",
+    "en": "The cooker uses gas."
+  },
+  "en tapet": {
+    "sv": "Vi väljer en ljus tapet till sovrummet.",
+    "en": "We are choosing light wallpaper for the bedroom."
+  },
+  "laminat": {
+    "sv": "Golvet är av laminat.",
+    "en": "The floor is made of laminate."
+  },
+  "ett batteri": {
+    "sv": "Jag behöver ett nytt batteri till fjärrkontrollen.",
+    "en": "I need a new battery for the remote control."
+  },
+  "att fungera inte / det fungerar inte": {
+    "sv": "Jag har startat om kylskåpet, men det fungerar inte.",
+    "en": "I have restarted the fridge, but it does not work."
+  },
+  "det har fastnat": {
+    "sv": "Jag kan inte öppna fönstret, det har fastnat.",
+    "en": "I cannot open the window; it is stuck."
+  },
+  "brådskande": {
+    "sv": "Det är ett brådskande problem med vattenledningen.",
+    "en": "There is an urgent problem with the water pipe."
+  },
+  "Jag är övertygad om att...": {
+    "sv": "Jag är övertygad om att vi hittar en lösning.",
+    "en": "I am convinced that we will find a solution."
+  },
+  "Det beror på.": {
+    "sv": "Kan du komma i morgon? Det beror på hur jag mår.",
+    "en": "Can you come tomorrow? It depends on how I feel."
+  },
+  "Å ena sidan... å andra sidan...": {
+    "sv": "Å ena sidan är bilen snabb, å andra sidan är bussen billigare.",
+    "en": "On the one hand the car is fast; on the other hand the bus is cheaper."
+  },
+  "en livsmedelsbutik / en matbutik": {
+    "sv": "Det finns en matbutik bredvid stationen.",
+    "en": "There is a grocery shop next to the station."
+  },
+  "ett varuhus": {
+    "sv": "Vi köper kläder i ett varuhus.",
+    "en": "We buy clothes in a department store."
+  },
+  "en kiosk": {
+    "sv": "Jag köper en tidning i en kiosk.",
+    "en": "I buy a newspaper at a kiosk."
+  },
+  "ett köpcentrum": {
+    "sv": "Det finns ett köpcentrum nära oss.",
+    "en": "There is a shopping centre near us."
+  },
+  "en företagare": {
+    "sv": "Min syster är företagare och driver ett kafé.",
+    "en": "My sister is an entrepreneur and runs a café."
+  },
+  "ett butiksbiträde / en försäljare": {
+    "sv": "Ett butiksbiträde hjälper mig att hitta rätt storlek.",
+    "en": "A shop assistant helps me find the right size."
+  },
+  "kundtjänst": {
+    "sv": "Jag kontaktar kundtjänst om min beställning.",
+    "en": "I am contacting customer service about my order."
+  },
+  "en hushållsapparat": {
+    "sv": "En tvättmaskin är en hushållsapparat.",
+    "en": "A washing machine is a household appliance."
+  },
+  "växel": {
+    "sv": "Jag fick fem euro i växel.",
+    "en": "I received five euros in change."
+  },
+  "prisvärd": {
+    "sv": "Den här jackan är prisvärd.",
+    "en": "This jacket is good value for money."
+  },
+  "slösaktig": {
+    "sv": "Jag försöker att inte vara slösaktig med pengar.",
+    "en": "I try not to be wasteful with money."
+  },
+  "konsumtionsvanor": {
+    "sv": "Vi vill ändra våra konsumtionsvanor.",
+    "en": "We want to change our consumption habits."
+  },
+  "en garanti": {
+    "sv": "Telefonen har en garanti på två år.",
+    "en": "The phone has a two-year warranty."
+  },
+  "en tillverkare": {
+    "sv": "Vi kontaktar produktens tillverkare.",
+    "en": "We are contacting the product's manufacturer."
+  },
+  "att reklamera": {
+    "sv": "Jag vill reklamera den trasiga kaffebryggaren.",
+    "en": "I want to make a complaint about the broken coffee maker."
+  },
+  "att kräva ersättning": {
+    "sv": "Jag tänker kräva ersättning för skadan.",
+    "en": "I intend to demand compensation for the damage."
+  },
+  "bakåt": {
+    "sv": "Ta ett steg bakåt.",
+    "en": "Take one step backwards."
+  },
+  "att svänga": {
+    "sv": "Du ska svänga vid nästa gata.",
+    "en": "You should turn at the next street."
+  },
+  "Sväng till höger.": {
+    "sv": "Sväng till höger. Sedan ser du stationen.",
+    "en": "Turn right. Then you will see the station."
+  },
+  "Fortsätt rakt fram.": {
+    "sv": "Fortsätt rakt fram. Apoteket ligger till vänster.",
+    "en": "Continue straight ahead. The pharmacy is on the left."
+  },
+  "en korsning": {
+    "sv": "Sväng vänster vid nästa korsning.",
+    "en": "Turn left at the next intersection."
+  },
+  "ett gatuhörn": {
+    "sv": "Vi träffas vid nästa gatuhörn.",
+    "en": "We will meet at the next street corner."
+  },
+  "en rondell": {
+    "sv": "Kör rakt fram till nästa rondell.",
+    "en": "Drive straight ahead to the next roundabout."
+  },
+  "en parkeringsplats": {
+    "sv": "Finns det en ledig parkeringsplats här?",
+    "en": "Is there a free parking space here?"
+  },
+  "på höger sida": {
+    "sv": "Biblioteket ligger på höger sida.",
+    "en": "The library is on the right-hand side."
+  },
+  "på vänster sida": {
+    "sv": "Du ser skolan på vänster sida.",
+    "en": "You will see the school on the left-hand side."
+  },
+  "att gå": {
+    "sv": "Jag brukar gå till jobbet.",
+    "en": "I usually walk to work."
+  },
+  "att gå vilse": {
+    "sv": "Det är lätt att gå vilse i skogen.",
+    "en": "It is easy to get lost in the forest."
+  },
+  "att navigera": {
+    "sv": "Jag använder mobilen för att navigera.",
+    "en": "I use my phone to navigate."
+  },
+  "en navigator": {
+    "sv": "Bilen har en navigator.",
+    "en": "The car has a sat nav."
+  },
+  "en kartapp": {
+    "sv": "Jag hittar adressen med en kartapp.",
+    "en": "I find the address using a map app."
+  },
+  "en rutt": {
+    "sv": "Vi väljer en kortare rutt.",
+    "en": "We are choosing a shorter route."
+  },
+  "att byta buss": {
+    "sv": "Jag måste byta buss vid stationen.",
+    "en": "I have to change buses at the station."
+  },
+  "en tidtabell": {
+    "sv": "Har du en tidtabell för bussen?",
+    "en": "Do you have a timetable for the bus?"
+  },
+  "en rutin": {
+    "sv": "Att läsa före läggdags är en bra rutin.",
+    "en": "Reading before bedtime is a good routine."
+  },
+  "att stiga upp": {
+    "sv": "Jag brukar stiga upp klockan sju.",
+    "en": "I usually get up at seven."
+  },
+  "att duscha": {
+    "sv": "Jag ska duscha efter träningen.",
+    "en": "I am going to shower after training."
+  },
+  "att äta frukost": {
+    "sv": "Jag vill äta frukost innan vi går.",
+    "en": "I want to eat breakfast before we leave."
+  },
+  "att lämna barnen på dagis": {
+    "sv": "Jag ska lämna barnen på dagis före jobbet.",
+    "en": "I am going to drop the children off at day care before work."
+  },
+  "att pendla": {
+    "sv": "Jag måste pendla till Helsingfors varje dag.",
+    "en": "I have to commute to Helsinki every day."
+  },
+  "att vika tvätt": {
+    "sv": "Kan du hjälpa mig att vika tvätt?",
+    "en": "Can you help me fold laundry?"
+  },
+  "ett hushållsarbete": {
+    "sv": "Att diska är ett hushållsarbete.",
+    "en": "Doing the dishes is a household chore."
+  },
+  "att somna": {
+    "sv": "Jag brukar somna före elva.",
+    "en": "I usually fall asleep before eleven."
+  },
+  "att vara i tid": {
+    "sv": "Jag försöker alltid vara i tid.",
+    "en": "I always try to be on time."
+  },
+  "att vara sen": {
+    "sv": "Jag vill inte vara sen till mötet.",
+    "en": "I do not want to be late for the meeting."
+  },
+  "att komma försent": {
+    "sv": "Jag vill inte komma försent till tåget.",
+    "en": "I do not want to arrive late for the train."
+  },
+  "Jag hinner inte.": {
+    "sv": "Jag hinner inte. Kan vi träffas senare?",
+    "en": "I do not have time. Can we meet later?"
+  },
+  "att skjuta upp": {
+    "sv": "Vi måste skjuta upp mötet till fredag.",
+    "en": "We have to postpone the meeting until Friday."
+  },
+  "att komma överens om en tid": {
+    "sv": "Kan vi komma överens om en tid för besöket?",
+    "en": "Can we agree on a time for the visit?"
+  },
+  "Jag har bråttom.": {
+    "sv": "Jag har bråttom. Bussen går om fem minuter.",
+    "en": "I am in a hurry. The bus leaves in five minutes."
+  },
+  "ett kafé": {
+    "sv": "Vi träffas på ett kafé efter jobbet.",
+    "en": "We are meeting at a café after work."
+  },
+  "en meny / en matsedel": {
+    "sv": "Kan jag få en meny, tack?",
+    "en": "Could I have a menu, please?"
+  },
+  "en servitör / en servitris": {
+    "sv": "En servitör kommer med maten.",
+    "en": "A waiter brings the food."
+  },
+  "dagens lunch": {
+    "sv": "Vad kostar dagens lunch?",
+    "en": "How much is the lunch of the day?"
+  },
+  "smakar illa": {
+    "sv": "Mjölken smakar illa.",
+    "en": "The milk tastes bad."
+  },
+  "för starkt / för svagt": {
+    "sv": "Kaffet är för starkt för mig.",
+    "en": "The coffee is too strong for me."
+  },
+  "långsam betjäning": {
+    "sv": "Restaurangen hade långsam betjäning i dag.",
+    "en": "The restaurant had slow service today."
+  },
+  "att beröm någon": {
+    "sv": "Jag vill berömma kocken för den goda maten.",
+    "en": "I want to praise the chef for the good food."
+  },
+  "att ge feedback": {
+    "sv": "Jag vill ge feedback på servicen.",
+    "en": "I want to give feedback on the service."
+  },
+  "en dricks": {
+    "sv": "Vi lämnade dricks till servitören.",
+    "en": "We left a tip for the waiter."
+  },
+  "att betala notan": {
+    "sv": "Jag skulle vilja betala notan nu.",
+    "en": "I would like to pay the bill now."
+  },
+  "en frisör / en frisörsalong": {
+    "sv": "Jag har bokat tid hos en frisör.",
+    "en": "I have booked an appointment with a hairdresser."
+  },
+  "att klippa sig": {
+    "sv": "Jag ska klippa mig på fredag.",
+    "en": "I am having a haircut on Friday."
+  },
+  "att färga håret": {
+    "sv": "Jag vill färga håret mörkare.",
+    "en": "I want to dye my hair darker."
+  },
+  "en frisyr": {
+    "sv": "Jag vill prova en ny frisyr.",
+    "en": "I want to try a new hairstyle."
+  },
+  "en lugg": {
+    "sv": "Kan du klippa min lugg lite kortare?",
+    "en": "Can you cut my fringe a little shorter?"
+  },
+  "lockigt / rakt hår": {
+    "sv": "Min syster har lockigt hår.",
+    "en": "My sister has curly hair."
+  },
+  "en nyans": {
+    "sv": "Jag vill ha en ljusare nyans.",
+    "en": "I would like a lighter shade."
+  },
+  "att raka": {
+    "sv": "Han brukar raka sig på morgonen.",
+    "en": "He usually shaves in the morning."
+  },
+  "en å / en älv": {
+    "sv": "En älv rinner genom staden.",
+    "en": "A river flows through the town."
+  },
+  "en ö": {
+    "sv": "Vi tar båten till en ö.",
+    "en": "We take the boat to an island."
+  },
+  "en skärgård": {
+    "sv": "Vi tillbringar sommaren i en vacker skärgård.",
+    "en": "We spend the summer in a beautiful archipelago."
+  },
+  "ett landskap": {
+    "sv": "Från berget ser vi ett vackert landskap.",
+    "en": "From the mountain we see a beautiful landscape."
+  },
+  "ett lägerbål / en grillplats": {
+    "sv": "Vi lagar mat vid en grillplats.",
+    "en": "We cook food at a barbecue spot."
+  },
+  "en buske": {
+    "sv": "Det växer en buske vid dörren.",
+    "en": "A bush grows by the door."
+  },
+  "ett löv": {
+    "sv": "Ett gult löv faller från trädet.",
+    "en": "A yellow leaf falls from the tree."
+  },
+  "en stam": {
+    "sv": "Trädet har en tjock stam.",
+    "en": "The tree has a thick trunk."
+  },
+  "en rot": {
+    "sv": "Jag snubblade på en rot.",
+    "en": "I tripped over a root."
+  },
+  "gräs": {
+    "sv": "Barnen leker i gräset.",
+    "en": "The children are playing in the grass."
+  },
+  "att jaga": {
+    "sv": "Min farbror brukar jaga på hösten.",
+    "en": "My uncle usually hunts in autumn."
+  },
+  "ett lockbete": {
+    "sv": "Fiskaren använder ett lockbete.",
+    "en": "The angler uses a lure."
+  },
+  "en räv": {
+    "sv": "Vi såg en räv i skogen.",
+    "en": "We saw a fox in the forest."
+  },
+  "en hare": {
+    "sv": "En hare sprang över vägen.",
+    "en": "A hare ran across the road."
+  },
+  "ett rådjur": {
+    "sv": "Ett rådjur står vid skogskanten.",
+    "en": "A roe deer is standing at the edge of the forest."
+  },
+  "en ekorre": {
+    "sv": "En ekorre klättrar i trädet.",
+    "en": "A squirrel is climbing the tree."
+  },
+  "en mygga": {
+    "sv": "En mygga bet mig i armen.",
+    "en": "A mosquito bit me on the arm."
+  },
+  "en fästing": {
+    "sv": "Jag hittade en fästing på hunden.",
+    "en": "I found a tick on the dog."
+  },
+  "en svan": {
+    "sv": "En svan simmar på sjön.",
+    "en": "A swan is swimming on the lake."
+  },
+  "en årstid": {
+    "sv": "Hösten är min favoritårstid.",
+    "en": "Autumn is my favourite season."
+  },
+  "frost": {
+    "sv": "Det var frost på marken i morse.",
+    "en": "There was frost on the ground this morning."
+  },
+  "minusgrader": {
+    "sv": "Det blir minusgrader i natt.",
+    "en": "Temperatures will drop below zero tonight."
+  },
+  "töväder": {
+    "sv": "Det är töväder och snön smälter.",
+    "en": "There is a thaw and the snow is melting."
+  },
+  "ett åskväder": {
+    "sv": "Ett åskväder närmar sig.",
+    "en": "A thunderstorm is approaching."
+  },
+  "kraftigt regn / att ösregna": {
+    "sv": "Det väntas kraftigt regn i kväll.",
+    "en": "Heavy rain is expected this evening."
+  },
+  "en naturkatastrof": {
+    "sv": "En jordbävning är en naturkatastrof.",
+    "en": "An earthquake is a natural disaster."
+  },
+  "en skogsbrand / en löpeld": {
+    "sv": "En skogsbrand spred sig snabbt.",
+    "en": "A forest fire spread quickly."
+  },
+  "en brand": {
+    "sv": "Det uppstod en brand i huset.",
+    "en": "A fire broke out in the house."
+  },
+  "en översvämning": {
+    "sv": "Regnet orsakade en översvämning.",
+    "en": "The rain caused a flood."
+  },
+  "en jordbävning": {
+    "sv": "En jordbävning skadade flera hus.",
+    "en": "An earthquake damaged several houses."
+  },
+  "ett vulkanutbrott": {
+    "sv": "Flyget ställdes in efter ett vulkanutbrott.",
+    "en": "The flight was cancelled after a volcanic eruption."
+  },
+  "en tsunami": {
+    "sv": "En tsunami drabbade kusten.",
+    "en": "A tsunami struck the coast."
+  },
+  "ett jordskred / ett lerskred": {
+    "sv": "Ett jordskred blockerade vägen.",
+    "en": "A landslide blocked the road."
+  },
+  "en lavin": {
+    "sv": "En lavin drog med sig stora mängder snö.",
+    "en": "An avalanche swept away large amounts of snow."
+  },
+  "att evakuera": {
+    "sv": "Räddningstjänsten måste evakuera byn.",
+    "en": "The rescue service has to evacuate the village."
+  },
+  "att bli under något": {
+    "sv": "Hunden blev under ett fallande träd.",
+    "en": "The dog was trapped under a falling tree."
+  },
+  "att förstöras": {
+    "sv": "Huset riskerar att förstöras i branden.",
+    "en": "The house risks being destroyed in the fire."
+  },
+  "att lida": {
+    "sv": "Många djur lider av torkan.",
+    "en": "Many animals suffer from the drought."
+  },
+  "kaos": {
+    "sv": "Stormen skapade kaos i trafiken.",
+    "en": "The storm caused chaos in traffic."
+  },
+  "dricksvatten": {
+    "sv": "Vi behöver rent dricksvatten.",
+    "en": "We need clean drinking water."
+  },
+  "att vara rädd": {
+    "sv": "Jag brukar vara rädd när det åskar.",
+    "en": "I am usually afraid when there is thunder."
+  },
+  "blandavfall": {
+    "sv": "Den smutsiga påsen hamnar i blandavfallet.",
+    "en": "The dirty bag goes in the mixed waste."
+  },
+  "energiavfall": {
+    "sv": "Här finns en behållare för energiavfall.",
+    "en": "There is a container for energy waste here."
+  },
+  "metallavfall": {
+    "sv": "Var kan jag lämna metallavfall?",
+    "en": "Where can I drop off metal waste?"
+  },
+  "en förpackning": {
+    "sv": "Varan har en förpackning av papper.",
+    "en": "The item has paper packaging."
+  },
+  "batterier": {
+    "sv": "Jag lämnar gamla batterier till insamlingen.",
+    "en": "I take old batteries to the collection point."
+  },
+  "elektronik": {
+    "sv": "Butiken tar emot gammal elektronik.",
+    "en": "The shop accepts old electronics."
+  },
+  "en sopkorg": {
+    "sv": "Det finns en sopkorg vid dörren.",
+    "en": "There is a bin by the door."
+  },
+  "en sopsäck": {
+    "sv": "Vi fyllde en sopsäck med skräp.",
+    "en": "We filled a rubbish bag with litter."
+  },
+  "ett ämbar / en hink": {
+    "sv": "Jag hämtar vatten i en hink.",
+    "en": "I fetch water in a bucket."
+  },
+  "en soptipp / en deponi": {
+    "sv": "Avfallet kördes till en deponi.",
+    "en": "The waste was taken to a landfill."
+  },
+  "mull / kompost": {
+    "sv": "Vi lägger löven i vår kompost.",
+    "en": "We put the leaves in our compost."
+  },
+  "en klädinsamling": {
+    "sv": "Jag lämnar min gamla jacka till en klädinsamling.",
+    "en": "I donate my old jacket to a clothes collection."
+  },
+  "en loppmarknad": {
+    "sv": "Vi köpte ett bord på en loppmarknad.",
+    "en": "We bought a table at a flea market."
+  },
+  "naturskydd": {
+    "sv": "Hon arbetar med naturskydd.",
+    "en": "She works in nature conservation."
+  },
+  "klimatförändring": {
+    "sv": "Vi diskuterar klimatförändring i skolan.",
+    "en": "We discuss climate change at school."
+  },
+  "närproducerat": {
+    "sv": "Jag köper gärna närproducerat bröd.",
+    "en": "I like buying locally produced bread."
+  },
+  "ekologisk": {
+    "sv": "Jag väljer ekologisk mjölk.",
+    "en": "I choose organic milk."
+  },
+  "hållbar": {
+    "sv": "Vi behöver en mer hållbar livsstil.",
+    "en": "We need a more sustainable lifestyle."
+  },
+  "engångs-": {
+    "sv": "Vi undviker engångsmuggar på jobbet.",
+    "en": "We avoid single-use cups at work."
+  },
+  "ett ansikte": {
+    "sv": "Hon har ett vänligt ansikte.",
+    "en": "She has a friendly face."
+  },
+  "en nacke": {
+    "sv": "Jag har ont i nacken.",
+    "en": "I have pain in the back of my neck."
+  },
+  "en axel / axlar": {
+    "sv": "Jag har ont i mina axlar.",
+    "en": "My shoulders hurt."
+  },
+  "ett bröst": {
+    "sv": "Läkaren undersökte hans bröst.",
+    "en": "The doctor examined his chest."
+  },
+  "ett knä": {
+    "sv": "Jag slog mitt knä när jag föll.",
+    "en": "I hurt my knee when I fell."
+  },
+  "en lunga": {
+    "sv": "Läkaren visade en bild av en lunga.",
+    "en": "The doctor showed a picture of a lung."
+  },
+  "huden": {
+    "sv": "Huden är torr på vintern.",
+    "en": "The skin is dry in winter."
+  },
+  "hörsel": {
+    "sv": "Min hörsel har blivit sämre.",
+    "en": "My hearing has become worse."
+  },
+  "smak": {
+    "sv": "Maten har en stark smak.",
+    "en": "The food has a strong taste."
+  },
+  "känsel": {
+    "sv": "Jag har dålig känsel i fingrarna.",
+    "en": "I have little feeling in my fingers."
+  },
+  "en sjukdom": {
+    "sv": "Han har en kronisk sjukdom.",
+    "en": "He has a chronic illness."
+  },
+  "att bli frisk": {
+    "sv": "Jag hoppas bli frisk snart.",
+    "en": "I hope to get well soon."
+  },
+  "att vara förkyld": {
+    "sv": "Det är jobbigt att vara förkyld.",
+    "en": "It is unpleasant to have a cold."
+  },
+  "snuva / täppt näsa": {
+    "sv": "Jag har snuva och ont i halsen.",
+    "en": "I have a runny nose and a sore throat."
+  },
+  "en värk / att värka": {
+    "sv": "Jag har en molande värk i ryggen.",
+    "en": "I have a dull ache in my back."
+  },
+  "Det gör ont.": {
+    "sv": "Det gör ont när jag böjer armen.",
+    "en": "It hurts when I bend my arm."
+  },
+  "stel i nacken och axlarna": {
+    "sv": "Jag är stel i nacken och axlarna efter jobbet.",
+    "en": "I am stiff in the neck and shoulders after work."
+  },
+  "illamående": {
+    "sv": "Jag ringde läkaren på grund av illamående.",
+    "en": "I called the doctor because of nausea."
+  },
+  "åksjuka": {
+    "sv": "Barnet lider av åksjuka i bilen.",
+    "en": "The child suffers from travel sickness in the car."
+  },
+  "diarré": {
+    "sv": "Jag har haft diarré sedan i går.",
+    "en": "I have had diarrhoea since yesterday."
+  },
+  "halsbränna": {
+    "sv": "Jag får ibland halsbränna efter maten.",
+    "en": "I sometimes get heartburn after meals."
+  },
+  "ett utslag / ett exem": {
+    "sv": "Jag har fått ett utslag på armen.",
+    "en": "I have developed a rash on my arm."
+  },
+  "en allergi / att vara allergisk mot": {
+    "sv": "Jag har en allergi mot pollen.",
+    "en": "I have an allergy to pollen."
+  },
+  "ett sår": {
+    "sv": "Jag har ett litet sår på handen.",
+    "en": "I have a small wound on my hand."
+  },
+  "att krocka": {
+    "sv": "Bilen höll på att krocka med en buss.",
+    "en": "The car almost crashed into a bus."
+  },
+  "att falla": {
+    "sv": "Jag såg en cyklist falla på vägen.",
+    "en": "I saw a cyclist fall on the road."
+  },
+  "bruten / att bryta armen": {
+    "sv": "Min arm är bruten.",
+    "en": "My arm is broken."
+  },
+  "att blöda": {
+    "sv": "Såret har slutat blöda.",
+    "en": "The wound has stopped bleeding."
+  },
+  "en sjukdomsattack": {
+    "sv": "Han fick en sjukdomsattack på bussen.",
+    "en": "He had a sudden attack of illness on the bus."
+  },
+  "en allvarlig sjukdom": {
+    "sv": "Hon vårdas för en allvarlig sjukdom.",
+    "en": "She is being treated for a serious illness."
+  },
+  "obotlig": {
+    "sv": "Sjukdomen är obotlig.",
+    "en": "The illness is incurable."
+  },
+  "Jag sover dåligt.": {
+    "sv": "Jag sover dåligt och är trött på dagen.",
+    "en": "I sleep badly and am tired during the day."
+  },
+  "en jour / en akutmottagning": {
+    "sv": "Vi åkte till en akutmottagning.",
+    "en": "We went to an emergency clinic."
+  },
+  "ett laboratorium": {
+    "sv": "Provet skickas till ett laboratorium.",
+    "en": "The sample is sent to a laboratory."
+  },
+  "en tandläkare": {
+    "sv": "Jag har bokat tid hos en tandläkare.",
+    "en": "I have booked an appointment with a dentist."
+  },
+  "en patient": {
+    "sv": "Läkaren träffar en patient.",
+    "en": "The doctor is seeing a patient."
+  },
+  "en magnetröntgen": {
+    "sv": "Läkaren bokade en magnetröntgen av knäet.",
+    "en": "The doctor booked an MRI scan of the knee."
+  },
+  "en injektion / en spruta": {
+    "sv": "Sjukskötaren gav mig en injektion.",
+    "en": "The nurse gave me an injection."
+  },
+  "ett vaccin": {
+    "sv": "De utvecklar ett nytt vaccin.",
+    "en": "They are developing a new vaccine."
+  },
+  "en diagnos": {
+    "sv": "Jag väntar på en diagnos.",
+    "en": "I am waiting for a diagnosis."
+  },
+  "en behandling": {
+    "sv": "Läkaren föreslog en behandling.",
+    "en": "The doctor suggested a treatment."
+  },
+  "ett sjukintyg": {
+    "sv": "Arbetsgivaren bad om ett sjukintyg.",
+    "en": "The employer asked for a sick note."
+  },
+  "en patientombudsman": {
+    "sv": "Jag vill tala med en patientombudsman.",
+    "en": "I want to speak to a patient ombudsman."
+  },
+  "en kö / en vårdkö": {
+    "sv": "Jag står i kö för en operation.",
+    "en": "I am on a waiting list for an operation."
+  },
+  "en tablett / ett piller": {
+    "sv": "Tabletten ligger i förpackningen.",
+    "en": "The tablet is in the package."
+  },
+  "receptfri / receptbelagd": {
+    "sv": "Är den här medicinen receptfri?",
+    "en": "Is this medicine available over the counter?"
+  },
+  "en salva / en gel": {
+    "sv": "Jag köpte en salva på apoteket.",
+    "en": "I bought an ointment at the pharmacy."
+  },
+  "en dos": {
+    "sv": "Jag frågade läkaren om rätt dos.",
+    "en": "I asked the doctor about the correct dose."
+  },
+  "en biverkning": {
+    "sv": "Trötthet kan vara en biverkning.",
+    "en": "Tiredness can be a side effect."
+  },
+  "första hjälpen": {
+    "sv": "Jag går en kurs i första hjälpen.",
+    "en": "I am taking a first aid course."
+  },
+  "ett rån": {
+    "sv": "Polisen utreder ett rån.",
+    "en": "The police are investigating a robbery."
+  },
+  "ett vapen": {
+    "sv": "Vittnet såg ett vapen.",
+    "en": "The witness saw a weapon."
+  },
+  "att misshandla": {
+    "sv": "Det är ett brott att misshandla någon.",
+    "en": "It is a crime to assault someone."
+  },
+  "God bättring!": {
+    "sv": "God bättring! Jag hoppas att vi ses snart.",
+    "en": "Get well soon! I hope we will see each other soon."
+  },
+  "Hoppas du blir frisk snart.": {
+    "sv": "Hoppas du blir frisk snart. Vi saknar dig på jobbet.",
+    "en": "I hope you get well soon. We miss you at work."
+  },
+  "onyttig / ohälsosam": {
+    "sv": "För mycket snabbmat är ohälsosamt.",
+    "en": "Too much fast food is unhealthy."
+  },
+  "att skämmas": {
+    "sv": "Du behöver inte skämmas för att be om hjälp.",
+    "en": "You do not need to be ashamed to ask for help."
+  },
+  "att oroa sig": {
+    "sv": "Det är lätt att oroa sig inför ett prov.",
+    "en": "It is easy to worry before a test."
+  },
+  "en arbetsplats": {
+    "sv": "Jag trivs på min arbetsplats.",
+    "en": "I like my workplace."
+  },
+  "högsta ledningen": {
+    "sv": "Högsta ledningen presenterar planen i morgon.",
+    "en": "Top management will present the plan tomorrow."
+  },
+  "en samarbetspartner": {
+    "sv": "Vi söker en ny samarbetspartner.",
+    "en": "We are looking for a new business partner."
+  },
+  "ett kafferum": {
+    "sv": "Vi har ett kafferum på andra våningen.",
+    "en": "We have a break room on the second floor."
+  },
+  "ett arbetsområde": {
+    "sv": "Det här är mitt arbetsområde.",
+    "en": "This is my field of work."
+  },
+  "en arbetsväg": {
+    "sv": "Min arbetsväg tar trettio minuter.",
+    "en": "My commute takes thirty minutes."
+  },
+  "ett arbetskontrakt / ett anställningsavtal": {
+    "sv": "Jag har skrivit på ett anställningsavtal.",
+    "en": "I have signed an employment contract."
+  },
+  "dagpenning": {
+    "sv": "Jag har en fråga om min dagpenning.",
+    "en": "I have a question about my daily allowance."
+  },
+  "övervakning av arbetstiden": {
+    "sv": "Vi diskuterar övervakning av arbetstiden på mötet.",
+    "en": "We are discussing working time monitoring at the meeting."
+  },
+  "lunchtid": {
+    "sv": "Vi ses vid lunchtid.",
+    "en": "We will meet at lunch time."
+  },
+  "ett skift / att byta skift": {
+    "sv": "Kan vi byta skift på fredag?",
+    "en": "Can we swap shifts on Friday?"
+  },
+  "ett memorandum / ett protokoll": {
+    "sv": "Sekreteraren skriver ett protokoll från mötet.",
+    "en": "The secretary is writing the minutes of the meeting."
+  },
+  "att anställa": {
+    "sv": "Företaget vill anställa två personer.",
+    "en": "The company wants to hire two people."
+  },
+  "att introducera": {
+    "sv": "Jag ska introducera vår nya kollega.",
+    "en": "I am going to introduce our new colleague."
+  },
+  "att vikariera": {
+    "sv": "Jag ska vikariera för Anna nästa vecka.",
+    "en": "I am going to work as a substitute for Anna next week."
+  },
+  "att tjäna (pengar)": {
+    "sv": "Jag vill tjäna pengar under sommaren.",
+    "en": "I want to earn money during the summer."
+  },
+  "att säga upp sig": {
+    "sv": "Hon funderar på att säga upp sig.",
+    "en": "She is thinking about resigning."
+  },
+  "att säga upp någon": {
+    "sv": "Företaget måste säga upp personal.",
+    "en": "The company has to dismiss staff."
+  },
+  "att få sparken": {
+    "sv": "Han är rädd för att få sparken.",
+    "en": "He is afraid of getting fired."
+  },
+  "att komma överens om något": {
+    "sv": "Vi måste komma överens om en plan.",
+    "en": "We have to agree on a plan."
+  },
+  "en uppsägning": {
+    "sv": "Jag lämnade in min uppsägning i går.",
+    "en": "I handed in my notice yesterday."
+  },
+  "en organisationsförändring": {
+    "sv": "Företaget planerar en organisationsförändring.",
+    "en": "The company is planning a reorganisation."
+  },
+  "arbetskraft": {
+    "sv": "Branschen behöver mer arbetskraft.",
+    "en": "The sector needs more workers."
+  },
+  "en grundskola": {
+    "sv": "Min dotter går i grundskolan.",
+    "en": "My daughter attends comprehensive school."
+  },
+  "en yrkesskola": {
+    "sv": "Han studerar till kock på en yrkesskola.",
+    "en": "He is studying to become a chef at a vocational school."
+  },
+  "en rektor": {
+    "sv": "Jag vill prata med skolans rektor.",
+    "en": "I want to speak to the school's headteacher."
+  },
+  "ett betyg": {
+    "sv": "Jag fick ett bra betyg i svenska.",
+    "en": "I received a good grade in Swedish."
+  },
+  "en skolgård": {
+    "sv": "Barnen leker på skolans skolgård.",
+    "en": "The children are playing in the school yard."
+  },
+  "obligatorisk / frivillig": {
+    "sv": "Närvaro på kursen är obligatorisk.",
+    "en": "Attendance on the course is compulsory."
+  },
+  "att göra anteckningar": {
+    "sv": "Jag brukar göra anteckningar under lektionen.",
+    "en": "I usually take notes during the lesson."
+  },
+  "att hålla en presentation": {
+    "sv": "Jag ska hålla en presentation på svenska.",
+    "en": "I am going to give a presentation in Swedish."
+  },
+  "en publik / åhörare": {
+    "sv": "Talaren mötte en intresserad publik.",
+    "en": "The speaker addressed an interested audience."
+  },
+  "en debatt / en debattör": {
+    "sv": "Vi lyssnade på en debatt om utbildning.",
+    "en": "We listened to a debate about education."
+  },
+  "ett lån / ett nytt lån": {
+    "sv": "Jag vill förnya mitt lån av den här boken.",
+    "en": "I want to renew my loan of this book."
+  },
+  "en lånetid": {
+    "sv": "Boken har en lånetid på fyra veckor.",
+    "en": "The book has a loan period of four weeks."
+  },
+  "ett fjärrlån": {
+    "sv": "Kan jag beställa boken som ett fjärrlån?",
+    "en": "Can I order the book as an inter-library loan?"
+  },
+  "en förseningsavgift": {
+    "sv": "Jag fick betala en förseningsavgift.",
+    "en": "I had to pay a late fee."
+  },
+  "att betala böter": {
+    "sv": "Han var tvungen att betala böter.",
+    "en": "He had to pay a fine."
+  },
+  "att vara utlånad": {
+    "sv": "Boken verkar vara utlånad just nu.",
+    "en": "The book seems to be on loan right now."
+  },
+  "att skriva ut": {
+    "sv": "Kan jag skriva ut dokumentet här?",
+    "en": "Can I print the document here?"
+  },
+  "informationssökning": {
+    "sv": "Biblioteket erbjuder hjälp med informationssökning.",
+    "en": "The library offers help with information searching."
+  },
+  "en musikavdelning": {
+    "sv": "Biblioteket har en musikavdelning.",
+    "en": "The library has a music department."
+  },
+  "litteratur": {
+    "sv": "Jag är intresserad av svensk litteratur.",
+    "en": "I am interested in Swedish literature."
+  },
+  "en dikt": {
+    "sv": "Hon läste en dikt högt.",
+    "en": "She read a poem aloud."
+  },
+  "en saga": {
+    "sv": "Jag läser en saga för mitt barn.",
+    "en": "I read a fairy tale to my child."
+  },
+  "en novell": {
+    "sv": "Vi läste en kort novell på kursen.",
+    "en": "We read a short story on the course."
+  },
+  "ett verk": {
+    "sv": "Det är ett känt verk av en finsk författare.",
+    "en": "It is a well-known work by a Finnish author."
+  },
+  "en dagstidning": {
+    "sv": "Min pappa läser en dagstidning varje morgon.",
+    "en": "My father reads a daily newspaper every morning."
+  },
+  "en tidskrift": {
+    "sv": "Jag lånade en tidskrift om naturen.",
+    "en": "I borrowed a magazine about nature."
+  },
+  "en idrottsanläggning": {
+    "sv": "Kommunen bygger en ny idrottsanläggning.",
+    "en": "The municipality is building a new sports facility."
+  },
+  "en simhall": {
+    "sv": "Det finns en simhall nära skolan.",
+    "en": "There is a swimming hall near the school."
+  },
+  "en gren": {
+    "sv": "Höjdhopp är en gren inom friidrotten.",
+    "en": "High jump is a discipline in athletics."
+  },
+  "en tränare": {
+    "sv": "Vår tränare visar en ny övning.",
+    "en": "Our coach is showing a new exercise."
+  },
+  "att vinna / att förlora": {
+    "sv": "Vi hoppas vinna nästa match.",
+    "en": "We hope to win the next match."
+  },
+  "en puls": {
+    "sv": "Min puls stiger när jag springer.",
+    "en": "My pulse rises when I run."
+  },
+  "att bli andfådd": {
+    "sv": "Jag brukar bli andfådd i trappan.",
+    "en": "I usually get out of breath on the stairs."
+  },
+  "att stretcha / att tänja": {
+    "sv": "Jag brukar stretcha efter träningen.",
+    "en": "I usually stretch after training."
+  },
+  "att återhämta sig": {
+    "sv": "Kroppen behöver tid att återhämta sig.",
+    "en": "The body needs time to recover."
+  },
+  "att ta hand om sig själv": {
+    "sv": "Det är viktigt att ta hand om sig själv.",
+    "en": "It is important to take care of oneself."
+  },
+  "att vara på semester": {
+    "sv": "Jag ska vara på semester nästa vecka.",
+    "en": "I will be on holiday next week."
+  },
+  "att bo på hotell": {
+    "sv": "Vi tänker bo på hotell i två nätter.",
+    "en": "We are planning to stay at a hotel for two nights."
+  },
+  "en mottagning / en reception": {
+    "sv": "Hotellets reception är öppen hela natten.",
+    "en": "The hotel's reception is open all night."
+  },
+  "att sova i tält": {
+    "sv": "Barnen vill sova i tält i sommar.",
+    "en": "The children want to sleep in a tent this summer."
+  },
+  "att åka på kryssning": {
+    "sv": "Vi ska åka på kryssning till Stockholm.",
+    "en": "We are going on a cruise to Stockholm."
+  },
+  "en tågstation": {
+    "sv": "Det finns en tågstation i centrum.",
+    "en": "There is a train station in the centre."
+  },
+  "att gå på massage": {
+    "sv": "Jag vill gå på massage efter jobbet.",
+    "en": "I want to have a massage after work."
+  },
+  "att grilla mat": {
+    "sv": "Vi brukar grilla mat på sommaren.",
+    "en": "We usually barbecue food in summer."
+  },
+  "att gå i bastu": {
+    "sv": "Jag tycker om att gå i bastu.",
+    "en": "I like going to the sauna."
+  },
+  "att simma i en sjö": {
+    "sv": "Jag vill simma i en sjö i sommar.",
+    "en": "I want to swim in a lake this summer."
+  },
+  "att ge turister råd": {
+    "sv": "Jag brukar ge turister råd om sevärdheter.",
+    "en": "I usually give tourists advice about sights."
+  },
+  "att surfa på nätet": {
+    "sv": "Jag brukar surfa på nätet på kvällen.",
+    "en": "I usually surf the internet in the evening."
+  },
+  "en chatt": {
+    "sv": "Vi har en chatt för hela gruppen.",
+    "en": "We have a chat for the whole group."
+  },
+  "en saldogräns": {
+    "sv": "Jag har en saldogräns på mitt mobilabonnemang.",
+    "en": "I have a spending limit on my mobile subscription."
+  },
+  "en kanal": {
+    "sv": "Vilken kanal visar matchen?",
+    "en": "Which channel is showing the match?"
+  },
+  "en direktsändning": {
+    "sv": "Vi tittar på en direktsändning av konserten.",
+    "en": "We are watching a live broadcast of the concert."
+  },
+  "reality-tv": {
+    "sv": "Min syster tittar gärna på reality-tv.",
+    "en": "My sister enjoys watching reality TV."
+  },
+  "underhållning": {
+    "sv": "Musik är bra underhållning på festen.",
+    "en": "Music is good entertainment at the party."
+  },
+  "en notis": {
+    "sv": "Jag läste en notis om evenemanget i tidningen.",
+    "en": "I read a short news item about the event in the newspaper."
+  },
+  "en kändis / känd / populär": {
+    "sv": "Vi såg en kändis på restaurangen.",
+    "en": "We saw a celebrity at the restaurant."
+  },
+  "bildkonst": {
+    "sv": "Hon studerar bildkonst.",
+    "en": "She studies visual art."
+  },
+  "modern konst": {
+    "sv": "Museet visar modern konst.",
+    "en": "The museum exhibits modern art."
+  },
+  "en målning": {
+    "sv": "Det hänger en målning på väggen.",
+    "en": "There is a painting hanging on the wall."
+  },
+  "en föreställning": {
+    "sv": "Vi såg en rolig föreställning på teatern.",
+    "en": "We saw a funny performance at the theatre."
+  },
+  "en biograf": {
+    "sv": "Det finns en biograf nära stationen.",
+    "en": "There is a cinema near the station."
+  },
+  "en skådespelare": {
+    "sv": "Han arbetar som skådespelare på teatern.",
+    "en": "He works as an actor at the theatre."
+  },
+  "en regissör / en instruktör": {
+    "sv": "Filmens regissör berättade om sitt arbete.",
+    "en": "The film's director spoke about their work."
+  },
+  "ett manuskript": {
+    "sv": "Skådespelaren läser ett manuskript.",
+    "en": "The actor is reading a script."
+  },
+  "en kompositör": {
+    "sv": "Hon är en känd kompositör.",
+    "en": "She is a famous composer."
+  },
+  "en textförfattare": {
+    "sv": "Bandet söker en textförfattare.",
+    "en": "The band is looking for a lyricist."
+  },
+  "en inträdesbiljett": {
+    "sv": "Jag köper en inträdesbiljett till museet.",
+    "en": "I am buying an entrance ticket to the museum."
+  },
+  "ett evenemang": {
+    "sv": "Biblioteket ordnar ett evenemang för barn.",
+    "en": "The library is organising an event for children."
+  },
+  "rörande": {
+    "sv": "Filmen var mycket rörande.",
+    "en": "The film was very moving."
+  },
+  "att dra tillbaka / att avboka": {
+    "sv": "Jag måste avboka mina biljetter.",
+    "en": "I have to cancel my tickets."
+  },
+  "att anmäla sig till": {
+    "sv": "Jag vill anmäla mig till en kurs i svenska.",
+    "en": "I want to enrol in a Swedish course."
+  },
+  "en kursavgift": {
+    "sv": "Du kan betala din kursavgift på nätet.",
+    "en": "You can pay your course fee online."
+  },
+  "en dörrvakt": {
+    "sv": "En dörrvakt står vid ingången.",
+    "en": "A doorman is standing at the entrance."
+  },
+  "en garderob": {
+    "sv": "Vi lämnar våra jackor i en garderob.",
+    "en": "We leave our jackets in a cloakroom."
+  },
+  "en myndighet / myndigheter": {
+    "sv": "Jag behöver kontakta en myndighet om mitt ärende.",
+    "en": "I need to contact an authority about my case."
+  },
+  "Myndigheten för digitalisering och befolkningsdata (DVV)": {
+    "sv": "Jag har bokat ett besök hos Myndigheten för digitalisering och befolkningsdata.",
+    "en": "I have booked a visit to the Digital and Population Data Services Agency."
+  },
+  "TE-byrån / arbetskraftsbyrån": {
+    "sv": "I texten berättar hon om ett besök på TE-byrån.",
+    "en": "In the text she describes a visit to the employment office."
+  },
+  "att uträtta ärenden / att sköta ärenden": {
+    "sv": "Jag behöver uträtta ärenden i centrum.",
+    "en": "I need to deal with some official business in the centre."
+  },
+  "att överklaga": {
+    "sv": "Jag vill överklaga beslutet.",
+    "en": "I want to appeal the decision."
+  },
+  "personuppgifter": {
+    "sv": "Kontrollera att dina personuppgifter stämmer.",
+    "en": "Check that your personal data is correct."
+  },
+  "ett civilstånd": {
+    "sv": "Du ska ange ditt civilstånd på blanketten.",
+    "en": "You should state your marital status on the form."
+  },
+  "en målsman / en vårdnadshavare": {
+    "sv": "En vårdnadshavare ska skriva under blanketten.",
+    "en": "A guardian should sign the form."
+  },
+  "myndig": {
+    "sv": "Hon är myndig och fattar egna beslut.",
+    "en": "She is of legal age and makes her own decisions."
+  },
+  "permanent / tillfälligt": {
+    "sv": "Jag söker ett tillfälligt boende.",
+    "en": "I am looking for temporary accommodation."
+  },
+  "ett visum": {
+    "sv": "Jag har en fråga om mitt visum.",
+    "en": "I have a question about my visa."
+  },
+  "dubbelt medborgarskap": {
+    "sv": "Hon har dubbelt medborgarskap.",
+    "en": "She has dual citizenship."
+  },
+  "asyl": {
+    "sv": "Familjen söker asyl.",
+    "en": "The family is seeking asylum."
+  },
+  "en flykting": {
+    "sv": "Han kom till landet som flykting.",
+    "en": "He came to the country as a refugee."
+  },
+  "invandring / utvandring": {
+    "sv": "Artikeln handlar om invandring och utvandring.",
+    "en": "The article is about immigration and emigration."
+  },
+  "en minoritet": {
+    "sv": "Hon tillhör en språklig minoritet.",
+    "en": "She belongs to a linguistic minority."
+  },
+  "integration": {
+    "sv": "Språkkursen hjälper till med integration.",
+    "en": "The language course helps with integration."
+  },
+  "en integrationsplan": {
+    "sv": "Vi går igenom min integrationsplan tillsammans.",
+    "en": "We are reviewing my integration plan together."
+  },
+  "befolkning": {
+    "sv": "Stadens befolkning växer.",
+    "en": "The city's population is growing."
+  },
+  "jämlikhet / jämställdhet": {
+    "sv": "Vi diskuterar jämställdhet på arbetsplatsen.",
+    "en": "We are discussing gender equality in the workplace."
+  },
+  "säkerhet": {
+    "sv": "Säkerhet är viktigt för oss.",
+    "en": "Safety is important to us."
+  },
+  "att anmäla ett brott": {
+    "sv": "Jag vill anmäla ett brott till polisen.",
+    "en": "I want to report a crime to the police."
+  },
+  "att betala skatt": {
+    "sv": "Vi diskuterar varför man ska betala skatt.",
+    "en": "We are discussing why people should pay tax."
+  },
+  "en skatteåterbäring": {
+    "sv": "Jag fick en skatteåterbäring i år.",
+    "en": "I received a tax refund this year."
+  },
+  "ett löneintyg": {
+    "sv": "Jag behöver ett löneintyg från min arbetsgivare.",
+    "en": "I need a salary certificate from my employer."
+  },
+  "en försäkring": {
+    "sv": "Jag vill teckna en försäkring för min cykel.",
+    "en": "I want to take out an insurance policy for my bicycle."
+  },
+  "en reseförsäkring / en bilförsäkring": {
+    "sv": "Jag har en reseförsäkring för resan.",
+    "en": "I have travel insurance for the trip."
+  },
+  "att täcka": {
+    "sv": "Kan försäkringen täcka skadan?",
+    "en": "Can the insurance cover the damage?"
+  },
+  "en självrisk": {
+    "sv": "Hur stor är min självrisk?",
+    "en": "How much is my deductible?"
+  },
+  "ett anspråk / att göra anspråk": {
+    "sv": "Jag vill göra anspråk på ersättning.",
+    "en": "I want to make a claim for compensation."
+  },
+  "en betalningspåminnelse": {
+    "sv": "Jag har fått en betalningspåminnelse.",
+    "en": "I have received a payment reminder."
+  },
+  "ett förfallodatum": {
+    "sv": "Räkningens förfallodatum är i morgon.",
+    "en": "The bill's due date is tomorrow."
+  },
+  "en förmån": {
+    "sv": "Jag har ansökt om en förmån.",
+    "en": "I have applied for a benefit."
+  },
+  "arbetslöshetsersättning": {
+    "sv": "Jag har en fråga om arbetslöshetsersättning.",
+    "en": "I have a question about unemployment benefit."
+  },
+  "ett studiestöd": {
+    "sv": "Hon ansöker om studiestöd.",
+    "en": "She is applying for student financial aid."
+  },
+  "en förälder": {
+    "sv": "En förälder följer med barnet till skolan.",
+    "en": "A parent accompanies the child to school."
+  },
+  "ett par": {
+    "sv": "De är ett par sedan två år tillbaka.",
+    "en": "They have been a couple for two years."
+  },
+  "en ring": {
+    "sv": "Hon bär en ring på fingret.",
+    "en": "She wears a ring on her finger."
+  },
+  "att gratulera": {
+    "sv": "Jag vill gratulera dig till ditt nya jobb.",
+    "en": "I want to congratulate you on your new job."
+  },
+  "en hyra": {
+    "sv": "Vi betalar en hyra på åttahundra euro i månaden.",
+    "en": "We pay rent of eight hundred euros per month."
+  },
+  "ett rör": {
+    "sv": "Ett rör under diskbänken läcker.",
+    "en": "A pipe under the kitchen sink is leaking."
+  },
+  "en läcka": {
+    "sv": "Vi upptäckte en läcka i badrummet.",
+    "en": "We discovered a leak in the bathroom."
+  },
+  "ett tak": {
+    "sv": "Huset har ett rött tak.",
+    "en": "The house has a red roof."
+  },
+  "ett fel": {
+    "sv": "Det finns ett fel i tvättmaskinen.",
+    "en": "There is a fault in the washing machine."
+  },
+  "En fördel är... / En nackdel är...": {
+    "sv": "En fördel är priset, men en nackdel är den långa resan.",
+    "en": "An advantage is the price, but a disadvantage is the long journey."
+  },
+  "Därför": {
+    "sv": "Bussen var sen. Därför kom jag för sent.",
+    "en": "The bus was late. Therefore I arrived late."
+  },
+  "Eftersom": {
+    "sv": "Jag stannar hemma eftersom jag är sjuk.",
+    "en": "I am staying at home because I am ill."
+  },
+  "Sammanfattningsvis": {
+    "sv": "Sammanfattningsvis tycker jag att förslaget är bra.",
+    "en": "In summary, I think the proposal is good."
+  },
+  "en marknad / ett torg": {
+    "sv": "Vi köper grönsaker på ett torg.",
+    "en": "We buy vegetables at a market square."
+  },
+  "en vara / varor": {
+    "sv": "Den här varan kostar fem euro.",
+    "en": "This item costs five euros."
+  },
+  "ett kvitto": {
+    "sv": "Kan jag få ett kvitto, tack?",
+    "en": "Could I have a receipt, please?"
+  },
+  "ett pris": {
+    "sv": "Varan har ett lågt pris.",
+    "en": "The item has a low price."
+  },
+  "rea / rabatt": {
+    "sv": "Jag köpte jackan på rea.",
+    "en": "I bought the jacket in the sale."
+  },
+  "att betala med kort": {
+    "sv": "Kan jag betala med kort här?",
+    "en": "Can I pay by card here?"
+  },
+  "att spara": {
+    "sv": "Vi försöker spara både pengar och energi.",
+    "en": "We try to save both money and energy."
+  },
+  "en avdelning": {
+    "sv": "Jag arbetar på en stor avdelning.",
+    "en": "I work in a large department."
+  },
+  "rakt (fram)": {
+    "sv": "Gå rakt fram till stationen.",
+    "en": "Walk straight ahead to the station."
+  },
+  "till vänster": {
+    "sv": "Sväng till vänster vid skolan.",
+    "en": "Turn left at the school."
+  },
+  "till höger": {
+    "sv": "Apoteket ligger till höger om banken.",
+    "en": "The pharmacy is to the right of the bank."
+  },
+  "en väg": {
+    "sv": "Det finns en smal väg till stugan.",
+    "en": "There is a narrow road to the cottage."
+  },
+  "en gata": {
+    "sv": "Vi bor på en lugn gata.",
+    "en": "We live on a quiet street."
+  },
+  "över": {
+    "sv": "Gå över bron så ser du stationen.",
+    "en": "Walk across the bridge and you will see the station."
+  },
+  "att titta": {
+    "sv": "Jag stannar för att titta på kartan.",
+    "en": "I stop to look at the map."
+  },
+  "en buss / ett tåg / en spårvagn / en metro": {
+    "sv": "Jag tar en buss till centrum.",
+    "en": "I take a bus to the centre."
+  },
+  "att vakna": {
+    "sv": "Jag brukar vakna klockan sex.",
+    "en": "I usually wake up at six."
+  },
+  "en restaurang": {
+    "sv": "Vi äter på en restaurang i kväll.",
+    "en": "We are eating at a restaurant this evening."
+  },
+  "att beställa": {
+    "sv": "Jag vill beställa en soppa, tack.",
+    "en": "I would like to order a soup, please."
+  },
+  "kallt / varmt": {
+    "sv": "Maten är kall men kaffet är varmt.",
+    "en": "The food is cold but the coffee is hot."
+  },
+  "kort / långt / halvlångt": {
+    "sv": "Jag vill ha kort hår i sommar.",
+    "en": "I want short hair this summer."
+  },
+  "ljust / mörkt": {
+    "sv": "Hon har ljust hår och mörka ögon.",
+    "en": "She has light hair and dark eyes."
+  },
+  "en skog": {
+    "sv": "Vi går en promenad i en skog.",
+    "en": "We are taking a walk in a forest."
+  },
+  "en sjö": {
+    "sv": "Det ligger en sjö nära stugan.",
+    "en": "There is a lake near the cottage."
+  },
+  "en strand": {
+    "sv": "Vi hittade en fin strand.",
+    "en": "We found a lovely beach."
+  },
+  "ett berg / en klippa": {
+    "sv": "Vi klättrade upp på ett berg.",
+    "en": "We climbed a mountain."
+  },
+  "ett fält / en åker": {
+    "sv": "Bonden arbetar på en åker.",
+    "en": "The farmer is working in a cultivated field."
+  },
+  "ett träd": {
+    "sv": "Det växer ett stort träd på gården.",
+    "en": "A large tree grows in the yard."
+  },
+  "en blomma": {
+    "sv": "Jag plockade en blomma i trädgården.",
+    "en": "I picked a flower in the garden."
+  },
+  "ett djur": {
+    "sv": "Vi såg ett litet djur i skogen.",
+    "en": "We saw a small animal in the forest."
+  },
+  "en björn": {
+    "sv": "En björn lever i skogen.",
+    "en": "A bear lives in the forest."
+  },
+  "en varg": {
+    "sv": "Vi såg spår efter en varg.",
+    "en": "We saw tracks left by a wolf."
+  },
+  "en anka / en and": {
+    "sv": "En and simmar i dammen.",
+    "en": "A duck is swimming in the pond."
+  },
+  "snö / is / halka": {
+    "sv": "Vägen är täckt av snö och is.",
+    "en": "The road is covered with snow and ice."
+  },
+  "en storm": {
+    "sv": "En storm drog in över kusten.",
+    "en": "A storm swept in over the coast."
+  },
+  "torka": {
+    "sv": "Långvarig torka gör marken torr.",
+    "en": "Prolonged drought makes the ground dry."
+  },
+  "värme": {
+    "sv": "Sommarens värme gör sjön behaglig att bada i.",
+    "en": "The summer heat makes the lake pleasant to swim in."
+  },
+  "en storm / en orkan / en hurrikan / en tyfon": {
+    "sv": "En orkan förstörde flera hus.",
+    "en": "A hurricane destroyed several houses."
+  },
+  "att rädda": {
+    "sv": "Brandmännen lyckades rädda familjen.",
+    "en": "The firefighters managed to rescue the family."
+  },
+  "splitter": {
+    "sv": "Det ligger splitter från fönstret på golvet.",
+    "en": "There are shards from the window on the floor."
+  },
+  "sorg / oro / rädsla": {
+    "sv": "Jag känner oro för min familj.",
+    "en": "I feel worried about my family."
+  },
+  "papper / pappersinsamling": {
+    "sv": "Vi lämnar gamla tidningar till pappersinsamlingen.",
+    "en": "We take old newspapers to the paper collection."
+  },
+  "en flaska": {
+    "sv": "Jag har en flaska vatten i väskan.",
+    "en": "I have a bottle of water in my bag."
+  },
+  "ett öga / ögon": {
+    "sv": "Mina ögon är trötta.",
+    "en": "My eyes are tired."
+  },
+  "ett öra / öron": {
+    "sv": "Jag har ont i mitt vänstra öra.",
+    "en": "My left ear hurts."
+  },
+  "en näsa": {
+    "sv": "Min näsa är täppt.",
+    "en": "My nose is blocked."
+  },
+  "en mun": {
+    "sv": "Öppna munnen, tack.",
+    "en": "Open your mouth, please."
+  },
+  "en tand / tänder": {
+    "sv": "Jag har ont i en tand.",
+    "en": "I have toothache in one tooth."
+  },
+  "en hals": {
+    "sv": "Jag har ont i halsen.",
+    "en": "I have a sore throat."
+  },
+  "en arm": {
+    "sv": "Jag kan inte lyfta min arm.",
+    "en": "I cannot lift my arm."
+  },
+  "en hand / händer": {
+    "sv": "Tvätta händerna före maten.",
+    "en": "Wash your hands before eating."
+  },
+  "ett finger": {
+    "sv": "Jag skar mig i ett finger.",
+    "en": "I cut one of my fingers."
+  },
+  "en mage": {
+    "sv": "Min mage gör ont.",
+    "en": "My stomach hurts."
+  },
+  "en rygg": {
+    "sv": "Jag har ont i ryggen.",
+    "en": "I have back pain."
+  },
+  "ett ben": {
+    "sv": "Jag har brutit ett ben.",
+    "en": "I have broken a leg."
+  },
+  "en fot / fötter": {
+    "sv": "Mina fötter är kalla.",
+    "en": "My feet are cold."
+  },
+  "ett hjärta": {
+    "sv": "Läkaren lyssnar på mitt hjärta.",
+    "en": "The doctor is listening to my heart."
+  },
+  "syn": {
+    "sv": "Min syn har blivit sämre.",
+    "en": "My eyesight has become worse."
+  },
+  "hosta / att hosta": {
+    "sv": "Jag har en besvärlig hosta.",
+    "en": "I have a troublesome cough."
+  },
+  "ryggvärk / ont i ryggen": {
+    "sv": "Jag har ont i ryggen efter arbetet.",
+    "en": "I have back pain after work."
+  },
+  "Jag har ont i ___.": {
+    "sv": "Jag har ont i magen sedan i går.",
+    "en": "I have had a stomach ache since yesterday."
+  },
+  "svindel / yrsel": {
+    "sv": "Jag känner yrsel när jag reser mig.",
+    "en": "I feel dizzy when I stand up."
+  },
+  "förstoppning / hård mage": {
+    "sv": "Jag har haft förstoppning i flera dagar.",
+    "en": "I have had constipation for several days."
+  },
+  "en skada": {
+    "sv": "Fallet orsakade en skada i knäet.",
+    "en": "The fall caused an injury to the knee."
+  },
+  "övervikt": {
+    "sv": "Hon vill prata med läkaren om sin övervikt.",
+    "en": "She wants to talk to the doctor about being overweight."
+  },
+  "att gå upp i vikt / att gå ner i vikt": {
+    "sv": "Jag vill gå ner i vikt och få bättre kondition.",
+    "en": "I want to lose weight and improve my fitness."
+  },
+  "ett sjukhus": {
+    "sv": "Hon arbetar på ett sjukhus.",
+    "en": "She works at a hospital."
+  },
+  "en läkare / en doktor": {
+    "sv": "Jag behöver träffa en läkare.",
+    "en": "I need to see a doctor."
+  },
+  "en sjuksköterska": {
+    "sv": "En sjuksköterska tar ett blodprov.",
+    "en": "A nurse is taking a blood sample."
+  },
+  "en tid / att boka tid": {
+    "sv": "Jag vill boka tid hos läkaren.",
+    "en": "I want to book an appointment with the doctor."
+  },
+  "en remiss": {
+    "sv": "Jag fick en remiss till en specialist.",
+    "en": "I received a referral to a specialist."
+  },
+  "en operation": {
+    "sv": "Han väntar på en operation.",
+    "en": "He is waiting for an operation."
+  },
+  "ett prov / ett blodprov": {
+    "sv": "Läkaren vill ta ett blodprov.",
+    "en": "The doctor wants to take a blood sample."
+  },
+  "ett apotek": {
+    "sv": "Det finns ett apotek nära hälsocentralen.",
+    "en": "There is a pharmacy near the health centre."
+  },
+  "nödnumret 112": {
+    "sv": "Hon ringde nödnumret 112 när hon såg branden.",
+    "en": "She called the emergency number 112 when she saw the fire."
+  },
+  "Ta hand om dig!": {
+    "sv": "Ta hand om dig! Vi ses nästa vecka.",
+    "en": "Take care of yourself! See you next week."
+  },
+  "glad / ledsen": {
+    "sv": "Jag är glad att träffa dig.",
+    "en": "I am happy to see you."
+  },
+  "arg / irriterad": {
+    "sv": "Han blev arg när bussen inte kom.",
+    "en": "He became angry when the bus did not come."
+  },
+  "pigg / trött": {
+    "sv": "Jag är trött nu men brukar vara pigg på morgonen.",
+    "en": "I am tired now but am usually alert in the morning."
+  },
+  "ett jobb / ett arbete": {
+    "sv": "Jag söker ett nytt jobb.",
+    "en": "I am looking for a new job."
+  },
+  "en chef": {
+    "sv": "Min chef är på möte.",
+    "en": "My manager is in a meeting."
+  },
+  "en kollega / en medarbetare": {
+    "sv": "Jag äter lunch med en kollega.",
+    "en": "I am having lunch with a colleague."
+  },
+  "en lön": {
+    "sv": "Jag får min lön på fredag.",
+    "en": "I receive my salary on Friday."
+  },
+  "en semester": {
+    "sv": "Jag har semester i juli.",
+    "en": "I am on holiday in July."
+  },
+  "ett möte": {
+    "sv": "Vi har ett möte klockan nio.",
+    "en": "We have a meeting at nine."
+  },
+  "en skola": {
+    "sv": "Det finns en skola nära vårt hem.",
+    "en": "There is a school near our home."
+  },
+  "ett universitet / en högskola": {
+    "sv": "Hon studerar vid ett universitet.",
+    "en": "She studies at a university."
+  },
+  "en lärare": {
+    "sv": "Vår lärare förklarar uppgiften.",
+    "en": "Our teacher is explaining the task."
+  },
+  "en elev / en studerande": {
+    "sv": "En elev räcker upp handen.",
+    "en": "A pupil raises their hand."
+  },
+  "en klass": {
+    "sv": "Det går tjugo elever i min klass.",
+    "en": "There are twenty pupils in my class."
+  },
+  "en lektion": {
+    "sv": "Vi har en lektion i svenska i dag.",
+    "en": "We have a Swedish lesson today."
+  },
+  "en läxa": {
+    "sv": "Jag gör min läxa efter middagen.",
+    "en": "I do my homework after dinner."
+  },
+  "ett prov / ett tentamen": {
+    "sv": "Vi har ett prov i morgon.",
+    "en": "We have a test tomorrow."
+  },
+  "att lära sig": {
+    "sv": "Jag vill lära mig svenska.",
+    "en": "I want to learn Swedish."
+  },
+  "att lära (ut)": {
+    "sv": "Hon lär ut svenska till vuxna.",
+    "en": "She teaches Swedish to adults."
+  },
+  "att studera": {
+    "sv": "Jag vill studera på universitetet.",
+    "en": "I want to study at university."
+  },
+  "att kunna": {
+    "sv": "Jag vill kunna tala svenska på jobbet.",
+    "en": "I want to be able to speak Swedish at work."
+  },
+  "att veta": {
+    "sv": "Jag vill veta när kursen börjar.",
+    "en": "I want to know when the course starts."
+  },
+  "att förstå / att begripa": {
+    "sv": "Det är svårt att förstå den här texten.",
+    "en": "It is difficult to understand this text."
+  },
+  "att behandla (ett ämne)": {
+    "sv": "Vi ska behandla ämnet miljö på nästa lektion.",
+    "en": "We are going to deal with the topic of the environment in the next lesson."
+  },
+  "ett bibliotek": {
+    "sv": "Jag går till ett bibliotek för att låna böcker.",
+    "en": "I go to a library to borrow books."
+  },
+  "att reservera": {
+    "sv": "Jag vill reservera den här boken.",
+    "en": "I want to reserve this book."
+  },
+  "att vara inne / att vara tillgänglig": {
+    "sv": "Är boken inne eller är den utlånad?",
+    "en": "Is the book available or is it on loan?"
+  },
+  "en bok": {
+    "sv": "Jag läser en bok på svenska.",
+    "en": "I am reading a book in Swedish."
+  },
+  "ett spel / att spela": {
+    "sv": "Vi spelar ett spel efter middagen.",
+    "en": "We play a game after dinner."
+  },
+  "att följa (en sport)": {
+    "sv": "Jag brukar följa ishockey på tv.",
+    "en": "I usually follow ice hockey on TV."
+  },
+  "att resa": {
+    "sv": "Jag tycker om att resa med tåg.",
+    "en": "I like travelling by train."
+  },
+  "en resa": {
+    "sv": "Vi planerar en resa till Sverige.",
+    "en": "We are planning a trip to Sweden."
+  },
+  "att hyra en stuga / en bil": {
+    "sv": "Vi vill hyra en stuga vid en sjö.",
+    "en": "We want to rent a cottage by a lake."
+  },
+  "att resa med tåg / flygplan / båt": {
+    "sv": "Jag föredrar att resa med tåg.",
+    "en": "I prefer to travel by train."
+  },
+  "inställd": {
+    "sv": "Bussen är inställd i dag.",
+    "en": "The bus is cancelled today."
+  },
+  "en försening": {
+    "sv": "Tåget har en försening på tio minuter.",
+    "en": "The train has a delay of ten minutes."
+  },
+  "ett spa": {
+    "sv": "Vi tillbringade helgen på ett spa.",
+    "en": "We spent the weekend at a spa."
+  },
+  "en fördel / en nackdel": {
+    "sv": "En fördel med tåget är att man kan läsa under resan.",
+    "en": "An advantage of the train is that you can read during the journey."
+  },
+  "en sång / en låt": {
+    "sv": "Bandet spelade en låt som jag tycker om.",
+    "en": "The band played a song that I like."
+  },
+  "Migrationsverket (Migri)": {
+    "sv": "Jag har en bokad tid hos Migrationsverket.",
+    "en": "I have an appointment at the Finnish Immigration Service."
+  },
+  "en ambassad": {
+    "sv": "Jag kontaktar mitt hemlands ambassad.",
+    "en": "I am contacting my home country's embassy."
+  },
+  "ett kansli / ett kontor": {
+    "sv": "Vi träffas på mitt kontor.",
+    "en": "We will meet at my office."
+  },
+  "ett avslag / ett avslagsbeslut": {
+    "sv": "Jag fick ett avslag på min ansökan.",
+    "en": "My application was rejected."
+  },
+  "att förnya": {
+    "sv": "Jag behöver förnya mitt pass.",
+    "en": "I need to renew my passport."
+  },
+  "att gå ut / att löpa ut": {
+    "sv": "Mitt pass går ut nästa månad.",
+    "en": "My passport expires next month."
+  },
+  "ett pass": {
+    "sv": "Jag tar med mitt pass på resan.",
+    "en": "I am taking my passport on the trip."
+  },
+  "en rätt / rättigheter": {
+    "sv": "Vi diskuterar våra rättigheter och skyldigheter.",
+    "en": "We are discussing our rights and responsibilities."
+  },
+  "en lag / enligt lagen": {
+    "sv": "Enligt lagen måste vi följa reglerna.",
+    "en": "According to the law, we must follow the rules."
+  },
+  "böter": {
+    "sv": "Han fick böter för att ha kört för fort.",
+    "en": "He received a fine for speeding."
+  },
+  "ett barnbidrag": {
+    "sv": "Hon ansökte om barnbidrag när barnet föddes.",
+    "en": "She applied for child benefit when the child was born."
+  }
+}
